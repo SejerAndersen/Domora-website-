@@ -3,148 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domora - AI Ekspertise til København</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Domora.tech | Avancerede AI Løsninger til Københavnske Virksomheder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <!-- Grid header like in the reference -->
-    <div class="grid-container">
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
-        <div class="grid-cell"></div>
+    <!-- Loading Animation -->
+    <div class="loading-screen">
+        <div class="ai-node-container">
+            <div class="ai-node primary"></div>
+            <div class="ai-node secondary"></div>
+            <div class="ai-node tertiary"></div>
+            <div class="connector-line"></div>
+            <div class="connector-line"></div>
+            <div class="connector-line"></div>
+            <div class="loading-text">Domora<span class="dot-tech">.tech</span></div>
+        </div>
     </div>
-    
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Domora<span>.</span></a>
-            
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#about">OM OS</a></li>
-                    <li><a href="service.html">Services</a></li>
-                    <li><a href="https://tally.so/r/3xglEy" target="_blank">KONTAKT</a></li>
+
+    <!-- Interactive Background Layer -->
+    <div class="background-layer">
+        <canvas id="particles-canvas"></canvas>
+        <div class="gradient-layer"></div>
+        <div class="grid-overlay"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+        <div class="ai-nodes">
+            <div class="ai-node-cluster node-cluster-1">
+                <div class="node"></div>
+                <div class="node-pulse"></div>
+                <div class="node-connection"></div>
+            </div>
+            <div class="ai-node-cluster node-cluster-2">
+                <div class="node"></div>
+                <div class="node-pulse"></div>
+                <div class="node-connection"></div>
+            </div>
+            <div class="ai-node-cluster node-cluster-3">
+                <div class="node"></div>
+                <div class="node-pulse"></div>
+                <div class="node-connection"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="page-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">Domora<span class="dot-tech">.tech</span></span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#about" class="nav-link">Om Os</a></li>
+                    <li><a href="#cases" class="nav-link">Cases</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
                 </ul>
             </nav>
-            
-            <button class="menu-btn">☰</button>
-            
-            <div class="nav-mobile">
-                <button class="mobile-menu-close">✕</button>
-                <ul class="mobile-nav-list">
-                    <li><a href="#about">Om Os</a></li>
-                    <li><a href="service.html">Ydelser</a></li>
-                    <li><a href="https://tally.so/r/3xglEy" target="_blank">Kontakt</a></li>
-                    <li><a href="https://tally.so/r/3xglEy" target="_blank" class="btn">Arbejd Med Os</a></li>
-                </ul>
+            <div class="cta-button">
+                <a href="#contact" class="btn btn-primary">Book et møde</a>
             </div>
-        </div>
-    </header>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
 
-    <section class="hero">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h2 class="hero-subtitle">AI Ekspertise</h2>
-                <h1 class="hero-title">Avancerede <span>AI</span> Løsninger til Københavnske Virksomheder</h1>
-                <p class="hero-description">Vi udvikler intelligente AI-agenter, der transformerer virksomheders drift og leverer skræddersyede løsninger med reelle resultater.</p>
-                <div class="hero-buttons">
-                    <a href="https://tally.so/r/3xglEy" target="_blank" class="btn">Arbejd Med Os</a>
-                    <a href="service.html" class="btn btn-outline">Læs Mere</a>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-container">
+                <ul>
+                    <li><a href="#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="#about" class="mobile-nav-link">Om Os</a></li>
+                    <li><a href="#cases" class="mobile-nav-link">Cases</a></li>
+                    <li><a href="#contact" class="mobile-nav-link">Kontakt</a></li>
+                </ul>
+                <div class="mobile-cta">
+                    <a href="#contact" class="btn btn-primary">Book et møde</a>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- Added scrolling text marquee -->
-    <div class="marquee-container">
-        <div class="marquee">
-            <div class="marquee-item text-style-1">ØGET EFFEKTIVITET</div>
-            <div class="marquee-item text-style-2">TIDSBESPARELSE</div>
-            <div class="marquee-item text-style-3">AUTOMATISERING</div>
-            <div class="marquee-item text-style-4">BEDRE KUNDESERVICE</div>
-            <div class="marquee-item text-style-2">OMKOSTNINGSREDUKTION</div>
-            <div class="marquee-item text-style-1">DATADREVET BESLUTNINGSTAGNING</div>
-            <div class="marquee-item text-style-3">PRÆCIS MARKEDSFØRING</div>
-            <div class="marquee-item text-style-4">KONKURRENCEFORDEL</div>
-            <div class="marquee-item text-style-1">ØGET EFFEKTIVITET</div>
-            <div class="marquee-item text-style-2">TIDSBESPARELSE</div>
-            <div class="marquee-item text-style-3">AUTOMATISERING</div>
-            <div class="marquee-item text-style-4">BEDRE KUNDESERVICE</div>
-        </div>
-    </div>
 
-    <section id="about" class="about">
-        <div class="container about-container">
-            <div class="about-content">
-                <h2 class="section-title">AI <span>Ekspertise</span> der Fremmer Vækst</h2>
-                <p class="about-text">Vi hjælper virksomheder i København med at udnytte kunstig intelligens gennem skræddersyede AI-agenter og ekspertrådgivning. Vores tilgang fokuserer på praktiske anvendelser, der leverer målbare resultater.</p>
-                <ul class="about-list">
-                    <li>Specialiseret AI-ekspertise målrettet det københavnske marked</li>
-                    <li>Udvikling og implementering af tilpassede AI-agenter</li>
-                    <li>Strategisk AI-integration i overensstemmelse med forretningsmål</li>
-                    <li>Løbende support og optimering af AI-løsninger</li>
-                </ul>
-                <a href="service.html" class="btn">Læs Mere om Vores Ydelser</a>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="text-gradient">Intelligente</span> AI-løsninger 
+                    <br>til moderne virksomheder
+                </h1>
+                <p class="hero-subtitle">Vi udvikler skræddersyede AI-agenter, der transformerer virksomheders drift og leverer målbare resultater i København og omegn.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Udforsk løsninger</a>
+                    <a href="#demo" class="btn btn-secondary" id="demo-trigger">Se demo <i class="fas fa-play-circle"></i></a>
+                </div>
             </div>
-            <div class="about-image">
-                <img src="/api/placeholder/500/350" alt="AI Ekspertise">
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="cta">
-        <div class="container cta-container">
-            <h2 class="cta-title">Klar til at Transformere Din Virksomhed med AI?</h2>
-            <p class="cta-text">Tag det første skridt mod implementering af kraftfulde AI-løsninger, der er skræddersyet til netop dine forretningsmæssige behov.</p>
-            <a href="mailto:Sejerhda@gmail.com" class="btn">Kontakt Os Nu</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-info">
-                    <a href="#" class="footer-logo">Domora<span>.</span></a>
-                    <p class="footer-text">Specialiseret AI-ekspertise til virksomheder i København. Vi bygger intelligente agenter, der transformerer drift og fremmer vækst.</p>
-                    <div class="footer-social">
-                        <a href="#">L</a>
-                        <a href="#">T</a>
-                        <a href="#">F</a>
-                        <a href="#">I</a>
+            <div class="hero-visual">
+                <div class="ai-visual-demo">
+                    <div class="ai-node-system">
+                        <!-- AI Node System Visualization -->
+                        <div class="central-node">
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <div class="connection-lines">
+                            <div class="connection-line line-1"></div>
+                            <div class="connection-line line-2"></div>
+                            <div class="connection-line line-3"></div>
+                            <div class="connection-line line-4"></div>
+                        </div>
+                        <div class="satellite-nodes">
+                            <div class="satellite-node node-1">
+                                <div class="node-icon" data-icon="analytics"></div>
+                                <div class="node-label">Data Analysis</div>
+                            </div>
+                            <div class="satellite-node node-2">
+                                <div class="node-icon" data-icon="automation"></div>
+                                <div class="node-label">Automation</div>
+                            </div>
+                            <div class="satellite-node node-3">
+                                <div class="node-icon" data-icon="integration"></div>
+                                <div class="node-label">Integration</div>
+                            </div>
+                            <div class="satellite-node node-4">
+                                <div class="node-icon" data-icon="optimization"></div>
+                                <div class="node-label">Optimization</div>
+                            </div>
+                        </div>
+                        <div class="data-flow-particles"></div>
                     </div>
                 </div>
-                <div class="footer-links">
-                    <h3 class="footer-title">Hurtige Links</h3>
-                    <ul class="footer-menu">
-                        <li><a href="#about">Om Os</a></li>
-                        <li><a href="service.html">Ydelser</a></li>
-                        <li><a href="https://tally.so/r/3xglEy" target="_blank">Kontakt</a></li>
-                    </ul>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="mouse-wheel"></div>
                 </div>
-                <div class="footer-contact">
-                    <h3 class="footer-title">Kontakt Os</h3>
-                    <ul class="contact-info">
-                        <li><i>📧</i> Sejerhda@gmail.com</li>
-                        <li><i>📱</i> +45 xx xx xx xx</li>
-                        <li><i>📍</i> København, Danmark</li>
-                    </ul>
+                <span>Scroll ned</span>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <span class="overline">Vores Services</span>
+                <h2 class="section-title">Skræddersyede <span class="text-gradient">AI-løsninger</span></h2>
+                <p class="section-subtitle">Vores ekspertteam udvikler intelligente løsninger, der hjælper virksomheder med at automatisere processer, analysere data og optimere arbejdsgange.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="service-title">AI-Agenter</h3>
+                    <p class="service-description">Skræddersyede AI-assistenter, der automatiserer opgaver, besvarer spørgsmål og øger produktiviteten i din virksomhed.</p>
+                    <div class="service-features">
+                        <span class="feature">24/7 Tilgængelighed</span>
+                        <span class="feature">Naturligt Sprog</span>
+                        <span class="feature">Integration</span>
+                    </div>
+                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title">Dataanalyse</h3>
+                    <p class="service-description">Avanceret analyse af virksomhedsdata, der giver indsigt, opdager mønstre og understøtter beslutningsprocesser.</p>
+                    <div class="service-features">
+                        <span class="feature">Predictive Analytics</span>
+                        <span class="feature">Visualisering</span>
+                        <span class="feature">Rapportering</span>
+                    </div>
+                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="service-title">Procesautomatisering</h3>
+                    <p class="service-description">Intelligent automatisering af arbejdsgange og processer, der frigør ressourcer og reducerer fejl.</p>
+                    <div class="service-features">
+                        <span class="feature">Workflow Optimering</span>
+                        <span class="feature">Ressourcebesparelse</span>
+                        <span class="feature">Skalerbarhed</span>
+                    </div>
+                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="service-title">Chatbots & Assistenter</h3>
+                    <p class="service-description">Intelligente chatbots der interagerer naturligt med kunder, besvarer spørgsmål og løser problemer døgnet rundt.</p>
+                    <div class="service-features">
+                        <span class="feature">Hurtig Respons</span>
+                        <span class="feature">Personalisering</span>
+                        <span class="feature">Flersproget</span>
+                    </div>
+                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="divider"></div>
-            <div class="copyright">
-                <p>© 2025 Domora. Alle rettigheder forbeholdes.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-content">
+                <div class="section-header left-aligned">
+                    <span class="overline">Om Domora.tech</span>
+                    <h2 class="section-title">Vi gør <span class="text-gradient">AI</span> tilgængeligt for alle</h2>
+                    <p class="section-subtitle">Vi er et dedikeret team af AI-specialister, udviklere og forretningsrådgivere med en passion for at hjælpe virksomheder med at udnytte potentialet i kunstig intelligens.</p>
+                </div>
+                <div class="about-text">
+                    <p>Hos Domora.tech tror vi på, at fremtidens virksomheder er drevet af intelligente systemer, der frigør mennesker til at fokusere på kreativitet, innovation og strategi.</p>
+                    <p>Vi arbejder tæt sammen med vores kunder for at forstå deres unikke behov og udfordringer. Derefter udvikler vi skræddersyede løsninger, der integreres problemfrit i deres eksisterende systemer og arbejdsgange.</p>
+                    <p>Vores team har mange års erfaring med at udvikle og implementere AI-løsninger på tværs af forskellige brancher, og vi er stolte af at kunne levere resultater, der skaber reel værdi for vores kunder.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <span class="stat-number">40+</span>
+                        <span class="stat-label">Gennemførte projekter</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Kundetilfredshed</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Års erfaring med AI</span>
+                    </div>
+                </div>
+                <div class="about-buttons">
+                    <a href="#team" class="btn btn-secondary">Mød vores team</a>
+                    <a href="#contact" class="btn btn-primary">Kontakt os</a>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="team-image">
+                    <div class="image-container">
+                        <div class="image-overlay"></div>
+                        <img src="assets/team.jpg" alt="Domora.tech team" loading="lazy">
+                    </div>
+                </div>
+                <div class="ai-visual effect-1">
+                    <div class="ai-node"></div>
+                    <div class="ai-connection"></div>
+                </div>
+                <div class="ai-visual effect-2">
+                    <div class="ai-node"></div>
+                    <div class="ai-connection"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="cases" class="cases-section">
+            <div class="section-header">
+                <span class="overline">Succeshistorier</span>
+                <h2 class="section-title">Vores <span class="text-gradient">Cases</span></h2>
+                <p class="section-subtitle">Se hvordan vores AI-løsninger har hjulpet virksomheder med at transformere deres forretning og opnå konkrete resultater.</p>
+            </div>
+            <div class="cases-slider">
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="assets/case-1.jpg" alt="Case 1" loading="lazy">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">Intelligente Chatbots til Kundeservice</h3>
+                        <p class="case-company">Københavns Detail A/S</p>
+                        <p class="case-description">Vi udviklede en avanceret chatbot, der reducerede svartiden med 80% og øgede kundetilfredsheden markant.</p>
+                        <div class="case-results">
+                            <div class="result">
+                                <span class="result-number">80%</span>
+                                <span class="result-label">Hurtigere svartid</span>
+                            </div>
+                            <div class="result">
+                                <span class="result-number">35%</span>
+                                <span class="result-label">Øget kundetilfredshed</span>
+                            </div>
+                        </div>
+                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="assets/case-2.jpg" alt="Case 2" loading="lazy">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">Automatisering af Dataanalyse</h3>
+                        <p class="case-company">TechFin Solutions</p>
+                        <p class="case-description">Implementering af et AI-drevet analysesystem, der automatiserede 95% af manuelle dataprocesser og forbedrede beslutningsprocessen.</p>
+                        <div class="case-results">
+                            <div class="result">
+                                <span class="result-number">95%</span>
+                                <span class="result-label">Automatisering</span>
+                            </div>
+                            <div class="result">
+                                <span class="result-number">40%</span>
+                                <span class="result-label">Hurtigere beslutninger</span>
+                            </div>
+                        </div>
+                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <img src="assets/case-3.jpg" alt="Case 3" loading="lazy">
+                    </div>
+                    <div class="case-content">
+                        <h3 class="case-title">Predictive Maintenance System</h3>
+                        <p class="case-company">Nordic Manufacturing</p>
+                        <p class="case-description">Udvikling af et AI-system, der forudsiger vedligeholdelsesbehov og reducerede nedetid med 60% i produktionen.</p>
+                        <div class="case-results">
+                            <div class="result">
+                                <span class="result-number">60%</span>
+                                <span class="result-label">Mindre nedetid</span>
+                            </div>
+                            <div class="result">
+                                <span class="result-number">45%</span>
+                                <span class="result-label">Lavere omkostninger</span>
+                            </div>
+                        </div>
+                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="cases-nav">
+                <button class="nav-button prev-button"><i class="fas fa-arrow-left"></i></button>
+                <div class="cases-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="nav-button next-button"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section class="process-section">
+            <div class="section-header">
+                <span class="overline">Sådan arbejder vi</span>
+                <h2 class="section-title">Vores <span class="text-gradient">Proces</span></h2>
+                <p class="section-subtitle">Vi følger en gennemprøvet metode for at sikre, at vi leverer løsninger, der opfylder dine behov og skaber værdi for din virksomhed.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Analyse & Forståelse</h3>
+                        <p class="step-description">Vi begynder med at forstå din virksomhed, dine udfordringer og mål gennem grundige interviews og dataanalyse.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Strategiudvikling</h3>
+                        <p class="step-description">Baseret på vores analyse udvikler vi en skræddersyet AI-strategi, der adresserer dine specifikke behov og udfordringer.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Udvikling & Implementering</h3>
+                        <p class="step-description">Vi udvikler og implementerer AI-løsningen med fokus på integration med dine eksisterende systemer og arbejdsgange.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Test & Optimering</h3>
+                        <p class="step-description">Løsningen testes grundigt og optimeres baseret på feedback og data for at sikre maksimal ydeevne og værdi.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Lancering & Support</h3>
+                        <p class="step-description">Efter lancering tilbyder vi løbende support, optimering og vedligeholdelse for at sikre langvarig succes.</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Klar til at transformere din virksomhed med <span class="text-gradient">AI</span>?</h2>
+                <p class="cta-text">Book et uforpligtende møde med vores team og lad os diskutere, hvordan vi kan hjælpe dig med at udnytte potentialet i kunstig intelligens.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Book et møde</a>
+                    <a href="#services" class="btn btn-secondary">Se vores services</a>
+                </div>
+            </div>
+            <div class="cta-visual">
+                <div class="ai-node-container">
+                    <div class="ai-node primary"></div>
+                    <div class="ai-node secondary"></div>
+                    <div class="ai-node tertiary"></div>
+                    <div class="connector-line"></div>
+                    <div class="connector-line"></div>
+                    <div class="connector-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="section-header left-aligned">
+                        <span class="overline">Kontakt os</span>
+                        <h2 class="section-title">Lad os <span class="text-gradient">samarbejde</span></h2>
+                        <p class="section-subtitle">Udfyld formularen, og vores team vil kontakte dig inden for 24 timer for at diskutere, hvordan vi kan hjælpe din virksomhed.</p>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:info@domora.tech">info@domora.tech</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Telefon</h4>
+                                <a href="tel:+4512345678">+45 12 34 56 78</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Adresse</h4>
+                                <p>Nørrebrogade 123<br>2200 København N</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Navn</label>
+                            <input type="text" id="name" name="name" placeholder="Dit fulde navn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Din email adresse" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Virksomhed</label>
+                            <input type="text" id="company" name="company" placeholder="Din virksomheds navn">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Dit telefonnummer">
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="service">Service</label>
+                            <select id="service" name="service">
+                                <option value="" disabled selected>Vælg service</option>
+                                <option value="ai-agents">AI-Agenter</option>
+                                <option value="data-analysis">Dataanalyse</option>
+                                <option value="process-automation">Procesautomatisering</option>
+                                <option value="chatbots">Chatbots & Assistenter</option>
+                                <option value="other">Andet</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Besked</label>
+                            <textarea id="message" name="message" placeholder="Fortæl os om dit projekt eller dine behov" rows="4"></textarea>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">Send besked</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Modal -->
+        <div id="demo-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Domora.tech AI Demo</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="demo-container">
+                        <div class="ai-demo-visualization">
+                            <div class="demo-node-system">
+                                <div class="interactive-node-container">
+                                    <div class="demo-central-node"></div>
+                                    <div class="demo-data-particles"></div>
+                                    <div class="demo-connection-lines"></div>
+                                    <div class="demo-nodes"></div>
+                                </div>
+                            </div>
+                            <div class="demo-info">
+                                <h4>Interaktiv AI-agent Demo</h4>
+                                <p>Se hvordan vores intelligente AI-agent teknologi analyserer data og optimerer processer i realtid. Bevæg musen over visualiseringen for at interagere med systemet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </footer>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <span class="logo-text">Domora<span class="dot-tech">.tech</span></span>
+                    <p class="footer-tagline">Intelligente AI-løsninger til moderne virksomheder</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#about">Om Os</a></li>
+                            <li><a href="#cases">Cases</a></li>
+                            <li><a href="#contact">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#services">AI-Agenter</a></li>
+                            <li><a href="#services">Dataanalyse</a></li>
+                            <li><a href="#services">Procesautomatisering</a></li>
+                            <li><a href="#services">Chatbots & Assistenter</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h4>Kontakt</h4>
+                        <ul>
+                            <li><a href="mailto:info@domora.tech">info@domora
+                                <li><a href="mailto:info@domora.tech">info@domora.tech</a></li>
+                            <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
+                            <li>Nørrebrogade 123, 2200 København N</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        &copy; 2025 Domora.tech. Alle rettigheder forbeholdes.
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
