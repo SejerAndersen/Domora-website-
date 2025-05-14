@@ -560,8 +560,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (modalClose) {
             modalClose.addEventListener('click', function() {
-                demoModal.classList.remove('open');if (modalClose) {
-            modalClose.addEventListener('click', function() {
                 demoModal.classList.remove('open');
             });
         }
