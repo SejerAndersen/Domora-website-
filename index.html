@@ -1,607 +1,786 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domora.tech | Avancerede AI Løsninger til Københavnske Virksomheder</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous" defer></script>
+    <title>Domora Tech - AI-Powered Google Reviews Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #6366f1;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #6366f1;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+        }
+
+        /* Interactive Demo Box */
+        .demo-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-box:hover {
+            transform: perspective(1000px) rotateY(0deg) translateY(-10px);
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-header h3 {
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .google-logo {
+            width: 24px;
+            height: 24px;
+        }
+
+        .review-item {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #fbbf24;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .ai-response {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .ai-response::before {
+            content: '🤖';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            background: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Who Are We Section */
+        .about {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #6366f1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #6366f1;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #a0aec0;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            text-align: center;
+            color: #718096;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Typing Animation */
+        .typing {
+            border-right: 2px solid #6366f1;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { border-right-color: #6366f1; }
+            51%, 100% { border-right-color: transparent; }
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Animation -->
-    <div class="loading-screen">
-        <div class="ai-node-container">
-            <div class="ai-node primary"></div>
-            <div class="ai-node secondary"></div>
-            <div class="ai-node tertiary"></div>
-            <div class="connector-line"></div>
-            <div class="connector-line"></div>
-            <div class="connector-line"></div>
-            <div class="loading-text">Domora<span class="dot-tech">.tech</span></div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Domora Tech</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Get Started</a>
         </div>
-    </div>
+    </nav>
 
-    <!-- Interactive Background Layer -->
-    <div class="background-layer">
-        <canvas id="particles-canvas"></canvas>
-        <div class="gradient-layer"></div>
-        <div class="grid-overlay"></div>
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-            <div class="shape shape-4"></div>
-            <div class="shape shape-5"></div>
-        </div>
-        <div class="ai-nodes">
-            <div class="ai-node-cluster node-cluster-1">
-                <div class="node"></div>
-                <div class="node-pulse"></div>
-                <div class="node-connection"></div>
-            </div>
-            <div class="ai-node-cluster node-cluster-2">
-                <div class="node"></div>
-                <div class="node-pulse"></div>
-                <div class="node-connection"></div>
-            </div>
-            <div class="ai-node-cluster node-cluster-3">
-                <div class="node"></div>
-                <div class="node-pulse"></div>
-                <div class="node-connection"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="page-container">
-        <!-- Header -->
-        <header class="header">
-            <div class="logo">
-                <a href="index.html">
-                    <span class="logo-text">Domora<span class="dot-tech">.tech</span></span>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#about" class="nav-link">Om Os</a></li>
-                    <li><a href="#cases" class="nav-link">Cases</a></li>
-                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
-                </ul>
-            </nav>
-            <div class="cta-button">
-                <a href="#contact" class="btn btn-primary">Book et møde</a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </header>
-
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <div class="mobile-menu-container">
-                <ul>
-                    <li><a href="#services" class="mobile-nav-link">Services</a></li>
-                    <li><a href="#about" class="mobile-nav-link">Om Os</a></li>
-                    <li><a href="#cases" class="mobile-nav-link">Cases</a></li>
-                    <li><a href="#contact" class="mobile-nav-link">Kontakt</a></li>
-                </ul>
-                <div class="mobile-cta">
-                    <a href="#contact" class="btn btn-primary">Book et møde</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hero Section -->
-        <section class="hero-section">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="text-gradient">Intelligente</span> AI-løsninger 
-                    <br>til moderne virksomheder
-                </h1>
-                <p class="hero-subtitle">Vi udvikler skræddersyede AI-agenter, der transformerer virksomheders drift og leverer målbare resultater i København og omegn.</p>
+                <h1>AI-Powered Google Reviews Management</h1>
+                <p>Transform your online reputation with intelligent, personalized responses to every Google review. Our AI understands context, tone, and your brand voice.</p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">Udforsk løsninger</a>
-                    <a href="#demo" class="btn btn-secondary" id="demo-trigger">Se demo <i class="fas fa-play-circle"></i></a>
+                    <a href="#contact" class="btn-primary">Start Free Trial</a>
+                    <a href="#features" class="btn-secondary">See How It Works</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="ai-visual-demo">
-                    <div class="ai-node-system">
-                        <!-- AI Node System Visualization -->
-                        <div class="central-node">
-                            <div class="pulse-ring"></div>
-                        </div>
-                        <div class="connection-lines">
-                            <div class="connection-line line-1"></div>
-                            <div class="connection-line line-2"></div>
-                            <div class="connection-line line-3"></div>
-                            <div class="connection-line line-4"></div>
-                        </div>
-                        <div class="satellite-nodes">
-                            <div class="satellite-node node-1">
-                                <div class="node-icon" data-icon="analytics"></div>
-                                <div class="node-label">Data Analysis</div>
-                            </div>
-                            <div class="satellite-node node-2">
-                                <div class="node-icon" data-icon="automation"></div>
-                                <div class="node-label">Automation</div>
-                            </div>
-                            <div class="satellite-node node-3">
-                                <div class="node-icon" data-icon="integration"></div>
-                                <div class="node-label">Integration</div>
-                            </div>
-                            <div class="satellite-node node-4">
-                                <div class="node-icon" data-icon="optimization"></div>
-                                <div class="node-label">Optimization</div>
-                            </div>
-                        </div>
-                        <div class="data-flow-particles"></div>
-                    </div>
+            <div class="demo-box">
+                <div class="demo-header">
+                    <svg class="google-logo" viewBox="0 0 24 24">
+                        <path fill="#4285f4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34a853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#fbbc05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#ea4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    <h3>Live Demo</h3>
                 </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="mouse">
-                    <div class="mouse-wheel"></div>
-                </div>
-                <span>Scroll ned</span>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="section-header">
-                <span class="overline">Vores Services</span>
-                <h2 class="section-title">Skræddersyede <span class="text-gradient">AI-løsninger</span></h2>
-                <p class="section-subtitle">Vores ekspertteam udvikler intelligente løsninger, der hjælper virksomheder med at automatisere processer, analysere data og optimere arbejdsgange.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <div class="icon-bg"></div>
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="service-title">AI-Agenter</h3>
-                    <p class="service-description">Skræddersyede AI-assistenter, der automatiserer opgaver, besvarer spørgsmål og øger produktiviteten i din virksomhed.</p>
-                    <div class="service-features">
-                        <span class="feature">24/7 Tilgængelighed</span>
-                        <span class="feature">Naturligt Sprog</span>
-                        <span class="feature">Integration</span>
-                    </div>
-                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <div class="icon-bg"></div>
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="service-title">Dataanalyse</h3>
-                    <p class="service-description">Avanceret analyse af virksomhedsdata, der giver indsigt, opdager mønstre og understøtter beslutningsprocesser.</p>
-                    <div class="service-features">
-                        <span class="feature">Predictive Analytics</span>
-                        <span class="feature">Visualisering</span>
-                        <span class="feature">Rapportering</span>
-                    </div>
-                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <div class="icon-bg"></div>
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="service-title">Procesautomatisering</h3>
-                    <p class="service-description">Intelligent automatisering af arbejdsgange og processer, der frigør ressourcer og reducerer fejl.</p>
-                    <div class="service-features">
-                        <span class="feature">Workflow Optimering</span>
-                        <span class="feature">Ressourcebesparelse</span>
-                        <span class="feature">Skalerbarhed</span>
-                    </div>
-                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <div class="icon-bg"></div>
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3 class="service-title">Chatbots & Assistenter</h3>
-                    <p class="service-description">Intelligente chatbots der interagerer naturligt med kunder, besvarer spørgsmål og løser problemer døgnet rundt.</p>
-                    <div class="service-features">
-                        <span class="feature">Hurtig Respons</span>
-                        <span class="feature">Personalisering</span>
-                        <span class="feature">Flersproget</span>
-                    </div>
-                    <a href="#contact" class="service-link">Læs mere <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="about-content">
-                <div class="section-header left-aligned">
-                    <span class="overline">Om Domora.tech</span>
-                    <h2 class="section-title">Vi gør <span class="text-gradient">AI</span> tilgængeligt for alle</h2>
-                    <p class="section-subtitle">Vi er et dedikeret team af AI-specialister, udviklere og forretningsrådgivere med en passion for at hjælpe virksomheder med at udnytte potentialet i kunstig intelligens.</p>
-                </div>
-                <div class="about-text">
-                    <p>Hos Domora.tech tror vi på, at fremtidens virksomheder er drevet af intelligente systemer, der frigør mennesker til at fokusere på kreativitet, innovation og strategi.</p>
-                    <p>Vi arbejder tæt sammen med vores kunder for at forstå deres unikke behov og udfordringer. Derefter udvikler vi skræddersyede løsninger, der integreres problemfrit i deres eksisterende systemer og arbejdsgange.</p>
-                    <p>Vores team har mange års erfaring med at udvikle og implementere AI-løsninger på tværs af forskellige brancher, og vi er stolte af at kunne levere resultater, der skaber reel værdi for vores kunder.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <span class="stat-number">40+</span>
-                        <span class="stat-label">Gennemførte projekter</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">98%</span>
-                        <span class="stat-label">Kundetilfredshed</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Års erfaring med AI</span>
-                    </div>
-                </div>
-                <div class="about-buttons">
-                    <a href="#team" class="btn btn-secondary">Mød vores team</a>
-                    <a href="#contact" class="btn btn-primary">Kontakt os</a>
-                </div>
-            </div>
-            <div class="about-visual">
-                <div class="team-image">
-                    <div class="image-container">
-                        <div class="image-overlay"></div>
-                        <img src="assets/team.jpg" alt="Domora.tech team" loading="lazy">
-                    </div>
-                </div>
-                <div class="ai-visual effect-1">
-                    <div class="ai-node"></div>
-                    <div class="ai-connection"></div>
-                </div>
-                <div class="ai-visual effect-2">
-                    <div class="ai-node"></div>
-                    <div class="ai-connection"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Case Studies Section -->
-        <section id="cases" class="cases-section">
-            <div class="section-header">
-                <span class="overline">Succeshistorier</span>
-                <h2 class="section-title">Vores <span class="text-gradient">Cases</span></h2>
-                <p class="section-subtitle">Se hvordan vores AI-løsninger har hjulpet virksomheder med at transformere deres forretning og opnå konkrete resultater.</p>
-            </div>
-            <div class="cases-slider">
-                <div class="case-card">
-                    <div class="case-image">
-                        <img src="assets/case-1.jpg" alt="Case 1" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3 class="case-title">Intelligente Chatbots til Kundeservice</h3>
-                        <p class="case-company">Københavns Detail A/S</p>
-                        <p class="case-description">Vi udviklede en avanceret chatbot, der reducerede svartiden med 80% og øgede kundetilfredsheden markant.</p>
-                        <div class="case-results">
-                            <div class="result">
-                                <span class="result-number">80%</span>
-                                <span class="result-label">Hurtigere svartid</span>
-                            </div>
-                            <div class="result">
-                                <span class="result-number">35%</span>
-                                <span class="result-label">Øget kundetilfredshed</span>
-                            </div>
-                        </div>
-                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image">
-                        <img src="assets/case-2.jpg" alt="Case 2" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3 class="case-title">Automatisering af Dataanalyse</h3>
-                        <p class="case-company">TechFin Solutions</p>
-                        <p class="case-description">Implementering af et AI-drevet analysesystem, der automatiserede 95% af manuelle dataprocesser og forbedrede beslutningsprocessen.</p>
-                        <div class="case-results">
-                            <div class="result">
-                                <span class="result-number">95%</span>
-                                <span class="result-label">Automatisering</span>
-                            </div>
-                            <div class="result">
-                                <span class="result-number">40%</span>
-                                <span class="result-label">Hurtigere beslutninger</span>
-                            </div>
-                        </div>
-                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="case-card">
-                    <div class="case-image">
-                        <img src="assets/case-3.jpg" alt="Case 3" loading="lazy">
-                    </div>
-                    <div class="case-content">
-                        <h3 class="case-title">Predictive Maintenance System</h3>
-                        <p class="case-company">Nordic Manufacturing</p>
-                        <p class="case-description">Udvikling af et AI-system, der forudsiger vedligeholdelsesbehov og reducerede nedetid med 60% i produktionen.</p>
-                        <div class="case-results">
-                            <div class="result">
-                                <span class="result-number">60%</span>
-                                <span class="result-label">Mindre nedetid</span>
-                            </div>
-                            <div class="result">
-                                <span class="result-number">45%</span>
-                                <span class="result-label">Lavere omkostninger</span>
-                            </div>
-                        </div>
-                        <a href="#case-details" class="case-link">Se hele casen <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="cases-nav">
-                <button class="nav-button prev-button"><i class="fas fa-arrow-left"></i></button>
-                <div class="cases-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-                <button class="nav-button next-button"><i class="fas fa-arrow-right"></i></button>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section class="process-section">
-            <div class="section-header">
-                <span class="overline">Sådan arbejder vi</span>
-                <h2 class="section-title">Vores <span class="text-gradient">Proces</span></h2>
-                <p class="section-subtitle">Vi følger en gennemprøvet metode for at sikre, at vi leverer løsninger, der opfylder dine behov og skaber værdi for din virksomhed.</p>
-            </div>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Analyse & Forståelse</h3>
-                        <p class="step-description">Vi begynder med at forstå din virksomhed, dine udfordringer og mål gennem grundige interviews og dataanalyse.</p>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Strategiudvikling</h3>
-                        <p class="step-description">Baseret på vores analyse udvikler vi en skræddersyet AI-strategi, der adresserer dine specifikke behov og udfordringer.</p>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-chess"></i>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Udvikling & Implementering</h3>
-                        <p class="step-description">Vi udvikler og implementerer AI-løsningen med fokus på integration med dine eksisterende systemer og arbejdsgange.</p>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Test & Optimering</h3>
-                        <p class="step-description">Løsningen testes grundigt og optimeres baseret på feedback og data for at sikre maksimal ydeevne og værdi.</p>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">05</div>
-                    <div class="step-content">
-                        <h3 class="step-title">Lancering & Support</h3>
-                        <p class="step-description">Efter lancering tilbyder vi løbende support, optimering og vedligeholdelse for at sikre langvarig succes.</p>
-                    </div>
-                    <div class="step-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2 class="cta-title">Klar til at transformere din virksomhed med <span class="text-gradient">AI</span>?</h2>
-                <p class="cta-text">Book et uforpligtende møde med vores team og lad os diskutere, hvordan vi kan hjælpe dig med at udnytte potentialet i kunstig intelligens.</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">Book et møde</a>
-                    <a href="#services" class="btn btn-secondary">Se vores services</a>
-                </div>
-            </div>
-            <div class="cta-visual">
-                <div class="ai-node-container">
-                    <div class="ai-node primary"></div>
-                    <div class="ai-node secondary"></div>
-                    <div class="ai-node tertiary"></div>
-                    <div class="connector-line"></div>
-                    <div class="connector-line"></div>
-                    <div class="connector-line"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="section-header left-aligned">
-                        <span class="overline">Kontakt os</span>
-                        <h2 class="section-title">Lad os <span class="text-gradient">samarbejde</span></h2>
-                        <p class="section-subtitle">Udfyld formularen, og vores team vil kontakte dig inden for 24 timer for at diskutere, hvordan vi kan hjælpe din virksomhed.</p>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <a href="mailto:info@domora.tech">info@domora.tech</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Telefon</h4>
-                                <a href="tel:+4512345678">+45 12 34 56 78</a>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Adresse</h4>
-                                <p>Nørrebrogade 123<br>2200 København N</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Navn</label>
-                            <input type="text" id="name" name="name" placeholder="Dit fulde navn" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Din email adresse" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company">Virksomhed</label>
-                            <input type="text" id="company" name="company" placeholder="Din virksomheds navn">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Dit telefonnummer">
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="service">Service</label>
-                            <select id="service" name="service">
-                                <option value="" disabled selected>Vælg service</option>
-                                <option value="ai-agents">AI-Agenter</option>
-                                <option value="data-analysis">Dataanalyse</option>
-                                <option value="process-automation">Procesautomatisering</option>
-                                <option value="chatbots">Chatbots & Assistenter</option>
-                                <option value="other">Andet</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="message">Besked</label>
-                            <textarea id="message" name="message" placeholder="Fortæl os om dit projekt eller dine behov" rows="4"></textarea>
-                        </div>
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">Send besked</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Demo Modal -->
-        <div id="demo-modal" class="modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Domora.tech AI Demo</h3>
-                    <button class="modal-close">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div class="demo-container">
-                        <div class="ai-demo-visualization">
-                            <div class="demo-node-system">
-                                <div class="interactive-node-container">
-                                    <div class="demo-central-node"></div>
-                                    <div class="demo-data-particles"></div>
-                                    <div class="demo-connection-lines"></div>
-                                    <div class="demo-nodes"></div>
-                                </div>
-                            </div>
-                            <div class="demo-info">
-                                <h4>Interaktiv AI-agent Demo</h4>
-                                <p>Se hvordan vores intelligente AI-agent teknologi analyserer data og optimerer processer i realtid. Bevæg musen over visualiseringen for at interagere med systemet.</p>
-                            </div>
-                        </div>
+                <div class="review-item">
+                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                    <div class="review-text">"Great service, but the wait time was a bit long. Overall satisfied with the quality."</div>
+                    <div class="ai-response">
+                        <span class="typing" id="typing-demo">Thank you for the 5-star review! We're thrilled you were satisfied with our service quality. We're working on reducing wait times and appreciate your patience. Looking forward to serving you again!</span>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-logo">
-                    <span class="logo-text">Domora<span class="dot-tech">.tech</span></span>
-                    <p class="footer-tagline">Intelligente AI-løsninger til moderne virksomheder</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Intelligent Review Management</h2>
+                <p>Our AI doesn't just respond—it understands, personalizes, and represents your brand perfectly in every interaction.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Context-Aware AI</h3>
+                    <p>Our AI analyzes sentiment, context, and customer history to craft responses that feel genuinely human and appropriately tailored to each review.</p>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#about">Om Os</a></li>
-                            <li><a href="#cases">Cases</a></li>
-                            <li><a href="#contact">Kontakt</a></li>
-                        </ul>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
                     </div>
-                    <div class="footer-links-column">
-                        <h4>Services</h4>
-                        <ul>
-                            <li><a href="#services">AI-Agenter</a></li>
-                            <li><a href="#services">Dataanalyse</a></li>
-                            <li><a href="#services">Procesautomatisering</a></li>
-                            <li><a href="#services">Chatbots & Assistenter</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
-                        <h4>Kontakt</h4>
-                        <ul>
-                            <li><a href="mailto:info@domora.tech">info@domora
-                                <li><a href="mailto:info@domora.tech">info@domora.tech</a></li>
-                            <li><a href="tel:+4512345678">+45 12 34 56 78</a></li>
-                            <li>Nørrebrogade 123, 2200 København N</li>
-                        </ul>
-                    </div>
+                    <h3>Brand Voice Training</h3>
+                    <p>Train the AI on your specific brand voice, tone, and messaging guidelines. Every response maintains consistency with your brand identity.</p>
                 </div>
-                <div class="footer-bottom">
-                    <div class="copyright">
-                        &copy; 2025 Domora.tech. Alle rettigheder forbeholdes.
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightning-bolt"></i>
                     </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <h3>Instant Responses</h3>
+                    <p>Respond to reviews within minutes, not hours. Show customers you care about their feedback with lightning-fast, thoughtful responses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics & Insights</h3>
+                    <p>Track response performance, sentiment trends, and customer satisfaction metrics. Make data-driven decisions about your reputation management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Control</h3>
+                    <p>Review and approve responses before they go live. Set confidence thresholds and maintain full control over your brand's communication.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Multi-Location Support</h3>
+                    <p>Manage reviews across multiple business locations from one dashboard. Maintain consistent quality while allowing for location-specific customization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <!-- Placeholder for your photo - replace src with your image URL -->
+                <img src="https://via.placeholder.com/500x600/6366f1/ffffff?text=Your+Photo+Here" alt="Founder" id="founder-photo">
+            </div>
+            <div class="about-content">
+                <h2>Who Are We</h2>
+                <p>Founded with a mission to revolutionize how businesses handle online reputation, Domora Tech combines cutting-edge AI technology with deep understanding of customer psychology and brand communication.</p>
+                <p>We believe that every customer interaction is an opportunity to build stronger relationships. Our AI doesn't just automate responses—it enhances them, ensuring each reply adds value and strengthens your brand's connection with customers.</p>
+                <p>With years of experience in AI development and digital marketing, we've built a solution that understands the nuances of customer communication and the importance of authentic, brand-consistent responses.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Languages Supported</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">&lt;30s</div>
+                        <div class="stat-label">Response Generation</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime Guarantee</div>
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="Script.js"></script>
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Online Reputation?</h2>
+            <p>Join hundreds of businesses already using AI to create meaningful connections with their customers through intelligent review management.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Start Your Free Trial</a>
+                <a href="#" class="btn-secondary">Schedule a Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Domora Tech</h3>
+                <p>AI-powered solutions for modern businesses. Transforming customer interactions through intelligent automation.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <a href="#features">Features</a><br>
+                <a href="#contact">Contact</a><br>
+                <a href="#about">About</a>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <a href="#about">About Us</a><br>
+                <a href="#">Privacy Policy</a><br>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: Sejer@domora.ai</p>
+                <p>Phone: +45 31 37 29 16</p>
+                <p>Copenhagen, Denmark</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Domora Tech. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Typing animation for demo
+        function typeText(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+            element.classList.add('typing');
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing');
+                    // Restart animation after delay
+                    setTimeout(() => typeText(element, text, speed), 3000);
+                }
+            }
+            type();
+        }
+
+        // Start typing animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const demoText = "Thank you for the 5-star review! We're thrilled you were satisfied with our service quality. We're working on reducing wait times and appreciate your patience. Looking forward to serving you again!";
+            const typingElement = document.getElementById('typing-demo');
+            
+            // Start after a short delay
+            setTimeout(() => {
+                typeText(typingElement, demoText, 30);
+            }, 1000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+
+        // Add click handlers for CTA buttons
+        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.textContent.includes('Trial') || this.textContent.includes('Demo')) {
+                    e.preventDefault();
+                    // You can replace this with your actual contact form or booking system
+                    alert('Contact us at Sejer@domora.ai or call +45 31 37 29 16 to get started.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
