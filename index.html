@@ -116,13 +116,35 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
+            background: #f8fafc;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
         }
 
         /* Package Overview */
@@ -159,13 +181,33 @@
             border-radius: 20px;
             padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .package-card:hover::before {
+            opacity: 1;
         }
 
         .package-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .package-icon {
@@ -179,17 +221,34 @@
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
             color: white;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .package-card:hover .package-icon {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
         }
 
         .package-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             color: #1e293b;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
+        }
+
+        .package-card:hover h3 {
+            color: #2563eb;
         }
 
         .package-card p {
             color: #64748b;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .feature-list {
@@ -214,6 +273,19 @@
         .features {
             padding: 80px 0;
             background: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 49%, rgba(102, 126, 234, 0.03) 50%, transparent 51%);
+            pointer-events: none;
         }
 
         .features h2 {
@@ -221,44 +293,328 @@
             font-size: 2.5rem;
             margin-bottom: 3rem;
             color: #1e293b;
+            position: relative;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
+            position: relative;
         }
 
         .feature-item {
             text-align: center;
             padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .feature-item:hover::before {
+            left: 100%;
         }
 
         .feature-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.3);
         }
 
         .feature-item .icon {
             font-size: 3rem;
             margin-bottom: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item:hover .icon {
+            transform: scale(1.2) rotate(5deg);
         }
 
         .feature-item h3 {
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: #1e293b;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
+        }
+
+        .feature-item:hover h3 {
+            color: #2563eb;
         }
 
         .feature-item p {
             color: #64748b;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s;
         }
 
-        /* Pricing */
-        .pricing {
+        .feature-item:hover p {
+            color: #475569;
+        }
+
+        /* Demo Section */
+        .demo-section {
             padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .demo-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.15);
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .demo-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Google Reviews Demo */
+        .reviews-demo .demo-icon {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+
+        .review-item {
             background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #fbbf24;
+            transition: all 0.3s;
+        }
+
+        .review-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Chatbot Demo */
+        .chatbot-demo .demo-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .chat-interface {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1rem;
+            height: 250px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            display: flex;
+            margin-bottom: 0.8rem;
+            animation: messageSlide 0.5s ease-out;
+        }
+
+        .chat-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bubble {
+            max-width: 80%;
+            padding: 0.7rem 1rem;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .chat-bubble.user {
+            background: #667eea;
+            color: white;
+            border-bottom-right-radius: 8px;
+        }
+
+        .chat-bubble.bot {
+            background: white;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            border-bottom-left-radius: 8px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 0.7rem 1rem;
+            background: white;
+            border-radius: 18px;
+            border-bottom-left-radius: 8px;
+            max-width: 60px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: #94a3b8;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Campaign Demo */
+        .campaign-demo .demo-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .campaign-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .campaign-step {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .campaign-step:hover {
+            background: #f1f5f9;
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.3rem;
+        }
+
+        .step-description {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .campaign-arrow {
+            position: absolute;
+            right: 1rem;
+            color: #10b981;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .campaign-step:hover .campaign-arrow {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-8px); }
         }
 
         .pricing h2 {
@@ -373,7 +729,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Hjem</a></li>
                 <li><a href="#pakke">Pakkeløsning</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Se Demo</a></li>
                 <li><a href="#pricing">Om os</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
@@ -473,6 +829,136 @@
         </div>
     </section>
 
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <h2>Se Produkterne i Aktion</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
+                Oplev hvordan vores AI-løsninger fungerer i praksis
+            </p>
+            
+            <div class="demo-grid">
+                <!-- Google Reviews Demo -->
+                <div class="demo-card reviews-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">⭐</div>
+                        <div class="demo-title">Google Reviews Automation</div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"Fantastisk service! Vil helt sikkert komme igen."</div>
+                        <div class="review-author">— Maria K.</div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">"Meget professionel betjening og hurtig levering."</div>
+                        <div class="review-author">— Lars P.</div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-stars">★★★★☆</div>
+                        <div class="review-text">"God oplevelse overordnet, kan anbefales."</div>
+                        <div class="review-author">— Anne S.</div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1rem; color: #10b981; font-weight: 600;">
+                        ✓ Automatisk opfølgning sendt
+                    </div>
+                </div>
+
+                <!-- Chatbot Demo -->
+                <div class="demo-card chatbot-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">💬</div>
+                        <div class="demo-title">Intelligent Chatbot</div>
+                    </div>
+                    
+                    <div class="chat-interface">
+                        <div class="chat-message">
+                            <div class="chat-bubble bot">Hej! Hvordan kan jeg hjælpe dig i dag?</div>
+                        </div>
+                        
+                        <div class="chat-message user">
+                            <div class="chat-bubble user">Hvad er jeres åbningstider?</div>
+                        </div>
+                        
+                        <div class="chat-message">
+                            <div class="chat-bubble bot">Vi holder åbent mandag-fredag 09:00-17:00 og lørdag 10:00-15:00. Har du andre spørgsmål?</div>
+                        </div>
+                        
+                        <div class="chat-message user">
+                            <div class="chat-bubble user">Kan I hjælpe med teknisk support?</div>
+                        </div>
+                        
+                        <div class="chat-message">
+                            <div class="typing-indicator">
+                                <div class="typing-dots">
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                    <div class="typing-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 600;">
+                        🤖 24/7 Tilgængelig
+                    </div>
+                </div>
+
+                <!-- Campaign Demo -->
+                <div class="demo-card campaign-demo">
+                    <div class="demo-header">
+                        <div class="demo-icon">🎯</div>
+                        <div class="demo-title">Automatiske Kampagner</div>
+                    </div>
+                    
+                    <div class="campaign-flow">
+                        <div class="campaign-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Kunde Identificering</div>
+                                <div class="step-description">AI finder tidligere kunder automatisk</div>
+                            </div>
+                            <div class="campaign-arrow">→</div>
+                        </div>
+                        
+                        <div class="campaign-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Personlig Besked</div>
+                                <div class="step-description">"Hej Maria! Vi savner dig - få 20% rabat"</div>
+                            </div>
+                            <div class="campaign-arrow">→</div>
+                        </div>
+                        
+                        <div class="campaign-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Automatisk Levering</div>
+                                <div class="step-description">SMS/Email sendes på det perfekte tidspunkt</div>
+                            </div>
+                            <div class="campaign-arrow">→</div>
+                        </div>
+                        
+                        <div class="campaign-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Resultat Tracking</div>
+                                <div class="step-description">Real-time analyse af kampagne performance</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1rem; color: #10b981; font-weight: 600;">
+                        📈 +35% Kunde Tilbagekomst
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="pricing" id="pricing">
         <div class="container">
             <h2>Hvem er vi</h2>
@@ -546,36 +1032,51 @@
             });
         });
 
-        // Add scroll effect to header
+        // Add scroll effect to header with parallax
+        let lastScrollY = window.scrollY;
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.transform = scrollY > lastScrollY ? 'translateY(-100%)' : 'translateY(0)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = scrollY;
+            
+            // Parallax effect for hero
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrollY * 0.5}px)`;
             }
         });
 
-        // Animate elements on scroll
+        // Enhanced scroll animations with stagger
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) rotateX(0)';
+                    }, index * 100); // Stagger animation
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and feature items
-        document.querySelectorAll('.package-card, .feature-item, .pricing-card').forEach(el => {
+        // Observe all cards and feature items with enhanced animations
+        document.querySelectorAll('.package-card, .feature-item').forEach((el, index) => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            el.style.transform = 'translateY(30px) rotateX(10deg)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
             observer.observe(el);
         });
     </script>
