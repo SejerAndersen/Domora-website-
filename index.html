@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domora Tech - AI-drevet Google Anmeldelseshåndtering</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Domora.tech - Komplet AI Pakkeløsning til Restauranter & Hoteller</title>
     <style>
         * {
             margin: 0;
@@ -13,43 +12,40 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
+            background: #fff;
         }
 
-        /* Navigation */
-        nav {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        nav.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1rem 0;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #6366f1;
-            text-decoration: none;
+            color: #2563eb;
         }
 
         .nav-links {
@@ -62,34 +58,19 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: #6366f1;
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            color: #2563eb;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -101,820 +82,456 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
-            background-size: cover;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
         }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
-        .hero-content h1 {
+        .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            color: white;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #6366f1;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.8);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-        }
-
-        /* Interactive Demo Box */
-        .demo-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.3s ease;
-        }
-
-        .demo-box:hover {
-            transform: perspective(1000px) rotateY(0deg) translateY(-10px);
-        }
-
-        .demo-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .demo-header h3 {
-            color: #333;
+        .hero p {
             font-size: 1.3rem;
-        }
-
-        .google-logo {
-            width: 24px;
-            height: 24px;
-        }
-
-        .review-item {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #fbbf24;
-        }
-
-        .review-stars {
-            color: #fbbf24;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-text {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .ai-response {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            position: relative;
-        }
-
-        .ai-response::before {
-            content: '🤖';
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            background: white;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background: #f8fafc;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #666;
+            margin-bottom: 2rem;
+            opacity: 0.9;
             max-width: 600px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .features-grid {
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #2563eb;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Package Overview */
+        .package-overview {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .package-overview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .package-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .package-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .feature-card {
+        .package-card {
             background: white;
-            padding: 2rem;
             border-radius: 20px;
+            padding: 2rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        .package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .feature-icon {
+        .package-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            color: white;
+        }
+
+        .package-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+
+        .package-card p {
+            color: #64748b;
             margin-bottom: 1.5rem;
         }
 
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #333;
+        .feature-list {
+            list-style: none;
         }
 
-        .feature-card p {
-            color: #666;
-            line-height: 1.6;
+        .feature-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            color: #475569;
         }
 
-        /* Who Are We Section */
-        .about {
-            padding: 6rem 0;
+        .feature-list li::before {
+            content: '✓';
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
             background: white;
         }
 
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .about-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .about-content p {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat {
+        .features h2 {
             text-align: center;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 12px;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #6366f1;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            text-align: center;
-        }
-
-        .cta h2 {
             font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
         }
 
-        .cta p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            background: #1a202c;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
 
-        .footer-section h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #6366f1;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #a0aec0;
-            text-decoration: none;
-            line-height: 1.6;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #2d3748;
-            margin-top: 2rem;
-            padding-top: 1rem;
+        .feature-item {
             text-align: center;
-            color: #718096;
-        }
-
-        /* Trusted By Section */
-        .trusted-by {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            overflow: hidden;
-        }
-
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin: 3rem 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: white;
+            padding: 2rem;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s;
         }
 
-        .stat-item:hover {
+        .feature-item:hover {
             transform: translateY(-5px);
         }
 
-        .stat-item .stat-number {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
+        .feature-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
-        .stat-item .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 500;
+        .feature-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
         }
 
-        .clients-scroll {
-            margin-top: 4rem;
-            overflow: hidden;
+        .feature-item p {
+            color: #64748b;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
-        .clients-scroll::before,
-        .clients-scroll::after {
+        .pricing-card::before {
             content: '';
             position: absolute;
             top: 0;
-            width: 100px;
-            height: 100%;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .clients-scroll::before {
             left: 0;
-            background: linear-gradient(to right, #f8fafc, transparent);
-        }
-
-        .clients-scroll::after {
             right: 0;
-            background: linear-gradient(to left, #e2e8f0, transparent);
+            height: 5px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
 
-        .clients-track {
-            display: flex;
-            animation: scroll 30s linear infinite;
-            width: calc(200% + 2rem);
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
         }
 
-        .client-logo {
-            flex: 0 0 250px;
-            height: 100px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 0 1rem;
-            font-weight: 600;
-            color: #333;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            font-size: 0.9rem;
+        .price-period {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
             text-align: center;
-            padding: 1rem;
-            gap: 0.5rem;
         }
 
-        .logo-placeholder {
-            font-size: 2rem;
-            margin-bottom: 0.25rem;
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .client-logo span {
-            font-size: 0.85rem;
-            font-weight: 500;
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        .client-logo:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            border-color: #6366f1;
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        /* Responsive adjustments for trusted by */
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .stats-row {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .client-logo {
-                flex: 0 0 200px;
-                font-size: 0.8rem;
-            }
-
-            .client-logo span {
-                font-size: 0.75rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content h1 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
-
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
+            
             .nav-links {
                 display: none;
             }
-
-            .stats-row {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            
+            .package-grid {
+                grid-template-columns: 1fr;
             }
-
-            .client-logo {
-                flex: 0 0 160px;
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Typing Animation */
-        .typing {
-            border-right: 2px solid #6366f1;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { border-right-color: #6366f1; }
-            51%, 100% { border-right-color: transparent; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Domora Tech</a>
+    <header>
+        <nav class="container">
+            <div class="logo">Domora.tech</div>
             <ul class="nav-links">
                 <li><a href="#home">Hjem</a></li>
-                <li><a href="#features">Funktioner</a></li>
-                <li><a href="#about">Om os</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#pakke">Pakkeløsning</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Om os</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Kom i gang</a>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-container">
+        <div class="container">
             <div class="hero-content">
-                <h1>AI-drevet Google Anmeldelseshåndtering</h1>
-                <p>Transformer din online omdømme med intelligente, personaliserede svar på hver Google anmeldelse. Vores AI forstår kontekst, tone og din brands stemme.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn-primary">Start gratis prøveperiode</a>
-                    <a href="#features" class="btn-secondary">Se hvordan det virker</a>
-                </div>
+                <h1>Komplet AI Pakkeløsning til Din Virksomhed</h1>
+                <p>Boost din virksomhed med vores all-in-one løsning: Automatisk Google Reviews, Intelligent Chatbot og Smarte Kampagner - alt i én pakke!</p>
+                <a href="#kontakt" class="cta-button">Få Din Pakkeløsning Nu</a>
             </div>
-            <div class="demo-box">
-                <div class="demo-header">
-                    <svg class="google-logo" viewBox="0 0 24 24">
-                        <path fill="#4285f4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                        <path fill="#34a853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                        <path fill="#fbbc05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                        <path fill="#ea4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                    </svg>
-                    <h3>Live Demo</h3>
+        </div>
+    </section>
+
+    <section class="package-overview" id="pakke">
+        <div class="container">
+            <h2>Hvad Inkluderer Vores Pakkeløsning?</h2>
+            <p class="package-subtitle">Tre kraftfulde AI-værktøjer der arbejder sammen for at øge din omsætning og forbedre kundeservice</p>
+            
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="package-icon">⭐</div>
+                    <h3>Google Reviews Automation</h3>
+                    <p>Automatisk indsamling og håndtering af Google anmeldelser med intelligent AI-assisteret respons</p>
+                    <ul class="feature-list">
+                        <li>Automatisk anmodning om anmeldelser</li>
+                        <li>Smart review-håndtering</li>
+                        <li>Reputation management</li>
+                        <li>Analyse og rapportering</li>
+                    </ul>
                 </div>
-                <div class="review-item">
-                    <div class="review-stars">⭐⭐⭐⭐⭐</div>
-                    <div class="review-text">"God service, men ventetiden var lidt lang. Generelt tilfreds med kvaliteten."</div>
-                    <div class="ai-response">
-                        <span class="typing" id="typing-demo">Tak for din 5-stjernede anmeldelse! Vi er begejstrede for, at du var tilfreds med vores servicekvalitet. Vi arbejder på at reducere ventetiderne og sætter pris på din tålmodighed. Vi ser frem til at betjene dig igen!</span>
-                    </div>
+
+                <div class="package-card">
+                    <div class="package-icon">💬</div>
+                    <h3>Intelligent Chatbot</h3>
+                    <p>24/7 kundeservice med dansk-talende AI der kan besvare spørgsmål og håndtere kundehenvendelser</p>
+                    <ul class="feature-list">
+                        <li>Dansk-talende AI assistent</li>
+                        <li>Kundeservice og support</li>
+                        <li>FAQ og almindelige spørgsmål</li>
+                        <li>Integration med din hjemmeside</li>
+                    </ul>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-icon">🎯</div>
+                    <h3>Automatiske Kampagner</h3>
+                    <p>Smart kampagne-system der sender personlige tilbud og påmindelser til tidligere kunder</p>
+                    <ul class="feature-list">
+                        <li>Automatisk kundesegmentering</li>
+                        <li>Personlige tilbud og kampagner</li>
+                        <li>SMS og email automation</li>
+                        <li>Analyse af kampagne-resultater</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Intelligent Anmeldelseshåndtering</h2>
-                <p>Vores AI svarer ikke bare—den forstår, personaliserer og repræsenterer dit brand perfekt i hver interaktion.</p>
-            </div>
+            <h2>Hvorfor Vælge Vores Pakkeløsning?</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Kontekst-bevidst AI</h3>
-                    <p>Vores AI analyserer stemning, kontekst og kundehistorik for at skabe svar der føles ægte menneskelige og passende tilpasset til hver anmeldelse.</p>
+                <div class="feature-item">
+                    <div class="icon">🚀</div>
+                    <h3>Øget Omsætning</h3>
+                    <p>Automatiske kampagner bringer tidligere kunder tilbage med personlige tilbud</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Brand Voice Træning</h3>
-                    <p>Træn AI'en på dit specifikke brand voice, tone og messaging retningslinjer. Hvert svar opretholder konsistens med din brand identitet.</p>
+                <div class="feature-item">
+                    <div class="icon">⏰</div>
+                    <h3>Spar Tid</h3>
+                    <p>Automation af reviews, kundeservice og marketing frigør tid til din kerneforretning</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lightning-bolt"></i>
-                    </div>
-                    <h3>Øjeblikkelige Svar</h3>
-                    <p>Svar på anmeldelser inden for minutter, ikke timer. Vis kunderne at du bekymrer dig om deres feedback med lynhurtige, gennemtænkte svar.</p>
+                <div class="feature-item">
+                    <div class="icon">📈</div>
+                    <h3>Bedre Reputation</h3>
+                    <p>Flere positive anmeldelser og professionel håndtering af feedback</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Analyser & Indsigter</h3>
-                    <p>Spor svar performance, stemnings trends og kunde tilfredshed metrics. Tag data-drevne beslutninger om din omdømmehåndtering.</p>
+                <div class="feature-item">
+                    <div class="icon">🎯</div>
+                    <h3>Målrettet Marketing</h3>
+                    <p>Intelligent segmentering sender det rette budskab til den rette kunde</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Kvalitetskontrol</h3>
-                    <p>Gennemgå og godkend svar før de går live. Sæt konfidensgrænser og behold fuld kontrol over dit brands kommunikation.</p>
+                <div class="feature-item">
+                    <div class="icon">📊</div>
+                    <h3>Detaljeret Analyse</h3>
+                    <p>Få indsigt i kundeadfærd og kampagne-performance med omfattende rapporter</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Multi-lokation Support</h3>
-                    <p>Håndter anmeldelser på tværs af flere forretningslokationer fra ét dashboard. Oprethold konsistent kvalitet mens du tillader lokationsspecifik tilpasning.</p>
+                <div class="feature-item">
+                    <div class="icon">🔧</div>
+                    <h3>Nem Integration</h3>
+                    <p>Hurtig opsætning og problemfri integration med dine eksisterende systemer</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trusted By Section -->
-    <section class="trusted-by">
+    <section class="pricing" id="pricing">
         <div class="container">
-            <div class="section-header">
-                <h2>Tillid fra Voksende Virksomheder</h2>
-                <p>Fra lokale restauranter til ekspanderende kæder, virksomheder vælger vores AI til at forbedre deres kunderelationer</p>
-            </div>
-            
-            <div class="stats-row">
-                <div class="stat-item">
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Anmeldelser håndteret månedligt</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Kontinuerlig overvågning</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Svardækning</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">2025</div>
-                    <div class="stat-label">Grundlagt</div>
-                </div>
-            </div>
-
-            <div class="clients-scroll">
-                <div class="clients-track">
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Valby</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍣</div>
-                        <span>Fresh Sushi</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Nordhavn</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Sølvgade</span>
-                    </div>
-                    <!-- Duplicate for seamless loop -->
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Valby</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍣</div>
-                        <span>Fresh Sushi</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Nordhavn</span>
-                    </div>
-                    <div class="client-logo">
-                        <div class="logo-placeholder">🍜</div>
-                        <span>Ramen Hokkaido Sølvgade</span>
-                    </div>
-                </div>
+            <h2>Hvem er vi</h2>
+            <div class="about-content" style="max-width: 900px; margin: 0 auto; text-align: left;">
+                <p style="font-size: 1.2rem; color: #64748b; line-height: 1.8; margin-bottom: 2rem;">
+                    Jeg er en 19-årig iværksætter, der har studeret og dykket dybt ned i kunstig intelligens i flere år nu. Det der startede som nysgerrighed omkring machine learning har udviklet sig til en passion for at bygge praktiske AI-løsninger, der løser reelle forretningsproblemer.
+                </p>
+                <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6;">
+                    Min rejse inden for AI begyndte med at forstå det grundlæggende om neurale netværk og naturlig sprogbehandling, men jeg indså hurtigt det massive potentiale for AI til at transformere hvordan virksomheder interagerer med deres kunder.
+                </p>
+                <p style="font-size: 1.1rem; color: #64748b; line-height: 1.6;">
+                    Gennem utallige timer med forskning, eksperimenter og udvikling har jeg bygget Domora Tech for at bygge bro mellem avancerede AI-kapaciteter og daglige forretningsudfordringer. Hver kodelinje og hver algoritme er designet med ét mål: at gøre AI tilgængelig og værdifuld for virksomheder af alle størrelser.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-image">
-                <!-- Placeholder for your photo - replace src with your image URL -->
-                <img src="https://github.com/user-attachments/assets/7cd12663-e35c-49e2-bc4a-3d1b8f05b2a1" alt="Sejer Andersen - Founder" id="founder-photo" onerror="this.src='https://via.placeholder.com/500x600/6366f1/ffffff?text=Sejer+Andersen'">
-            </div>
-            <div class="about-content">
-                <h2>Hvem er vi</h2>
-                <p>Jeg er en 19-årig iværksætter, der har studeret og dykket dybt ned i kunstig intelligens i flere år nu. Det der startede som nysgerrighed omkring machine learning har udviklet sig til en passion for at bygge praktiske AI-løsninger, der løser reelle forretningsproblemer.</p>
-                <p>Min rejse inden for AI begyndte med at forstå det grundlæggende om neurale netværk og naturlig sprogbehandling, men jeg indså hurtigt det massive potentiale for AI til at transformere hvordan virksomheder interagerer med deres kunder. Google anmeldelseshåndtering var en perfekt krydsning af mine tekniske færdigheder og markedsbehov.</p>
-                <p>Gennem utallige timer med forskning, eksperimenter og udvikling har jeg bygget Domora Tech for at bygge bro mellem avancerede AI-kapaciteter og daglige forretningsudfordringer. Hver kodelinje og hver algoritme er designet med ét mål: at gøre AI tilgængelig og værdifuld for virksomheder af alle størrelser.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Sprog understøttet</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">&lt;30s</div>
-                        <div class="stat-label">Svargenerering</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">99.9%</div>
-                        <div class="stat-label">Oppetidsgaranti</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="contact">
+    <section class="cta-section">
         <div class="container">
-            <h2>Klar til at transformere dit online omdømme?</h2>
-            <p>Tilslut dig hundredvis af virksomheder der allerede bruger AI til at skabe meningsfulde forbindelser med deres kunder gennem intelligent anmeldelseshåndtering.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn-primary">Start Your Free Trial</a>
-                                    <a href="mailto:Sejer@domora.ai?subject=Hej Sejer hos Domora - jeg vil gerne høre mere&body=Hej Sejer,%0D%0A%0D%0AJeg vil gerne høre mere om jeres AI-drevne Google anmeldelseshåndtering.%0D%0A%0D%0A[Beskriv venligst dit behov her]%0D%0A%0D%0AVenlig hilsen," class="btn-secondary">Skriv til os</a>
-            </div>
+            <h2>Klar Til At Transformere Din Virksomhed?</h2>
+            <p>Få mere tid, flere kunder og bedre anmeldelser med vores komplette AI-pakkeløsning</p>
+            <a href="#kontakt" class="cta-button">Book En Gratis Konsultation</a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Domora Tech</h3>
-                <p>AI-drevne løsninger til moderne virksomheder. Transformerer kundeinteraktioner gennem intelligent automatisering.</p>
+    <footer id="kontakt">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Domora Tech</h3>
+                    <p>AI-drevne løsninger til moderne virksomheder. Transformerer kundeinteraktioner gennem intelligent automatisering.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Produkt</h3>
+                    <p><a href="#features">Funktioner</a></p>
+                    <p><a href="#kontakt">Kontakt</a></p>
+                    <p><a href="#pricing">Om os</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Virksomhed</h3>
+                    <p><a href="#pricing">Om os</a></p>
+                    <p><a href="#">Privatlivspolitik</a></p>
+                    <p><a href="#">Servicevilkår</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>📧 Sejer@domora.ai</p>
+                    <p>📱 +45 31 37 29 16</p>
+                    <p>📍 København, Danmark</p>
+                    <p>CVR: 44283565</p>
+                </div>
             </div>
-            <div class="footer-section">
-                <h3>Produkt</h3>
-                <a href="#features">Funktioner</a><br>
-                <a href="#contact">Kontakt</a><br>
-                <a href="#about">Om os</a>
+            <div style="border-top: 1px solid #334155; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2025 Domora.tech. Alle rettigheder forbeholdes.</p>
             </div>
-            <div class="footer-section">
-                <h3>Virksomhed</h3>
-                <a href="#about">Om os</a><br>
-                <a href="#">Privatlivspolitik</a><br>
-                <a href="#">Servicevilkår</a>
-            </div>
-            <div class="footer-section">
-                <h3>Kontakt</h3>
-                <p>Email: Sejer@domora.ai</p>
-                <p>Telefon: +45 31 37 29 16</p>
-                <p>København, Danmark</p>
-                <p>CVR: 44283565</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Domora Tech. Alle rettigheder forbeholdes.</p>
         </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -929,44 +546,23 @@
             });
         });
 
-        // Typing animation for demo
-        function typeText(element, text, speed = 50) {
-            let i = 0;
-            element.textContent = '';
-            element.classList.add('typing');
-            
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                } else {
-                    element.classList.remove('typing');
-                    // Restart animation after delay
-                    setTimeout(() => typeText(element, text, speed), 3000);
-                }
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
             }
-            type();
-        }
-
-        // Start typing animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const demoText = "Tak for din 5-stjernede anmeldelse! Vi er begejstrede for, at du var tilfreds med vores servicekvalitet. Vi arbejder på at reducere ventetiderne og sætter pris på din tålmodighed. Vi ser frem til at betjene dig igen!";
-            const typingElement = document.getElementById('typing-demo');
-            
-            // Start after a short delay
-            setTimeout(() => {
-                typeText(typingElement, demoText, 30);
-            }, 1000);
         });
 
-        // Intersection Observer for animations
+        // Animate elements on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -975,26 +571,12 @@
             });
         }, observerOptions);
 
-        // Observe feature cards
-        document.addEventListener('DOMContentLoaded', () => {
-            const featureCards = document.querySelectorAll('.feature-card');
-            featureCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-                observer.observe(card);
-            });
-        });
-
-        // Add click handlers for CTA buttons
-        document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if (this.textContent.includes('Trial') || this.textContent.includes('Demo')) {
-                    e.preventDefault();
-                    // You can replace this with your actual contact form or booking system
-                    alert('Kontakt os på Sejer@domora.ai eller ring +45 31 37 29 16 for at komme i gang.');
-                }
-            });
+        // Observe all cards and feature items
+        document.querySelectorAll('.package-card, .feature-item, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
