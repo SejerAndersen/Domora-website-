@@ -3,78 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domora.tech - Komplet AI Pakkeløsning til Restauranter & Hoteller</title>
+    <title>Advalo Studio - TikTok, Instagram & Meta Ads Specialister</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #fff;
+            background: #f8f9fa;
         }
-
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(248, 249, 250, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
-            top: 0;
             width: 100%;
+            top: 0;
             z-index: 1000;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-
-        nav {
+        
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
-
+        
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2563eb;
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        .nav-links {
-            display: flex;
+        
+        nav ul {
             list-style: none;
-            gap: 2rem;
+            display: flex;
+            gap: 30px;
         }
-
-        .nav-links a {
-            text-decoration: none;
+        
+        nav a {
             color: #333;
+            text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
-
-        .nav-links a:hover {
-            color: #2563eb;
+        
+        nav a:hover {
+            color: #ff6b6b;
         }
-
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
             position: relative;
             overflow: hidden;
         }
-
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -82,46 +102,124 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23ff6b6b;stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23grad1)" /><circle cx="800" cy="700" r="200" fill="url(%23grad1)" /></svg>');
             opacity: 0.3;
         }
-
-        .hero-content {
-            position: relative;
+        
+        /* Interactive floating elements */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
             z-index: 1;
         }
-
+        
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            animation-duration: 6s;
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 40%;
+            left: 80%;
+            animation-delay: 4s;
+            animation-duration: 7s;
+        }
+        
+        .floating-element:nth-child(4) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+        
+        .floating-element:nth-child(5) {
+            top: 10%;
+            right: 40%;
+            animation-delay: 3s;
+            animation-duration: 5s;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
+            color: #333;
+            margin-bottom: 20px;
             font-weight: 700;
-            margin-bottom: 1rem;
             line-height: 1.2;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.5s forwards;
         }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.8s forwards;
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0;
+            animation: slideInUp 1s ease 1.1s forwards;
         }
-
+        
+        /* Typing animation for main headline */
+        .hero h1 .typing-text {
+            border-right: 3px solid #ff6b6b;
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { border-color: #ff6b6b; }
+            51%, 100% { border-color: transparent; }
+        }
+        
         .cta-button {
             display: inline-block;
-            background: #fff;
-            color: #2563eb;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 40px;
             text-decoration: none;
+            border-radius: 50px;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
             position: relative;
             overflow: hidden;
         }
-
+        
         .cta-button::before {
             content: '';
             position: absolute;
@@ -130,954 +228,997 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
+            transition: left 0.5s ease;
         }
-
+        
         .cta-button:hover::before {
             left: 100%;
         }
-
+        
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.3);
-            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
         }
-
-        .cta-button:active {
-            transform: translateY(-1px) scale(1.02);
+        
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
         }
-
-        /* Package Overview */
-        .package-overview {
-            padding: 80px 0;
-            background: #f8fafc;
-        }
-
-        .package-overview h2 {
+        
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
-
-        .package-subtitle {
+        
+        .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 3rem;
+            color: #666;
+            margin-bottom: 80px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .package-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .package-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .package-card:hover::before {
-            opacity: 1;
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .package-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .package-card:hover .package-icon {
-            transform: scale(1.1) rotate(10deg);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-
-        .package-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s;
-        }
-
-        .package-card:hover h3 {
-            color: #2563eb;
-        }
-
-        .package-card p {
-            color: #64748b;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            color: #475569;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            color: #22c55e;
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 49%, rgba(102, 126, 234, 0.03) 50%, transparent 51%);
-            pointer-events: none;
-        }
-
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-            position: relative;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            position: relative;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
-            transition: left 0.6s;
-        }
-
-        .feature-item:hover::before {
-            left: 100%;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-
-        .feature-item .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-item:hover .icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        .feature-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #1e293b;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s;
-        }
-
-        .feature-item:hover h3 {
-            color: #2563eb;
-        }
-
-        .feature-item p {
-            color: #64748b;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s;
-        }
-
-        .feature-item:hover p {
-            color: #475569;
-        }
-
-        /* Demo Section */
-        .demo-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
-        .demo-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .demo-grid {
+        
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 40px;
+            margin-top: 60px;
         }
-
-        .demo-card {
-            background: white;
+        
+        .service-card {
+            background: #f8f9fa;
+            padding: 40px;
             border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
-
-        .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.15);
-        }
-
-        .demo-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .demo-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .demo-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        /* Google Reviews Demo */
-        .reviews-demo .demo-icon {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-        }
-
-        .review-item {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #fbbf24;
-            transition: all 0.3s;
-        }
-
-        .review-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
-        }
-
-        .review-stars {
-            color: #fbbf24;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-text {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-author {
-            font-size: 0.8rem;
-            color: #94a3b8;
-            font-weight: 500;
-        }
-
-        /* Chatbot Demo */
-        .chatbot-demo .demo-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-        }
-
-        .chat-interface {
-            background: #f1f5f9;
-            border-radius: 12px;
-            padding: 1rem;
-            height: 250px;
-            overflow-y: auto;
-        }
-
-        .chat-message {
-            display: flex;
-            margin-bottom: 0.8rem;
-            animation: messageSlide 0.5s ease-out;
-        }
-
-        .chat-message.user {
-            justify-content: flex-end;
-        }
-
-        .chat-bubble {
-            max-width: 80%;
-            padding: 0.7rem 1rem;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .chat-bubble.user {
-            background: #667eea;
-            color: white;
-            border-bottom-right-radius: 8px;
-        }
-
-        .chat-bubble.bot {
-            background: white;
-            color: #1e293b;
-            border: 1px solid #e2e8f0;
-            border-bottom-left-radius: 8px;
-        }
-
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            padding: 0.7rem 1rem;
-            background: white;
-            border-radius: 18px;
-            border-bottom-left-radius: 8px;
-            max-width: 60px;
-        }
-
-        .typing-dots {
-            display: flex;
-            gap: 3px;
-        }
-
-        .typing-dot {
-            width: 6px;
-            height: 6px;
-            background: #94a3b8;
-            border-radius: 50%;
-            animation: typingBounce 1.4s infinite;
-        }
-
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-
-        /* Campaign Demo */
-        .campaign-demo .demo-icon {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-
-        .campaign-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .campaign-step {
-            display: flex;
-            align-items: center;
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .campaign-step:hover {
-            background: #f1f5f9;
-            transform: translateX(5px);
-        }
-
-        .step-number {
-            width: 30px;
-            height: 30px;
-            background: #10b981;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            flex-grow: 1;
-        }
-
-        .step-title {
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 0.3rem;
-        }
-
-        .step-description {
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        .campaign-arrow {
-            position: absolute;
-            right: 1rem;
-            color: #10b981;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .campaign-step:hover .campaign-arrow {
-            opacity: 1;
-        }
-
-        /* Animations */
-        @keyframes messageSlide {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes typingBounce {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-8px); }
-        }
-
-        .pricing h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #1e293b;
-        }
-
-        .pricing-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            max-width: 500px;
-            margin: 0 auto;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
+        
+        .service-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-
-        .price {
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
             font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            color: #555;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+        
+        .team-intro {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .team-intro h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
             font-weight: 700;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
         }
-
-        .price-period {
-            color: #64748b;
-            margin-bottom: 2rem;
+        
+        .team-intro .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
         }
-
+        
+        .team-story {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .team-story h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .team-story p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .team-member {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .team-member:hover::before {
+            opacity: 1;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .member-role {
+            font-size: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .member-experience {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .member-bio {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .member-skills {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .member-skills li {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+        
+        .nerd-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .process {
+            padding: 100px 0;
+            background: #0a0a0a;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 20px;
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .process-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 0;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             text-align: center;
         }
-
+        
         .cta-section h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
-
+        
         .cta-section p {
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
+        
         /* Footer */
         footer {
-            background: #1e293b;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
+        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-
+        
         .footer-section h3 {
-            margin-bottom: 1rem;
             color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
-
+        
         .footer-section p, .footer-section a {
-            color: #94a3b8;
+            color: #aaa;
             text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
         }
-
+        
         .footer-section a:hover {
-            color: #fff;
+            color: #ff6b6b;
         }
-
-        /* Responsive */
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .nav-links {
-                display: none;
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
             
-            .package-grid {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.9;
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .animate-on-scroll.animate {
+            animation-delay: 0.1s;
+        }
+        
+        .animate-on-scroll:nth-child(2).animate {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-on-scroll:nth-child(3).animate {
+            animation-delay: 0.3s;
+        }
+        
+        /* Interactive mouse follow effect */
+        .mouse-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            opacity: 0.6;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="container">
-            <div class="logo">Domora.tech</div>
-            <ul class="nav-links">
-                <li><a href="#home">Hjem</a></li>
-                <li><a href="#pakke">Pakkeløsning</a></li>
-                <li><a href="#demo">Se Demo</a></li>
-                <li><a href="#pricing">Om os</a></li>
-                <li><a href="#kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Advalo Studio</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Hjem</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Teamet</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#testimonials">Anmeldelser</a></li>
+                        <li><a href="#contact">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
 
-    <section class="hero" id="home">
+    <section id="home" class="hero">
+        <div class="hero-bg-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Komplet AI Pakkeløsning til Din Virksomhed</h1>
-                <p>Boost din virksomhed med vores all-in-one løsning: Automatisk Google Reviews, Intelligent Chatbot og Smarte Kampagner - alt i én pakke!</p>
-                <a href="#kontakt" class="cta-button">Få Din Pakkeløsning Nu</a>
+                <h1><span class="typing-text" id="typing-text">TikTok & Instagram Videoer Der Konverterer</span></h1>
+                <p class="subtitle">Specialister i viral content og performance marketing</p>
+                <p class="description">
+                    Vi skaber engagerende TikTok og Instagram videoer der fanger din målgruppe og driver salg. 
+                    Kombineret med datadrevne Google og Meta ads kampagner, der maksimerer din ROI.
+                </p>
+                <a href="#contact" class="cta-button">Start Dit Projekt</a>
             </div>
         </div>
     </section>
 
-    <section class="package-overview" id="pakke">
+    <section id="services" class="services">
         <div class="container">
-            <h2>Hvad Inkluderer Vores Pakkeløsning?</h2>
-            <p class="package-subtitle">Tre kraftfulde AI-værktøjer der arbejder sammen for at øge din omsætning og forbedre kundeservice</p>
-            
-            <div class="package-grid">
-                <div class="package-card">
-                    <div class="package-icon">⭐</div>
-                    <h3>Google Reviews Automation</h3>
-                    <p>Automatisk indsamling og håndtering af Google anmeldelser med intelligent AI-assisteret respons</p>
-                    <ul class="feature-list">
-                        <li>Automatisk anmodning om anmeldelser</li>
-                        <li>Smart review-håndtering</li>
-                        <li>Reputation management</li>
-                        <li>Analyse og rapportering</li>
-                    </ul>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-icon">💬</div>
-                    <h3>Intelligent Chatbot</h3>
-                    <p>24/7 kundeservice med dansk-talende AI der kan besvare spørgsmål og håndtere kundehenvendelser</p>
-                    <ul class="feature-list">
-                        <li>Dansk-talende AI assistent</li>
-                        <li>Kundeservice og support</li>
-                        <li>FAQ og almindelige spørgsmål</li>
-                        <li>Integration med din hjemmeside</li>
-                    </ul>
-                </div>
-
-                <div class="package-card">
-                    <div class="package-icon">🎯</div>
-                    <h3>Automatiske Kampagner</h3>
-                    <p>Smart kampagne-system der sender personlige tilbud og påmindelser til tidligere kunder</p>
-                    <ul class="feature-list">
-                        <li>Automatisk kundesegmentering</li>
-                        <li>Personlige tilbud og kampagner</li>
-                        <li>SMS og email automation</li>
-                        <li>Analyse af kampagne-resultater</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Hvorfor Vælge Vores Pakkeløsning?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="icon">🚀</div>
-                    <h3>Øget Omsætning</h3>
-                    <p>Automatiske kampagner bringer tidligere kunder tilbage med personlige tilbud</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">⏰</div>
-                    <h3>Spar Tid</h3>
-                    <p>Automation af reviews, kundeservice og marketing frigør tid til din kerneforretning</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📈</div>
-                    <h3>Bedre Reputation</h3>
-                    <p>Flere positive anmeldelser og professionel håndtering af feedback</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🎯</div>
-                    <h3>Målrettet Marketing</h3>
-                    <p>Intelligent segmentering sender det rette budskab til den rette kunde</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📊</div>
-                    <h3>Detaljeret Analyse</h3>
-                    <p>Få indsigt i kundeadfærd og kampagne-performance med omfattende rapporter</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🔧</div>
-                    <h3>Nem Integration</h3>
-                    <p>Hurtig opsætning og problemfri integration med dine eksisterende systemer</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="demo-section" id="demo">
-        <div class="container">
-            <h2>Se Produkterne i Aktion</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #64748b; margin-bottom: 2rem;">
-                Oplev hvordan vores AI-løsninger fungerer i praksis
+            <h2 class="section-title">Vores Specialer</h2>
+            <p class="section-subtitle">
+                Vi er tre unge nørder der har bygget dette studio fra bunden. Lær teamet bag Advalo Studio at kende
             </p>
             
-            <div class="demo-grid">
-                <!-- Google Reviews Demo -->
-                <div class="demo-card reviews-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">⭐</div>
-                        <div class="demo-title">Google Reviews Automation</div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-tiktok"></i>
                     </div>
-                    
-                    <div class="review-item">
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-text">"Fantastisk service! Vil helt sikkert komme igen."</div>
-                        <div class="review-author">— Maria K.</div>
-                    </div>
-                    
-                    <div class="review-item">
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-text">"Meget professionel betjening og hurtig levering."</div>
-                        <div class="review-author">— Lars P.</div>
-                    </div>
-                    
-                    <div class="review-item">
-                        <div class="review-stars">★★★★☆</div>
-                        <div class="review-text">"God oplevelse overordnet, kan anbefales."</div>
-                        <div class="review-author">— Anne S.</div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 1rem; color: #10b981; font-weight: 600;">
-                        ✓ Automatisk opfølgning sendt
-                    </div>
+                    <h3>TikTok Video Produktion</h3>
+                    <p>Viral TikTok content der fanger din målgruppe og driver engagement gennem autentiske, trendy videoer.</p>
+                    <ul class="service-features">
+                        <li>Trend-baseret content strategi</li>
+                        <li>Professionel video produktion</li>
+                        <li>Hashtag optimering</li>
+                        <li>Performance analyse</li>
+                        <li>Viral potential maximering</li>
+                    </ul>
                 </div>
 
-                <!-- Chatbot Demo -->
-                <div class="demo-card chatbot-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">💬</div>
-                        <div class="demo-title">Intelligent Chatbot</div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
                     </div>
-                    
-                    <div class="chat-interface">
-                        <div class="chat-message">
-                            <div class="chat-bubble bot">Hej! Hvordan kan jeg hjælpe dig i dag?</div>
-                        </div>
-                        
-                        <div class="chat-message user">
-                            <div class="chat-bubble user">Hvad er jeres åbningstider?</div>
-                        </div>
-                        
-                        <div class="chat-message">
-                            <div class="chat-bubble bot">Vi holder åbent mandag-fredag 09:00-17:00 og lørdag 10:00-15:00. Har du andre spørgsmål?</div>
-                        </div>
-                        
-                        <div class="chat-message user">
-                            <div class="chat-bubble user">Kan I hjælpe med teknisk support?</div>
-                        </div>
-                        
-                        <div class="chat-message">
-                            <div class="typing-indicator">
-                                <div class="typing-dots">
-                                    <div class="typing-dot"></div>
-                                    <div class="typing-dot"></div>
-                                    <div class="typing-dot"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 1rem; color: #667eea; font-weight: 600;">
-                        🤖 24/7 Tilgængelig
-                    </div>
+                    <h3>Instagram Content Creation</h3>
+                    <p>Engagerende Instagram videoer og stories der bygger dit brand og konverterer følgere til kunder.</p>
+                    <ul class="service-features">
+                        <li>Reels & Stories produktion</li>
+                        <li>Brand-konsistent design</li>
+                        <li>Influencer collaboration</li>
+                        <li>Story strategi</li>
+                        <li>Engagement optimering</li>
+                    </ul>
                 </div>
 
-                <!-- Campaign Demo -->
-                <div class="demo-card campaign-demo">
-                    <div class="demo-header">
-                        <div class="demo-icon">🎯</div>
-                        <div class="demo-title">Automatiske Kampagner</div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
                     </div>
-                    
-                    <div class="campaign-flow">
-                        <div class="campaign-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <div class="step-title">Kunde Identificering</div>
-                                <div class="step-description">AI finder tidligere kunder automatisk</div>
-                            </div>
-                            <div class="campaign-arrow">→</div>
-                        </div>
-                        
-                        <div class="campaign-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <div class="step-title">Personlig Besked</div>
-                                <div class="step-description">"Hej Maria! Vi savner dig - få 20% rabat"</div>
-                            </div>
-                            <div class="campaign-arrow">→</div>
-                        </div>
-                        
-                        <div class="campaign-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <div class="step-title">Automatisk Levering</div>
-                                <div class="step-description">SMS/Email sendes på det perfekte tidspunkt</div>
-                            </div>
-                            <div class="campaign-arrow">→</div>
-                        </div>
-                        
-                        <div class="campaign-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <div class="step-title">Resultat Tracking</div>
-                                <div class="step-description">Real-time analyse af kampagne performance</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="text-align: center; margin-top: 1rem; color: #10b981; font-weight: 600;">
-                        📈 +35% Kunde Tilbagekomst
-                    </div>
+                    <h3>Google & Meta Ads</h3>
+                    <p>Datadrevne reklamekampagner på Google og Meta platforme der maksimerer din ROI og driver kvalificeret trafik.</p>
+                    <ul class="service-features">
+                        <li>Målgruppe research & targeting</li>
+                        <li>Creative testing & optimering</li>
+                        <li>Conversion tracking</li>
+                        <li>Budget optimering</li>
+                        <li>Performance rapportering</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pricing" id="pricing">
+    <section id="team" class="team">
         <div class="container">
-            <h2>Hvem er vi</h2>
-            <div class="about-content" style="max-width: 900px; margin: 0 auto; text-align: left;">
-                <p style="font-size: 1.2rem; color: #64748b; line-height: 1.8; margin-bottom: 2rem;">
-                    Jeg er en 19-årig iværksætter, der har studeret og dykket dybt ned i kunstig intelligens i flere år nu. Det der startede som nysgerrighed omkring machine learning har udviklet sig til en passion for at bygge praktiske AI-løsninger, der løser reelle forretningsproblemer.
+            <div class="team-intro">
+                <h2 class="section-title">Mød Teamet</h2>
+                <p class="subtitle">
+                    Vi er tre unge nørder der brænder for digital marketing og har brugt de sidste flere år på at perfektionere vores craft
                 </p>
-                <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 2rem; line-height: 1.6;">
-                    Min rejse inden for AI begyndte med at forstå det grundlæggende om neurale netværk og naturlig sprogbehandling, men jeg indså hurtigt det massive potentiale for AI til at transformere hvordan virksomheder interagerer med deres kunder.
-                </p>
-                <p style="font-size: 1.1rem; color: #64748b; line-height: 1.6;">
-                    Gennem utallige timer med forskning, eksperimenter og udvikling har jeg bygget Domora Tech for at bygge bro mellem avancerede AI-kapaciteter og daglige forretningsudfordringer. Hver kodelinje og hver algoritme er designet med ét mål: at gøre AI tilgængelig og værdifuld for virksomheder af alle størrelser.
-                </p>
+                
+                <div class="team-story">
+                    <h3>📖 Vores Historie</h3>
+                    <p>Det startede med Rosdahl Media - Sejers soloprojekt som han drev på fuld tid mens han gik i gymnasiet. Efter utallige nætter foran skærmen og hundredvis af kampagner senere, indså vi at vi kunne skabe noget større sammen.</p>
+                    <p>Nu hvor skolen er overstået, går vi alle sammen fuldtid med Advalo Studio. Vi kombinerer vores fælles passion for data, kreativitet og den seneste tech for at hjælpe brands med at gå viralt og drive reelle resultater.</p>
+                    <p><strong>Vi lever og ånder for det her</strong> - og det kan du mærke i alt hvad vi laver 🚀</p>
+                </div>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🤓 Data Nerd</div>
+                    <div class="member-photo">
+                        <!-- Placeholder for Lauritz's photo -->
+                        LR
+                    </div>
+                    <h3 class="member-name">Lauritz</h3>
+                    <p class="member-role">Ads Specialist & Performance Master</p>
+                    <p class="member-experience">5+ års erfaring med ads optimering</p>
+                    <p class="member-bio">
+                        Lauritz er vores ads-guru der har optimeret kampagner for 5+ år. Han lever for de perfekte ROAS-tal og kan læse Meta's algoritme som en åben bog. Når andre ser tal, ser Lauritz mønstre og muligheder.
+                    </p>
+                    <ul class="member-skills">
+                        <li>Google Ads</li>
+                        <li>Meta Ads</li>
+                        <li>Performance Optimering</li>
+                        <li>Conversion Tracking</li>
+                        <li>A/B Testing</li>
+                        <li>Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🎬 Creator</div>
+                    <div class="member-photo">
+                        <!-- Placeholder for Tommy's photo -->
+                        TY
+                    </div>
+                    <h3 class="member-name">Tommy You</h3>
+                    <p class="member-role">TikTok Expert & Content Strategist</p>
+                    <p class="member-experience">2.5+ års erfaring med viral content</p>
+                    <p class="member-bio">
+                        Tommy har sine fingre på TikToks puls og ved præcis hvad der får algoritmen til at elske dit content. Med 2.5+ år på platforme har han skabt viral content og ved hvordan man fanger Gen Z's opmærksomhed på sekunder.
+                    </p>
+                    <ul class="member-skills">
+                        <li>TikTok Strategy</li>
+                        <li>Viral Content</li>
+                        <li>Instagram Reels</li>
+                        <li>Trend Analysis</li>
+                        <li>Creative Direction</li>
+                        <li>Storytelling</li>
+                    </ul>
+                </div>
+
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🚀 Founder</div>
+                    <div class="member-photo">
+                        <!-- Placeholder for Sejer's photo -->
+                        SR
+                    </div>
+                    <h3 class="member-name">Sejer</h3>
+                    <p class="member-role">Founder & Strategy Lead</p>
+                    <p class="member-experience">Tidligere Rosdahl Media grundlægger</p>
+                    <p class="member-bio">
+                        Sejer startede Rosdahl Media som 17-årig og drev det på fuld tid gennem gymnasiet. Nu står han i spidsen for Advalo Studio med dyb erfaring inden for Meta ads, data analyse og viral marketing strategier.
+                    </p>
+                    <ul class="member-skills">
+                        <li>Meta Ads</li>
+                        <li>Data Analytics</li>
+                        <li>Viral Marketing</li>
+                        <li>Business Strategy</li>
+                        <li>Client Relations</li>
+                        <li>Growth Hacking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Vores Proces</h2>
+            <p class="section-subtitle">
+                En struktureret tilgang til at skabe content og kampagner der leverer resultater
+            </p>
+            
+            <div class="process-steps">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3>Strategi & Research</h3>
+                    <p>Vi analyserer din målgruppe, konkurrenter og trends for at udvikle en vindende strategi.</p>
+                </div>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">2</div>
+                    <h3>Content Creation</h3>
+                    <p>Produktion af højkvalitets videoer optimeret til hver platform og din målgruppe.</p>
+                </div>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">3</div>
+                    <h3>Campaign Launch</h3>
+                    <p>Lancering af målrettede ad kampagner med optimal timing og budget allokering.</p>
+                </div>
+
+                <div class="process-step animate-on-scroll">
+                    <div class="step-number">4</div>
+                    <h3>Optimering & Scale</h3>
+                    <p>Kontinuerlig analyse og optimering for at maksimere performance og skalere succesfulde kampagner.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Hvad Siger Vores Kunder</h2>
+            <p class="section-subtitle">
+                Læs hvad vores kunder siger om at arbejde med Advalo Studio
+            </p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Advalo Studio har revolutioneret vores sociale medier tilstedeværelse. Vores TikTok videoer får nu gennemsnitligt 50K+ views, og vores salg er steget med 300% på blot 3 måneder."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MH</div>
+                        <div class="author-info">
+                            <h4>Maria Hansen</h4>
+                            <p>CEO, Fashion Forward</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Deres Google Ads kampagner har givet os en ROAS på 4.2:1. Professionel tilgang og fantastiske resultater. Kan kun anbefales!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LA</div>
+                        <div class="author-info">
+                            <h4>Lars Andersen</h4>
+                            <p>Marketing Director, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Utrolig kreativt team! De formåede at fange essensen af vores brand i videoer der virkelig engagerer vores målgruppe. Højt professionalisme."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Jensen</h4>
+                            <p>Brand Manager, Urban Lifestyle</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2>Klar Til At Transformere Din Virksomhed?</h2>
-            <p>Få mere tid, flere kunder og bedre anmeldelser med vores komplette AI-pakkeløsning</p>
-            <a href="#kontakt" class="cta-button">Book En Gratis Konsultation</a>
+            <h2>Klar Til At Gå Viral?</h2>
+            <p>Lad os skabe content der performer og kampagner der konverterer for dit brand</p>
+            <a href="#contact" class="cta-button">Book Et Gratis Konsultation</a>
         </div>
     </section>
 
-    <footer id="kontakt">
+    <footer id="contact">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Domora Tech</h3>
-                    <p>AI-drevne løsninger til moderne virksomheder. Transformerer kundeinteraktioner gennem intelligent automatisering.</p>
+                    <h3>Advalo Studio</h3>
+                    <p>Specialister i TikTok & Instagram videoer samt Google & Meta ads kampagner der driver resultater.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
+
                 <div class="footer-section">
-                    <h3>Produkt</h3>
-                    <p><a href="#features">Funktioner</a></p>
-                    <p><a href="#kontakt">Kontakt</a></p>
-                    <p><a href="#pricing">Om os</a></p>
+                    <h3>Services</h3>
+                    <a href="#">TikTok Video Produktion</a><br>
+                    <a href="#">Instagram Content Creation</a><br>
+                    <a href="#">Google Ads</a><br>
+                    <a href="#">Meta Ads</a><br>
+                    <a href="#">Content Strategi</a>
                 </div>
-                <div class="footer-section">
-                    <h3>Virksomhed</h3>
-                    <p><a href="#pricing">Om os</a></p>
-                    <p><a href="#">Privatlivspolitik</a></p>
-                    <p><a href="#">Servicevilkår</a></p>
-                </div>
+
                 <div class="footer-section">
                     <h3>Kontakt</h3>
-                    <p>📧 Sejer@domora.ai</p>
-                    <p>📱 +45 31 37 29 16</p>
-                    <p>📍 København, Danmark</p>
-                    <p>CVR: 44283565</p>
+                    <p>Email: hello@advalo.studio</p>
+                    <p>Telefon: +45 XX XX XX XX</p>
+                    <p>Adresse: Copenhagen, Denmark</p>
+                    <p>CVR: XXXXXXXX</p>
                 </div>
             </div>
-            <div style="border-top: 1px solid #334155; padding-top: 2rem; margin-top: 2rem;">
-                <p>&copy; 2025 Domora.tech. Alle rettigheder forbeholdes.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Advalo Studio. Alle rettigheder forbeholdt.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
 
-        // Add scroll effect to header with parallax
-        let lastScrollY = window.scrollY;
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            const scrollY = window.scrollY;
-            
-            if (scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.transform = scrollY > lastScrollY ? 'translateY(-100%)' : 'translateY(0)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollY = scrollY;
-            
-            // Parallax effect for hero
-            const hero = document.querySelector('.hero');
-            if (hero) {
-                hero.style.transform = `translateY(${scrollY * 0.5}px)`;
-            }
-        });
-
-        // Enhanced scroll animations with stagger
+        // Animate on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0) rotateX(0)';
-                    }, index * 100); // Stagger animation
+                    entry.target.classList.add('animate');
                 }
             });
         }, observerOptions);
 
-        // Observe all cards and feature items with enhanced animations
-        document.querySelectorAll('.package-card, .feature-item').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px) rotateX(10deg)';
-            el.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(248, 249, 250, 0.98)';
+            } else {
+                header.style.background = 'rgba(248, 249, 250, 0.95)';
+            }
+        });
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const text = 'TikTok & Instagram Videoer Der Konverterer';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.innerHTML = text.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, 80);
+            } else {
+                // Remove cursor after typing is complete
+                setTimeout(() => {
+                    typingText.style.borderRight = 'none';
+                }, 1000);
+            }
+        }
+        
+        // Start typing animation after page load
+        window.addEventListener('load', () => {
+            typingText.innerHTML = '';
+            setTimeout(typeWriter, 1500);
+        });
+
+        // Interactive mouse follower
+        document.addEventListener('DOMContentLoaded', function() {
+            const mouseFollower = document.createElement('div');
+            mouseFollower.className = 'mouse-follower';
+            document.body.appendChild(mouseFollower);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseFollower.style.left = e.clientX - 10 + 'px';
+                mouseFollower.style.top = e.clientY - 10 + 'px';
+            });
+        });
+
+        // Add interactive hover effects to floating elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            
+            floatingElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse 2s ease-in-out infinite';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    // Reset to original animation
+                    this.style.animation = '';
+                });
+            });
+        });
+
+        // Parallax effect for hero background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-bg-elements');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
         });
     </script>
 </body>
