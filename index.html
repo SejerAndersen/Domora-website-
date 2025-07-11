@@ -1,111 +1,1936 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Advalo Studio</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .scrolling-logos {
-      display: flex;
-      overflow-x: auto;
-      animation: scroll 30s linear infinite;
-    }
-    .scrolling-logos img {
-      height: 50px;
-      margin: 0 1.5rem;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advalo Studio - TikTok, Instagram & Meta Ads Specialister</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #ff6b6b;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23ff6b6b;stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23grad1)" /><circle cx="800" cy="700" r="200" fill="url(%23grad1)" /></svg>');
+            opacity: 0.3;
+            animation: backgroundPulse 8s ease-in-out infinite;
+        }
+        
+        /* Interactive floating elements */
+        .hero-bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+        }
+        
+        .floating-element::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: innerPulse 3s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            animation-duration: 6s;
+        }
+        
+        .floating-element:nth-child(3) {
+            top: 40%;
+            left: 80%;
+            animation-delay: 4s;
+            animation-duration: 7s;
+        }
+        
+        .floating-element:nth-child(4) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+        
+        .floating-element:nth-child(5) {
+            top: 10%;
+            right: 40%;
+            animation-delay: 3s;
+            animation-duration: 5s;
+        }
+        
+        .floating-element:nth-child(6) {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 6s;
+            animation-duration: 10s;
+        }
+        
+        .floating-element:nth-child(7) {
+            top: 30%;
+            left: 50%;
+            animation-delay: 2.5s;
+            animation-duration: 7.5s;
+        }
+        
+        .floating-element:nth-child(8) {
+            bottom: 50%;
+            left: 5%;
+            animation-delay: 5s;
+            animation-duration: 6.5s;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.5s forwards;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0;
+            animation: slideInUp 1s ease 0.8s forwards;
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 600px;
+            opacity: 0;
+            animation: slideInUp 1s ease 1.1s forwards;
+        }
+        
+        /* Typing animation for main headline */
+        .hero h1 .typing-text {
+            border-right: 3px solid #ff6b6b;
+            animation: blink 1s infinite;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideInUp 1s ease 1.4s forwards;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+        
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .portfolio-intro h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .portfolio-intro p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-scroll {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .portfolio-track {
+            display: flex;
+            animation: portfolioScroll 40s linear infinite;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .project-card {
+            flex-shrink: 0;
+            width: 350px;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        
+        .project-stats {
+            display: flex;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat {
+            color: white;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .project-info p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-weight: 500;
+        }
+        
+        /* Pause animation on hover */
+        .portfolio-scroll:hover .portfolio-track {
+            animation-play-state: paused;
+        }
+
+        /* Companies Section */
+        .companies {
+            padding: 80px 0;
+            background: #fff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .companies-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .companies-intro h3 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .companies-intro p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .companies-scroll {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+        
+        .companies-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .company-text {
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #999;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            opacity: 0;
+            animation: rotate 8s linear infinite;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            color: #555;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background: #fff;
+            position: relative;
+        }
+        
+        .team-intro {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .team-intro h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .team-intro .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .team-story {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .team-story h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .team-story p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .team-member {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .team-member:hover::before {
+            opacity: 1;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .member-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 0deg, #ff6b6b, #4ecdc4, #45b7d1, #ff6b6b);
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+        
+        .member-photo:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+        
+        .team-member:hover .member-photo {
+            animation: bounce 0.6s ease-in-out;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .member-name {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .member-role {
+            font-size: 1.1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .member-experience {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .member-bio {
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .member-skills {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .member-skills li {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            font-weight: 500;
+        }
+        
+        .nerd-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+        
+        .testimonials-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .testimonials-intro h2 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .testimonials-intro p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .testimonial {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .testimonial:hover::before {
+            opacity: 1;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #ff6b6b;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+        }
+        
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #fff;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            animation: sparkleFloat 2s ease-out forwards;
+        }
+        
+        /* Interactive mouse follow effect */
+        .mouse-follower {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            opacity: 0.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes blink {
+            0%, 50% { border-color: #ff6b6b; }
+            51%, 100% { border-color: transparent; }
+        }
+        
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+        
+        @keyframes innerPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.7; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes portfolioScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                transform: translateY(0) scale(1.1);
+            }
+            40% {
+                transform: translateY(-20px) scale(1.15);
+            }
+            80% {
+                transform: translateY(-10px) scale(1.12);
+            }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 107, 107, 0.6), 0 0 40px rgba(78, 205, 196, 0.4); }
+        }
+        
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .animate-on-scroll.animate {
+            animation-delay: 0.1s;
+        }
+        
+        .animate-on-scroll:nth-child(2).animate {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-on-scroll:nth-child(3).animate {
+            animation-delay: 0.3s;
+        }
+    </style>
 </head>
-<body class="bg-black text-white font-sans">
-  <header class="p-6 flex justify-between items-center border-b border-gray-800 sticky top-0 bg-black z-50">
-    <h1 class="text-3xl font-bold">Advalo Studio</h1>
-    <nav class="space-x-6">
-      <a href="#about" class="hover:underline">Om os</a>
-      <a href="#services" class="hover:underline">Services</a>
-      <a href="#projects" class="hover:underline">Projekter</a>
-      <a href="#team" class="hover:underline">Teamet</a>
-      <a href="#contact" class="hover:underline">Kontakt</a>
-    </nav>
-  </header>
-
-  <section class="text-center py-20">
-    <h2 class="text-5xl font-extrabold mb-4">TikTok & Instagram-videoer der konverterer</h2>
-    <p class="text-xl text-gray-400 mb-8">Vi skaber content, der går viralt, og kombinerer det med effektive Google & Meta Ads kampagner.</p>
-    <a href="#contact" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200">Book et møde</a>
-  </section>
-
-  <section class="py-12 bg-gray-900">
-    <h3 class="text-center text-2xl font-semibold mb-6">Brands vi har arbejdet med</h3>
-    <div class="scrolling-logos whitespace-nowrap">
-      <img src="https://via.placeholder.com/100x50" alt="logo1" />
-      <img src="https://via.placeholder.com/100x50" alt="logo2" />
-      <img src="https://via.placeholder.com/100x50" alt="logo3" />
-      <img src="https://via.placeholder.com/100x50" alt="logo4" />
-      <img src="https://via.placeholder.com/100x50" alt="logo5" />
-    </div>
-  </section>
-
-  <section id="services" class="py-20">
-    <div class="max-w-4xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-8">Vores Services</h3>
-      <div class="grid md:grid-cols-2 gap-10">
-        <div>
-          <h4 class="text-xl font-semibold mb-2">Short-form videoindhold</h4>
-          <p class="text-gray-400">TikTok og Instagram Reels, der bygger fællesskab, øger engagement og driver salg.</p>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Advalo Studio</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Hjem</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#team">Teamet</a></li>
+                        <li><a href="#testimonials">Anmeldelser</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <div>
-          <h4 class="text-xl font-semibold mb-2">Betalte annoncer (Google & Meta)</h4>
-          <p class="text-gray-400">Konverterende annoncer og mediekøb der skalerer din forretning effektivt.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="projects" class="py-20 bg-gray-900">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-10">Tidligere Projekter</h3>
-      <p class="text-center text-gray-400 mb-6">Snart kan du se vores case studies og tidligere arbejde her.</p>
-    </div>
-  </section>
-
-  <section id="team" class="py-20">
-    <div class="max-w-5xl mx-auto px-4">
-      <h3 class="text-3xl font-bold text-center mb-10">Mød Teamet</h3>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-        <div>
-          <div class="h-32 w-32 mx-auto rounded-full bg-gray-700"></div>
-          <h4 class="text-lg font-semibold mt-4">Navn</h4>
-          <p class="text-gray-400">Rolle</p>
+    <!-- 1. Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
         </div>
-        <div>
-          <div class="h-32 w-32 mx-auto rounded-full bg-gray-700"></div>
-          <h4 class="text-lg font-semibold mt-4">Navn</h4>
-          <p class="text-gray-400">Rolle</p>
+        <div class="container">
+            <div class="hero-content">
+                <h1><span class="typing-text" id="typing-text">TikTok & Instagram Videoer Der Konverterer</span></h1>
+                <p class="subtitle">Specialister i viral content og performance marketing</p>
+                <p class="description">
+                    Vi skaber engagerende TikTok og Instagram videoer der fanger din målgruppe og driver salg. 
+                    Kombineret med datadrevne Google og Meta ads kampagner, der maksimerer din ROI.
+                </p>
+                <a href="kontakt.html" class="cta-button">Start Dit Projekt</a>
+            </div>
         </div>
-        <div>
-          <div class="h-32 w-32 mx-auto rounded-full bg-gray-700"></div>
-          <h4 class="text-lg font-semibold mt-4">Navn</h4>
-          <p class="text-gray-400">Rolle</p>
+    </section>
+
+    <!-- 2. Portfolio Section -->
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-intro">
+                <h2 class="section-title">Vores Projekter</h2>
+                <p class="section-subtitle">
+                    Se hvordan vi har hjulpet brands med at gå viralt og drive resultater gennem TikTok, Instagram og targeted ads
+                </p>
+            </div>
+            
+            <div class="portfolio-scroll">
+                <div class="portfolio-track">
+                    
+                    <!-- 🔄 ERSTAT MED DINE RIGTIGE PROJEKTER -->
+                    
+                    <!-- PROJEKT 1 - Green Mango Restaurant -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Green Mango projektbillede -->
+                            <img src="images/Screenshot 2025-07-11 at 02.36.50.jpg" alt="Green Mango Restaurant Project" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23228B22\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Green Mango</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>Restaurant</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <!-- Green Mango resultater -->
+                                    <div class="stat">
+                                        <span class="stat-number">11+</span>
+                                        <span class="stat-label">ROAS</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">#1</span>
+                                        <span class="stat-label">Google</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <!-- Green Mango projektinfo -->
+                            <h3>Green Mango Restaurant</h3>
+                            <!-- Beskrivelse af projektet -->
+                            <p>Meta Ads kampagne og SEO optimering der bragte restauranten til toppen</p>
+                            <div class="project-tags">
+                                <!-- Platforme og branche -->
+                                <span class="tag">Meta Ads</span>
+                                <span class="tag">SEO</span>
+                                <span class="tag">Restaurant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJEKT 2 - Erstat med dit andet projekt -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- 📸 Indsæt dit rigtige billede her -->
+                            <img src="images/projekt2.jpg" alt="Projekt 2" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%234ecdc4\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Indsæt Dit Billede</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <!-- 📊 Indsæt dine rigtige tal -->
+                                    <div class="stat">
+                                        <span class="stat-number">X.Xx</span>
+                                        <span class="stat-label">ROAS</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">XXX%</span>
+                                        <span class="stat-label">Lead ↗</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <!-- ✏️ Skriv dit projektnavn -->
+                            <h3>Dit Projektnavn</h3>
+                            <!-- ✏️ Beskriv hvad du gjorde -->
+                            <p>Kort beskrivelse af projektet</p>
+                            <div class="project-tags">
+                                <!-- 🏷️ Tilpas dine tags -->
+                                <span class="tag">Google Ads</span>
+                                <span class="tag">Din Branche</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJEKT 3 - Erstat med dit tredje projekt -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- 📸 Indsæt dit rigtige billede her -->
+                            <img src="images/projekt3.jpg" alt="Projekt 3" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%2345b7d1\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Indsæt Dit Billede</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <!-- 📊 Indsæt dine rigtige tal -->
+                                    <div class="stat">
+                                        <span class="stat-number">XXXK</span>
+                                        <span class="stat-label">Reach</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">X.X%</span>
+                                        <span class="stat-label">Engagement</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <!-- ✏️ Skriv dit projektnavn -->
+                            <h3>Dit Projektnavn</h3>
+                            <!-- ✏️ Beskriv hvad du gjorde -->
+                            <p>Kort beskrivelse af projektet</p>
+                            <div class="project-tags">
+                                <!-- 🏷️ Tilpas dine tags -->
+                                <span class="tag">Instagram</span>
+                                <span class="tag">Din Branche</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJEKT 4 - Erstat med dit fjerde projekt -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- 📸 Indsæt dit rigtige billede her -->
+                            <img src="images/projekt4.jpg" alt="Projekt 4" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ffa726\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Indsæt Dit Billede</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <!-- 📊 Indsæt dine rigtige tal -->
+                                    <div class="stat">
+                                        <span class="stat-number">X.XM</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">XXX%</span>
+                                        <span class="stat-label">Growth</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <!-- ✏️ Skriv dit projektnavn -->
+                            <h3>Dit Projektnavn</h3>
+                            <!-- ✏️ Beskriv hvad du gjorde -->
+                            <p>Kort beskrivelse af projektet</p>
+                            <div class="project-tags">
+                                <!-- 🏷️ Tilpas dine tags -->
+                                <span class="tag">TikTok</span>
+                                <span class="tag">Meta Ads</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROJEKT 5 - Erstat med dit femte projekt -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- 📸 Indsæt dit rigtige billede her -->
+                            <img src="images/projekt5.jpg" alt="Projekt 5" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ab47bc\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Indsæt Dit Billede</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <!-- 📊 Indsæt dine rigtige tal -->
+                                    <div class="stat">
+                                        <span class="stat-number">X.Xx</span>
+                                        <span class="stat-label">ROAS</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">XX%</span>
+                                        <span class="stat-label">View Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <!-- ✏️ Skriv dit projektnavn -->
+                            <h3>Dit Projektnavn</h3>
+                            <!-- ✏️ Beskriv hvad du gjorde -->
+                            <p>Kort beskrivelse af projektet</p>
+                            <div class="project-tags">
+                                <!-- 🏷️ Tilpas dine tags -->
+                                <span class="tag">Multi-Platform</span>
+                                <span class="tag">Din Branche</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 🔄 Duplicate for smooth infinite scroll - KOPIER DINE PROJEKTER HER IGEN -->
+                    
+                    <!-- KOPI AF PROJEKT 1 - Green Mango Restaurant -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/Screenshot 2025-07-11 at 02.36.50.jpg" alt="Green Mango Restaurant Project" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23228B22\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Green Mango</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>Restaurant</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">11+</span>
+                                        <span class="stat-label">ROAS</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">#1</span>
+                                        <span class="stat-label">Google</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Green Mango Restaurant</h3>
+                            <p>Meta Ads kampagne og SEO optimering der bragte restauranten til toppen</p>
+                            <div class="project-tags">
+                                <span class="tag">Meta Ads</span>
+                                <span class="tag">SEO</span>
+                                <span class="tag">Restaurant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KOPI AF PROJEKT 2 -->
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/projekt2.jpg" alt="Projekt 2" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%234ecdc4\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Indsæt Dit Billede</text></svg>'">
+                            <div class="project-overlay">
+                                <div class="project-stats">
+                                    <div class="stat">
+                                        <span class="stat-number">X.Xx</span>
+                                        <span class="stat-label">ROAS</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-number">XXX%</span>
+                                        <span class="stat-label">Lead ↗</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Dit Projektnavn</h3>
+                            <p>Kort beskrivelse af projektet</p>
+                            <div class="project-tags">
+                                <span class="tag">Google Ads</span>
+                                <span class="tag">Din Branche</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" class="py-20 bg-gray-900">
-    <div class="max-w-md mx-auto px-4 text-center">
-      <h3 class="text-2xl font-bold mb-4">Klar til at arbejde sammen?</h3>
-      <p class="text-gray-400 mb-6">Kontakt os via email på <a href="mailto:hello@advalo.studio" class="underline">hello@advalo.studio</a></p>
-      <a href="mailto:hello@advalo.studio" class="bg-white text-black px-6 py-3 rounded-full font-bold hover:bg-gray-200">Send Email</a>
-    </div>
-  </section>
+    <!-- 3. Companies Section -->
+    <section class="companies">
+        <div class="container">
+            <div class="companies-intro">
+                <h3>Vi har hjulpet brands som</h3>
+                <p>Danske og internationale virksomheder stoler på vores ekspertise</p>
+            </div>
+            
+            <div class="companies-scroll">
+                <div class="companies-track">
+                    <div class="company-text">TechStart ApS</div>
+                    <div class="company-text">Fashion Forward</div>
+                    <div class="company-text">Urban Lifestyle</div>
+                    <div class="company-text">Nordic Nutrition</div>
+                    <div class="company-text">Digital Dreams</div>
+                    <div class="company-text">Coastal Coffee</div>
+                    <div class="company-text">Smart Solutions</div>
+                    <div class="company-text">Green Energy DK</div>
+                    <div class="company-text">Creative Agency</div>
+                    <div class="company-text">Fitness First</div>
+                    <!-- Duplicate for smooth infinite scroll -->
+                    <div class="company-text">TechStart ApS</div>
+                    <div class="company-text">Fashion Forward</div>
+                    <div class="company-text">Urban Lifestyle</div>
+                    <div class="company-text">Nordic Nutrition</div>
+                    <div class="company-text">Digital Dreams</div>
+                    <div class="company-text">Coastal Coffee</div>
+                    <div class="company-text">Smart Solutions</div>
+                    <div class="company-text">Green Energy DK</div>
+                    <div class="company-text">Creative Agency</div>
+                    <div class="company-text">Fitness First</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer class="text-center py-6 border-t border-gray-800 text-sm text-gray-500">
-    &copy; 2025 Advalo Studio. Alle rettigheder forbeholdt.
-  </footer>
+    <!-- 4. Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Vores Specialer</h2>
+            <p class="section-subtitle">
+                Vi kombinerer kreativitet med data for at skabe content der performer og kampagner der konverterer
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok Video Produktion</h3>
+                    <p>Viral TikTok content der fanger din målgruppe og driver engagement gennem autentiske, trendy videoer.</p>
+                    <ul class="service-features">
+                        <li>Trend-baseret content strategi</li>
+                        <li>Professionel video produktion</li>
+                        <li>Hashtag optimering</li>
+                        <li>Performance analyse</li>
+                        <li>Viral potential maximering</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram Content Creation</h3>
+                    <p>Engagerende Instagram videoer og stories der bygger dit brand og konverterer følgere til kunder.</p>
+                    <ul class="service-features">
+                        <li>Reels & Stories produktion</li>
+                        <li>Brand-konsistent design</li>
+                        <li>Influencer collaboration</li>
+                        <li>Story strategi</li>
+                        <li>Engagement optimering</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Google & Meta Ads</h3>
+                    <p>Datadrevne reklamekampagner på Google og Meta platforme der maksimerer din ROI og driver kvalificeret trafik.</p>
+                    <ul class="service-features">
+                        <li>Målgruppe research & targeting</li>
+                        <li>Creative testing & optimering</li>
+                        <li>Conversion tracking</li>
+                        <li>Budget optimering</li>
+                        <li>Performance rapportering</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="team-intro">
+                <h2 class="section-title">Mød Teamet</h2>
+                <p class="subtitle">
+                    Vi er tre unge nørder der brænder for digital marketing og har brugt de sidste flere år på at perfektionere vores craft
+                </p>
+                
+                <div class="team-story">
+                    <h3>📖 Vores Historie</h3>
+                    <p>Det startede med Rosdahl Media - Sejers soloprojekt som han drev på fuld tid mens han gik i gymnasiet. Efter utallige nætter foran skærmen og hundredvis af kampagner senere, indså vi at vi kunne skabe noget større sammen.</p>
+                    <p>Nu hvor skolen er overstået, går vi alle sammen fuldtid med Advalo Studio. Vi kombinerer vores fælles passion for data, kreativitet og den seneste tech for at hjælpe brands med at gå viralt og drive reelle resultater.</p>
+                    <p><strong>Vi lever og ånder for det her</strong> - og det kan du mærke i alt hvad vi laver 🚀</p>
+                </div>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🚀 Founder</div>
+                    <div class="member-photo">
+                        SR
+                    </div>
+                    <h3 class="member-name">Sejer</h3>
+                    <p class="member-role">Founder & Strategy Lead</p>
+                    <p class="member-experience">Tidligere Rosdahl Media grundlægger</p>
+                    <p class="member-bio">
+                        Sejer startede Rosdahl Media som 17-årig og drev det på fuld tid gennem gymnasiet. Nu står han i spidsen for Advalo Studio med dyb erfaring inden for Meta ads, data analyse og viral marketing strategier.
+                    </p>
+                    <ul class="member-skills">
+                        <li>Meta Ads</li>
+                        <li>Data Analytics</li>
+                        <li>Viral Marketing</li>
+                        <li>Business Strategy</li>
+                        <li>Client Relations</li>
+                        <li>Growth Hacking</li>
+                    </ul>
+                </div>
+
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🤓 Data Nerd</div>
+                    <div class="member-photo">
+                        LR
+                    </div>
+                    <h3 class="member-name">Lauritz</h3>
+                    <p class="member-role">Ads Specialist & Performance Master</p>
+                    <p class="member-experience">5+ års erfaring med ads optimering</p>
+                    <p class="member-bio">
+                        Lauritz er vores ads-guru der har optimeret kampagner for 5+ år. Han lever for de perfekte ROAS-tal og kan læse Meta's algoritme som en åben bog. Når andre ser tal, ser Lauritz mønstre og muligheder.
+                    </p>
+                    <ul class="member-skills">
+                        <li>Google Ads</li>
+                        <li>Meta Ads</li>
+                        <li>Performance Optimering</li>
+                        <li>Conversion Tracking</li>
+                        <li>A/B Testing</li>
+                        <li>Analytics</li>
+                    </ul>
+                </div>
+
+                <div class="team-member animate-on-scroll">
+                    <div class="nerd-badge">🎬 Creator</div>
+                    <div class="member-photo">
+                        TY
+                    </div>
+                    <h3 class="member-name">Tommy You</h3>
+                    <p class="member-role">TikTok Expert & Content Strategist</p>
+                    <p class="member-experience">2.5+ års erfaring med viral content</p>
+                    <p class="member-bio">
+                        Tommy har sine fingre på TikToks puls og ved præcis hvad der får algoritmen til at elske dit content. Med 2.5+ år på platforme har han skabt viral content og ved hvordan man fanger Gen Z's opmærksomhed på sekunder.
+                    </p>
+                    <ul class="member-skills">
+                        <li>TikTok Strategy</li>
+                        <li>Viral Content</li>
+                        <li>Instagram Reels</li>
+                        <li>Trend Analysis</li>
+                        <li>Creative Direction</li>
+                        <li>Storytelling</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="testimonials-intro">
+                <h2 class="section-title">Hvad Siger Vores Kunder</h2>
+                <p>
+                    Læs hvad vores kunder siger om at arbejde med Advalo Studio
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Advalo Studio har revolutioneret vores sociale medier tilstedeværelse. Vores TikTok videoer får nu gennemsnitligt 50K+ views, og vores salg er steget med 300% på blot 3 måneder."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MH</div>
+                        <div class="author-info">
+                            <h4>Maria Hansen</h4>
+                            <p>CEO, Fashion Forward</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Deres Google Ads kampagner har givet os en ROAS på 4.2:1. Professionel tilgang og fantastiske resultater. Kan kun anbefales!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LA</div>
+                        <div class="author-info">
+                            <h4>Lars Andersen</h4>
+                            <p>Marketing Director, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <p class="testimonial-quote">
+                        "Utrolig kreativt team! De formåede at fange essensen af vores brand i videoer der virkelig engagerer vores målgruppe. Højt professionalisme."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SJ</div>
+                        <div class="author-info">
+                            <h4>Sarah Jensen</h4>
+                            <p>Brand Manager, Urban Lifestyle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Klar Til At Gå Viral?</h2>
+            <p>Lad os skabe content der performer og kampagner der konverterer for dit brand</p>
+            <a href="kontakt.html" class="cta-button">Book Et Gratis Konsultation</a>
+        </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Advalo Studio</h3>
+                    <p>Specialister i TikTok & Instagram videoer samt Google & Meta ads kampagner der driver resultater.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">TikTok Video Produktion</a><br>
+                    <a href="#">Instagram Content Creation</a><br>
+                    <a href="#">Google Ads</a><br>
+                    <a href="#">Meta Ads</a><br>
+                    <a href="#">Content Strategi</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Email: hello@advalo.studio</p>
+                    <p>Telefon: +45 XX XX XX XX</p>
+                    <p>Adresse: Copenhagen, Denmark</p>
+                    <p>CVR: XXXXXXXX</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Advalo Studio. Alle rettigheder forbeholdt.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Create sparkle effect function
+        function createSparkle(x, y) {
+            for (let i = 0; i < 6; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = x + Math.random() * 20 - 10 + 'px';
+                sparkle.style.top = y + Math.random() * 20 - 10 + 'px';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        }
+
+        // Main DOMContentLoaded event listener
+        document.addEventListener('DOMContentLoaded', function() {
+            // Interactive hover effects for floating elements
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.animation = 'pulse 2s ease-in-out infinite';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.animation = '';
+                });
+            });
+
+            // Sparkle effect on click
+            document.addEventListener('click', function(e) {
+                createSparkle(e.clientX, e.clientY);
+            });
+
+            // Service card hover effects
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.service-icon');
+                    if (icon) {
+                        icon.style.animation = 'shake 0.5s ease-in-out';
+                        setTimeout(() => {
+                            icon.style.animation = '';
+                        }, 500);
+                    }
+                });
+            });
+
+            // Team member photo glow effects
+            const memberPhotos = document.querySelectorAll('.member-photo');
+            memberPhotos.forEach(photo => {
+                photo.addEventListener('mouseenter', function() {
+                    this.style.animation = 'glow 2s ease-in-out infinite';
+                });
+                
+                photo.addEventListener('mouseleave', function() {
+                    this.style.animation = '';
+                });
+            });
+
+            // Portfolio card interactive effects
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = `translateY(-15px) rotateX(5deg) rotateY(${Math.random() * 10 - 5}deg)`;
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+
+            // Testimonial click effects
+            const testimonials = document.querySelectorAll('.testimonial');
+            testimonials.forEach(testimonial => {
+                testimonial.addEventListener('click', function() {
+                    this.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+                });
+            });
+
+            // Mouse follower
+            const mouseFollower = document.createElement('div');
+            mouseFollower.className = 'mouse-follower';
+            document.body.appendChild(mouseFollower);
+
+            document.addEventListener('mousemove', (e) => {
+                mouseFollower.style.left = e.clientX - 10 + 'px';
+                mouseFollower.style.top = e.clientY - 10 + 'px';
+            });
+        });
+
+        // Scroll effects
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / maxScroll;
+            
+            // Header background change
+            const header = document.querySelector('header');
+            if (scrollTop > 100) {
+                header.style.background = `rgba(248, 249, 250, ${0.95 + scrollPercent * 0.05})`;
+                header.style.backdropFilter = 'blur(15px)';
+            } else {
+                header.style.background = 'rgba(248, 249, 250, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+
+            // Parallax effect for floating elements
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((element, index) => {
+                const speed = (index + 1) * 0.5;
+                element.style.transform = `translateY(${scrollTop * speed}px)`;
+            });
+
+            lastScrollTop = scrollTop;
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animate on scroll observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const text = 'TikTok & Instagram Videoer Der Konverterer';
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                typingText.innerHTML = text.substring(0, i + 1);
+                i++;
+                setTimeout(typeWriter, 80);
+            } else {
+                // Remove cursor after typing is complete
+                setTimeout(() => {
+                    typingText.style.borderRight = 'none';
+                }, 1000);
+            }
+        }
+        
+        // Start typing animation after page load
+        window.addEventListener('load', () => {
+            typingText.innerHTML = '';
+            setTimeout(typeWriter, 1500);
+        });
+
+        // Parallax effect for hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-bg-elements');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
