@@ -759,10 +759,17 @@
         }
         
         .member-photo img {
-            width: 100%;
-            height: 100%;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: 50%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .member-photo .initials {
+            position: relative;
+            z-index: 1;
         }
         
         .member-name {
@@ -1646,7 +1653,8 @@
                 <div class="team-member animate-on-scroll">
                     <div class="nerd-badge">🚀 Founder</div>
                     <div class="member-photo">
-                        SR
+                        <img src="images/sejer.jpg" alt="Sejer" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="initials" style="display: none;">SR</span>
                     </div>
                     <h3 class="member-name">Sejer</h3>
                     <p class="member-role">Founder & Strategy Lead</p>
@@ -1667,7 +1675,8 @@
                 <div class="team-member animate-on-scroll">
                     <div class="nerd-badge">🤓 Data Nerd</div>
                     <div class="member-photo">
-                        LR
+                        <img src="images/lauritz.jpg" alt="Lauritz" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="initials" style="display: none;">LR</span>
                     </div>
                     <h3 class="member-name">Lauritz</h3>
                     <p class="member-role">Ads Specialist & Performance Master</p>
@@ -1688,7 +1697,8 @@
                 <div class="team-member animate-on-scroll">
                     <div class="nerd-badge">🎬 Creator</div>
                     <div class="member-photo">
-                        TY
+                        <img src="images/tommy.jpg" alt="Tommy You" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="initials" style="display: none;">TY</span>
                     </div>
                     <h3 class="member-name">Tommy You</h3>
                     <p class="member-role">TikTok Expert & Content Strategist</p>
