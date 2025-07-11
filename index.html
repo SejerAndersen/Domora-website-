@@ -856,81 +856,81 @@
         
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             margin-top: 60px;
         }
         
         .testimonial {
             background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
             position: relative;
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
-        .testimonial::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255, 107, 107, 0.05), rgba(78, 205, 196, 0.05));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .testimonial:hover::before {
-            opacity: 1;
-        }
-        
         .testimonial:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
         
-        .testimonial-quote {
-            font-size: 1.1rem;
-            color: #333;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            font-style: italic;
+        .trustpilot-stars {
+            margin-bottom: 20px;
         }
         
-        .testimonial-author {
-            display: flex;
+        .stars {
+            display: inline-flex;
             align-items: center;
-            gap: 15px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            background: #00b67a;
             color: white;
-            font-weight: bold;
-        }
-        
-        .author-info h4 {
-            color: #333;
-            font-size: 1rem;
-            margin-bottom: 5px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
             font-weight: 600;
         }
         
-        .author-info p {
+        .stars::before {
+            content: "★★★★★";
+            margin-right: 5px;
+        }
+        
+        .testimonial-quote {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-style: normal;
+        }
+        
+        .testimonial-author {
+            border-top: none;
+            padding-top: 0;
+        }
+        
+        .testimonial-author h4 {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .testimonial-author p {
             color: #666;
-            font-size: 0.9rem;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .author-avatar {
+            display: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* CTA Section */
@@ -1570,64 +1570,7 @@
         </div>
     </section>
 
-    <!-- 4. Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">Vores Specialer</h2>
-            <p class="section-subtitle">
-                Vi kombinerer kreativitet med data for at skabe content der performer og kampagner der konverterer
-            </p>
-            
-            <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <i class="fab fa-tiktok"></i>
-                    </div>
-                    <h3>TikTok Video Produktion</h3>
-                    <p>Viral TikTok content der fanger din målgruppe og driver engagement gennem autentiske, trendy videoer.</p>
-                    <ul class="service-features">
-                        <li>Trend-baseret content strategi</li>
-                        <li>Professionel video produktion</li>
-                        <li>Hashtag optimering</li>
-                        <li>Performance analyse</li>
-                        <li>Viral potential maximering</li>
-                    </ul>
-                </div>
-
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <h3>Instagram Content Creation</h3>
-                    <p>Engagerende Instagram videoer og stories der bygger dit brand og konverterer følgere til kunder.</p>
-                    <ul class="service-features">
-                        <li>Reels & Stories produktion</li>
-                        <li>Brand-konsistent design</li>
-                        <li>Influencer collaboration</li>
-                        <li>Story strategi</li>
-                        <li>Engagement optimering</li>
-                    </ul>
-                </div>
-
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Google & Meta Ads</h3>
-                    <p>Datadrevne reklamekampagner på Google og Meta platforme der maksimerer din ROI og driver kvalificeret trafik.</p>
-                    <ul class="service-features">
-                        <li>Målgruppe research & targeting</li>
-                        <li>Creative testing & optimering</li>
-                        <li>Conversion tracking</li>
-                        <li>Budget optimering</li>
-                        <li>Performance rapportering</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Team Section -->
+    <!-- 4. Team Section -->
     <section id="team" class="team">
         <div class="container">
             <div class="team-intro">
@@ -1714,7 +1657,7 @@
         </div>
     </section>
 
-    <!-- 6. Testimonials Section -->
+    <!-- 5. Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
             <div class="testimonials-intro">
@@ -1726,42 +1669,120 @@
             
             <div class="testimonials-grid">
                 <div class="testimonial animate-on-scroll">
+                    <div class="trustpilot-stars">
+                        <span class="stars"></span>
+                    </div>
                     <p class="testimonial-quote">
-                        "Advalo Studio har revolutioneret vores sociale medier tilstedeværelse. Vores TikTok videoer får nu gennemsnitligt 50K+ views, og vores salg er steget med 300% på blot 3 måneder."
+                        "Advalo Studio har været en game-changer for Ramen Hokkaido. Gennem deres TikTok og Instagram videoer samt strategiske Google og Meta ads kampagner har vi oplevet en eksplosiv vækst i salget på tværs af alle vores restauranter. Men det der virkelig imponerede mig var, at de tænker helhedsorienteret - de hjalp også med salgstræning af vores tjenere. Sejer's erfaring som tjener gav ham den praktiske forståelse for restaurantbranchen, som gjorde en kæmpe forskel. De er meget mere end bare et marketing bureau - de er rigtige forretningspartnere!"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">MH</div>
                         <div class="author-info">
-                            <h4>Maria Hansen</h4>
-                            <p>CEO, Fashion Forward</p>
+                            <h4>Song Zhang</h4>
+                            <p>Ejer, Ramen Hokkaido</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial animate-on-scroll">
+                    <div class="trustpilot-stars">
+                        <span class="stars"></span>
+                    </div>
                     <p class="testimonial-quote">
-                        "Deres Google Ads kampagner har givet os en ROAS på 4.2:1. Professionel tilgang og fantastiske resultater. Kan kun anbefales!"
+                        "Samarbejdet med Advalo Studio, og især Tommy, har været helt ekstraordinært for Tea Time. Tommy leverede konsistent måneder med 400K og 500K visninger på vores TikTok content, og samlet set har vi opnået over 1 million visninger! Hans forståelse for TikTok algoritmen og evne til at skabe viral content er simpelthen imponerende. Tommy ved præcis hvordan man fanger opmærksomheden og holder seerne engageret. De resultater han har leveret har transformeret vores online tilstedeværelse og bragt en helt ny kundebase til Tea Time. Kan varmt anbefale Advalo Studio og Tommy til alle der vil dominere på TikTok!"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">LA</div>
                         <div class="author-info">
-                            <h4>Lars Andersen</h4>
-                            <p>Marketing Director, TechStart</p>
+                            <h4>Thomas</h4>
+                            <p>Ejer, Tea Time</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial animate-on-scroll">
+                    <div class="trustpilot-stars">
+                        <span class="stars"></span>
+                    </div>
                     <p class="testimonial-quote">
-                        "Utrolig kreativt team! De formåede at fange essensen af vores brand i videoer der virkelig engagerer vores målgruppe. Højt professionalisme."
+                        "Advalo Studio har transformeret USA Summercamp's vækst helt utroligt! Deres Meta ads kampagner drev salget til nye højder, mens deres Instagram og TikTok strategier skabte en helt ny generation af engagerede unge deltagere. Det mest imponerende var, da vi skulle ekspandere til Sverige - Advalo Studio's datadrevne tilgang og kulturelle forståelse gjorde ekspansionen til en stor succes. Fra Danmark til Sverige, de forstår virkelig hvordan man skalerer en virksomhed internationalt. Kan ikke anbefale dem nok!"
                     </p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SJ</div>
                         <div class="author-info">
-                            <h4>Sarah Jensen</h4>
-                            <p>Brand Manager, Urban Lifestyle</p>
+                            <h4>Fie Hansen</h4>
+                            <p>Ejer, USA Summercamp Danmark & Sverige</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="testimonial animate-on-scroll">
+                    <div class="trustpilot-stars">
+                        <span class="stars"></span>
+                    </div>
+                    <p class="testimonial-quote">
+                        "Advalo Studio har hjulpet os med at opnå fantastiske resultater. I maj 2025 så vi en markant stigning i omsætningen på over 15.000 kroner sammenlignet med tidligere måneder. Både vores restaurant og takeaway service oplevede betydelig vækst takket være deres strategiske kampagner. Vi kører nu videre med deres kampagner for takeaway og ad libitum - resultaterne taler for sig selv!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Xin Zhou</h4>
+                            <p>Ejer, Fresh Sushi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Vores Specialer</h2>
+            <p class="section-subtitle">
+                Vi kombinerer kreativitet med data for at skabe content der performer og kampagner der konverterer
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok Video Produktion</h3>
+                    <p>Viral TikTok content der fanger din målgruppe og driver engagement gennem autentiske, trendy videoer.</p>
+                    <ul class="service-features">
+                        <li>Trend-baseret content strategi</li>
+                        <li>Professionel video produktion</li>
+                        <li>Hashtag optimering</li>
+                        <li>Performance analyse</li>
+                        <li>Viral potential maximering</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram Content Creation</h3>
+                    <p>Engagerende Instagram videoer og stories der bygger dit brand og konverterer følgere til kunder.</p>
+                    <ul class="service-features">
+                        <li>Reels & Stories produktion</li>
+                        <li>Brand-konsistent design</li>
+                        <li>Influencer collaboration</li>
+                        <li>Story strategi</li>
+                        <li>Engagement optimering</li>
+                    </ul>
+                </div>
+
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Google & Meta Ads</h3>
+                    <p>Datadrevne reklamekampagner på Google og Meta platforme der maksimerer din ROI og driver kvalificeret trafik.</p>
+                    <ul class="service-features">
+                        <li>Målgruppe research & targeting</li>
+                        <li>Creative testing & optimering</li>
+                        <li>Conversion tracking</li>
+                        <li>Budget optimering</li>
+                        <li>Performance rapportering</li>
+                    </ul>
                 </div>
             </div>
         </div>
