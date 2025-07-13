@@ -491,144 +491,10 @@
             transform: scale(1.05);
         }
 
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background: #f8f9fa;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 80px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .service-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(255, 107, 107, 0.1), transparent);
-            opacity: 0;
-            animation: rotate 8s linear infinite;
-            transition: opacity 0.3s ease;
-        }
-        
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        
-        .service-card:hover::after {
-            opacity: 1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-            border-color: rgba(255, 107, 107, 0.3);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(5deg);
-            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .service-card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .service-features {
-            list-style: none;
-            text-align: left;
-            margin-top: 20px;
-        }
-        
-        .service-features li {
-            color: #555;
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #4ecdc4;
-            font-weight: bold;
-        }
-        
         /* Team Section */
         .team {
             padding: 100px 0;
-            background: #fff;
+            background: #f8f9fa;
             position: relative;
         }
         
@@ -653,7 +519,7 @@
         }
         
         .team-story {
-            background: #f8f9fa;
+            background: #fff;
             padding: 40px;
             border-radius: 20px;
             margin-bottom: 60px;
@@ -682,7 +548,7 @@
         }
         
         .team-member {
-            background: #f8f9fa;
+            background: #fff;
             padding: 40px;
             border-radius: 20px;
             text-align: center;
@@ -832,7 +698,7 @@
         /* Testimonials */
         .testimonials {
             padding: 100px 0;
-            background: #f8f9fa;
+            background: #fff;
         }
         
         .testimonials-intro {
@@ -862,7 +728,7 @@
         }
         
         .testimonial {
-            background: #fff;
+            background: #f8f9fa;
             padding: 30px;
             border-radius: 8px;
             border: 1px solid #e0e0e0;
@@ -931,6 +797,140 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 80px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            opacity: 0;
+            animation: rotate 8s linear infinite;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(5deg);
+            text-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+        
+        .service-features li {
+            color: #555;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
         }
         
         /* CTA Section */
@@ -1261,10 +1261,8 @@
             <div class="portfolio-scroll">
                 <div class="portfolio-track">
                     
-                    <!-- 🔄 ERSTAT MED DINE RIGTIGE PROJEKTER -->
-                    
                     <!-- PROJEKT 1 - Green Mango Restaurant -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('case.html#green-mango', '_blank')">
                         <div class="project-image">
                             <!-- Green Mango projektbillede -->
                             <img src="images/projekt1.jpg" alt="Green Mango Restaurant Project" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23228B22\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Green Mango</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>Restaurant</text></svg>'">
@@ -1297,10 +1295,10 @@
                     </div>
 
                     <!-- PROJEKT 2 - 8 ROAS & 10k+ euros sales -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('case.html#ecommerce', '_blank')">
                         <div class="project-image">
                             <!-- Projekt 2 billede -->
-                            <img src="images/projekt2.jpg" alt="Projekt 2" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%234ecdc4\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Projekt 2</text></svg>'">
+                            <img src="images/projekt2.jpg" alt="Projekt 2" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%234ecdc4\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>E-commerce</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
                                     <!-- Projekt 2 resultater -->
@@ -1329,10 +1327,10 @@
                     </div>
 
                     <!-- PROJEKT 3 - 21 ROAS & 1.5M+ SEK sales -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('case.html#sweden', '_blank')">
                         <div class="project-image">
                             <!-- Projekt 3 billede -->
-                            <img src="images/projekt3.jpg" alt="Projekt 3" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%2345b7d1\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Projekt 3</text></svg>'">
+                            <img src="images/projekt3.jpg" alt="Projekt 3" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%2345b7d1\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Sverige</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
                                     <!-- Projekt 3 resultater -->
@@ -1360,16 +1358,16 @@
                         </div>
                     </div>
 
-                    <!-- PROJEKT 6 - 400k+ views & 5k followers -->
-                    <div class="project-card">
+                    <!-- PROJEKT 4 - Tea Time TikTok Success -->
+                    <div class="project-card" onclick="window.open('case.html#teatime', '_blank')">
                         <div class="project-image">
-                            <!-- Projekt 6 billede -->
-                            <img src="images/projekt6.jpg" alt="Projekt 6" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ab47bc\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Projekt 6</text></svg>'">
+                            <!-- Projekt 4 billede -->
+                            <img src="images/projekt4.jpg" alt="Tea Time TikTok" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ab47bc\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Tea Time</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>TikTok</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
-                                    <!-- Projekt 6 resultater -->
+                                    <!-- Projekt 4 resultater -->
                                     <div class="stat">
-                                        <span class="stat-number">400K+</span>
+                                        <span class="stat-number">1.2M+</span>
                                         <span class="stat-label">Views</span>
                                     </div>
                                     <div class="stat">
@@ -1380,10 +1378,10 @@
                             </div>
                         </div>
                         <div class="project-info">
-                            <!-- Projekt 6 info -->
-                            <h3>Viral Content Strategy</h3>
+                            <!-- Projekt 4 info -->
+                            <h3>Tea Time TikTok Success</h3>
                             <!-- Beskrivelse af projektet -->
-                            <p>TikTok kampagne der opnåede 400K+ views og 5K nye følgere</p>
+                            <p>TikTok kampagne der opnåede 1.2M+ views og 5K nye følgere</p>
                             <div class="project-tags">
                                 <!-- Tags -->
                                 <span class="tag">TikTok</span>
@@ -1395,7 +1393,7 @@
                     <!-- 🔄 Duplicate for smooth infinite scroll - KOPIER DINE PROJEKTER HER IGEN -->
                     
                     <!-- KOPI AF PROJEKT 1 - Green Mango Restaurant -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('case.html#green-mango', '_blank')">
                         <div class="project-image">
                             <img src="images/projekt1.jpg" alt="Green Mango Restaurant Project" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23228B22\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Green Mango</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>Restaurant</text></svg>'">
                             <div class="project-overlay">
@@ -1422,39 +1420,37 @@
                         </div>
                     </div>
 
-                    
-                    <!-- KOPI AF PROJEKT 1 - Green Mango Restaurant -->
-                    <div class="project-card">
+                    <!-- KOPI AF PROJEKT 2 -->
+                    <div class="project-card" onclick="window.open('case.html#ecommerce', '_blank')">
                         <div class="project-image">
-                            <img src="images/projekt1.jpg" alt="Green Mango Restaurant Project" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23228B22\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Green Mango</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>Restaurant</text></svg>'">
+                            <img src="images/projekt2.jpg" alt="Projekt 2" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%234ecdc4\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>E-commerce</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
                                     <div class="stat">
-                                        <span class="stat-number">11+</span>
+                                        <span class="stat-number">8x</span>
                                         <span class="stat-label">ROAS</span>
                                     </div>
                                     <div class="stat">
-                                        <span class="stat-number">#1</span>
-                                        <span class="stat-label">Google</span>
+                                        <span class="stat-number">€10K+</span>
+                                        <span class="stat-label">Sales</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3>Green Mango Restaurant</h3>
-                            <p>Meta Ads kampagne og SEO optimering der bragte restauranten til toppen</p>
+                            <h3>E-commerce Kampagne</h3>
+                            <p>Meta Ads kampagne der genererede €10K+ i salg på én måned</p>
                             <div class="project-tags">
                                 <span class="tag">Meta Ads</span>
-                                <span class="tag">SEO</span>
-                                <span class="tag">Restaurant</span>
+                                <span class="tag">E-commerce</span>
                             </div>
                         </div>
                     </div>
 
                     <!-- KOPI AF PROJEKT 3 - 21 ROAS & 1.5M+ SEK sales -->
-                    <div class="project-card">
+                    <div class="project-card" onclick="window.open('case.html#sweden', '_blank')">
                         <div class="project-image">
-                            <img src="images/projekt3.jpg" alt="Projekt 3" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%2345b7d1\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Projekt 3</text></svg>'">
+                            <img src="images/projekt3.jpg" alt="Projekt 3" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%2345b7d1\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Sverige</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
                                     <div class="stat">
@@ -1478,14 +1474,14 @@
                         </div>
                     </div>
 
-                    <!-- KOPI AF PROJEKT 6 - 400k+ views & 5k followers -->
-                    <div class="project-card">
+                    <!-- KOPI AF PROJEKT 4 - Tea Time TikTok Success -->
+                    <div class="project-card" onclick="window.open('case.html#teatime', '_blank')">
                         <div class="project-image">
-                            <img src="images/projekt6.jpg" alt="Projekt 6" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ab47bc\'/><text x=\'200\' y=\'150\' text-anchor=\'middle\' fill=\'white\' font-size=\'20\' font-family=\'Arial\'>Projekt 6</text></svg>'">
+                            <img src="images/projekt4.jpg" alt="Tea Time TikTok" onerror="this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 300\'><rect width=\'400\' height=\'300\' fill=\'%23ab47bc\'/><text x=\'200\' y=\'140\' text-anchor=\'middle\' fill=\'white\' font-size=\'18\' font-family=\'Arial\'>Tea Time</text><text x=\'200\' y=\'165\' text-anchor=\'middle\' fill=\'white\' font-size=\'14\' font-family=\'Arial\'>TikTok</text></svg>'">
                             <div class="project-overlay">
                                 <div class="project-stats">
                                     <div class="stat">
-                                        <span class="stat-number">400K+</span>
+                                        <span class="stat-number">1.2M+</span>
                                         <span class="stat-label">Views</span>
                                     </div>
                                     <div class="stat">
@@ -1496,8 +1492,8 @@
                             </div>
                         </div>
                         <div class="project-info">
-                            <h3>Viral Content Strategy</h3>
-                            <p>TikTok kampagne der opnåede 400K+ views og 5K nye følgere</p>
+                            <h3>Tea Time TikTok Success</h3>
+                            <p>TikTok kampagne der opnåede 1.2M+ views og 5K nye følgere</p>
                             <div class="project-tags">
                                 <span class="tag">TikTok</span>
                                 <span class="tag">Viral Content</span>
