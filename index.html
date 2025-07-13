@@ -308,15 +308,49 @@
         
         .portfolio-scroll {
             position: relative;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
             padding: 20px 0;
+            cursor: grab;
+        }
+        
+        .portfolio-scroll:active {
+            cursor: grabbing;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 4px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff5252, #26a69a);
         }
         
         .portfolio-track {
             display: flex;
-            animation: portfolioScroll 40s linear infinite;
             gap: 30px;
             align-items: flex-start;
+            width: max-content;
+            transition: none;
+        }
+        
+        .portfolio-track.auto-scroll {
+            animation: portfolioScroll 40s linear infinite;
+        }
+        
+        /* Pause animation on scroll container hover */
+        .portfolio-scroll:hover .portfolio-track.auto-scroll {
+            animation-play-state: paused;
         }
         
         .project-card {
@@ -425,10 +459,7 @@
             font-weight: 500;
         }
         
-        /* Pause animation on hover */
-        .portfolio-scroll:hover .portfolio-track {
-            animation-play-state: paused;
-        }
+
 
         /* Companies Section */
         .companies {
@@ -1986,42 +2017,70 @@
                 mouseFollower.style.top = e.clientY - 10 + 'px';
             });
 
-            // Manual scroll functionality for portfolio
+            // Portfolio scrolling functionality
             const portfolioScroll = document.querySelector('.portfolio-scroll');
-            let isScrolling = false;
+            const portfolioTrack = document.querySelector('.portfolio-track');
+            let isManualScrolling = false;
+            let autoScrollTimer;
 
-            portfolioScroll.addEventListener('wheel', function(e) {
-                e.preventDefault();
+            // Start with auto-scroll
+            portfolioTrack.classList.add('auto-scroll');
+
+            // Mouse drag scrolling
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            portfolioScroll.addEventListener('mousedown', (e) => {
+                isDown = true;
+                portfolioScroll.classList.add('active');
+                startX = e.pageX - portfolioScroll.offsetLeft;
+                scrollLeft = portfolioScroll.scrollLeft;
                 
-                const track = this.querySelector('.portfolio-track');
-                const scrollAmount = e.deltaY * 2;
+                // Stop auto-scroll when user starts dragging
+                portfolioTrack.classList.remove('auto-scroll');
+                isManualScrolling = true;
+            });
+
+            portfolioScroll.addEventListener('mouseleave', () => {
+                isDown = false;
+                portfolioScroll.classList.remove('active');
+            });
+
+            portfolioScroll.addEventListener('mouseup', () => {
+                isDown = false;
+                portfolioScroll.classList.remove('active');
                 
-                // Pause the animation temporarily
-                track.style.animationPlayState = 'paused';
-                
-                // Get current transform
-                const currentTransform = window.getComputedStyle(track).transform;
-                let currentX = 0;
-                
-                if (currentTransform !== 'none') {
-                    const matrix = currentTransform.match(/matrix\((.+)\)/);
-                    if (matrix) {
-                        currentX = parseFloat(matrix[1].split(', ')[4]);
+                // Resume auto-scroll after 3 seconds of no interaction
+                clearTimeout(autoScrollTimer);
+                autoScrollTimer = setTimeout(() => {
+                    if (isManualScrolling) {
+                        isManualScrolling = false;
+                        portfolioTrack.classList.add('auto-scroll');
                     }
+                }, 3000);
+            });
+
+            portfolioScroll.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - portfolioScroll.offsetLeft;
+                const walk = (x - startX) * 2; // scroll-fast
+                portfolioScroll.scrollLeft = scrollLeft - walk;
+            });
+
+            // Also handle scroll events (for mousewheel users)
+            portfolioScroll.addEventListener('scroll', () => {
+                if (!isManualScrolling) {
+                    portfolioTrack.classList.remove('auto-scroll');
+                    isManualScrolling = true;
+                    
+                    clearTimeout(autoScrollTimer);
+                    autoScrollTimer = setTimeout(() => {
+                        isManualScrolling = false;
+                        portfolioTrack.classList.add('auto-scroll');
+                    }, 3000);
                 }
-                
-                // Apply new transform
-                const newX = currentX - scrollAmount;
-                const maxScroll = -(track.scrollWidth / 2);
-                const constrainedX = Math.max(maxScroll, Math.min(0, newX));
-                
-                track.style.transform = `translateX(${constrainedX}px)`;
-                
-                // Resume animation after a delay
-                clearTimeout(isScrolling);
-                isScrolling = setTimeout(() => {
-                    track.style.animationPlayState = 'running';
-                }, 2000);
             });
         });
 
