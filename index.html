@@ -280,6 +280,48 @@
             transform: translateY(-1px) scale(1.02);
         }
         
+        /* Popup Button */
+        .popup-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+            cursor: pointer;
+            margin-left: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .popup-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .popup-button:hover::before {
+            left: 100%;
+        }
+        
+        .popup-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+        }
+        
+        .popup-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
         /* Portfolio Section */
         .portfolio {
             padding: 100px 0;
@@ -308,8 +350,7 @@
         
         .portfolio-scroll {
             position: relative;
-            overflow-x: auto;
-            overflow-y: hidden;
+            overflow: hidden;
             padding: 20px 0;
             cursor: grab;
         }
@@ -318,38 +359,15 @@
             cursor: grabbing;
         }
         
-        .portfolio-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .portfolio-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-        
-        .portfolio-scroll::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border-radius: 4px;
-        }
-        
-        .portfolio-scroll::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #ff5252, #26a69a);
-        }
-        
         .portfolio-track {
             display: flex;
             gap: 30px;
             align-items: flex-start;
-            width: max-content;
-            transition: none;
-        }
-        
-        .portfolio-track.auto-scroll {
             animation: portfolioScroll 40s linear infinite;
         }
         
-        /* Pause animation on scroll container hover */
-        .portfolio-scroll:hover .portfolio-track.auto-scroll {
+        /* Pause animation on hover */
+        .portfolio-scroll:hover .portfolio-track {
             animation-play-state: paused;
         }
         
@@ -1048,7 +1066,100 @@
             color: #999;
         }
         
-        /* Sparkle effect */
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: #fff;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            height: 90%;
+            max-height: 700px;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: slideInUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .modal-header {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            height: calc(100% - 80px);
+            overflow: hidden;
+        }
+        
+        .tally-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
         .sparkle {
             position: absolute;
             width: 6px;
@@ -1274,7 +1385,7 @@
                     Vi skaber engagerende TikTok og Instagram videoer der fanger din målgruppe og driver salg. 
                     Kombineret med datadrevne Google og Meta ads kampagner, der maksimerer din ROI.
                 </p>
-                <a href="kontakt.html" class="cta-button">Start Dit Projekt</a>
+                <a href="https://tally.so/r/n90b0E" class="cta-button" target="_blank">Start Dit Projekt</a>
             </div>
         </div>
     </section>
@@ -1880,7 +1991,8 @@
         <div class="container">
             <h2>Klar Til At Gå Viral?</h2>
             <p>Lad os skabe indhold der performer og kampagner der konverterer for dit brand</p>
-            <a href="kontakt.html" class="cta-button">Book En Gratis Konsultation</a>
+            <a href="https://tally.so/r/n90b0E" class="cta-button" target="_blank">Book En Gratis Konsultation</a>
+            <button class="popup-button" onclick="openModal()">Hurtig Kontakt</button>
         </div>
     </section>
 
@@ -1923,7 +2035,51 @@
         </div>
     </footer>
 
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book En Gratis Konsultation</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe 
+                    class="tally-iframe"
+                    src="https://tally.so/r/n90b0E"
+                    title="Kontakt Advalo Studio">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Modal functionality
+        function openModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('contactModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('contactModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
         // Create sparkle effect function
         function createSparkle(x, y) {
             for (let i = 0; i < 6; i++) {
@@ -2017,69 +2173,125 @@
                 mouseFollower.style.top = e.clientY - 10 + 'px';
             });
 
-            // Portfolio scrolling functionality
+            // Portfolio infinite circular scrolling functionality
             const portfolioScroll = document.querySelector('.portfolio-scroll');
             const portfolioTrack = document.querySelector('.portfolio-track');
-            let isManualScrolling = false;
-            let autoScrollTimer;
-
-            // Start with auto-scroll
-            portfolioTrack.classList.add('auto-scroll');
-
-            // Mouse drag scrolling
+            
             let isDown = false;
             let startX;
-            let scrollLeft;
+            let currentX = 0;
+            let animationSpeed = 1; // Speed multiplier for animation
+            let userInteracting = false;
+            let resumeTimer;
 
+            // Mouse drag scrolling
             portfolioScroll.addEventListener('mousedown', (e) => {
                 isDown = true;
-                portfolioScroll.classList.add('active');
-                startX = e.pageX - portfolioScroll.offsetLeft;
-                scrollLeft = portfolioScroll.scrollLeft;
+                userInteracting = true;
+                portfolioScroll.style.cursor = 'grabbing';
+                startX = e.pageX;
                 
-                // Stop auto-scroll when user starts dragging
-                portfolioTrack.classList.remove('auto-scroll');
-                isManualScrolling = true;
+                // Pause the CSS animation and take manual control
+                portfolioTrack.style.animationPlayState = 'paused';
+                
+                clearTimeout(resumeTimer);
             });
 
             portfolioScroll.addEventListener('mouseleave', () => {
                 isDown = false;
-                portfolioScroll.classList.remove('active');
+                portfolioScroll.style.cursor = 'grab';
+                
+                if (userInteracting) {
+                    resumeAnimation();
+                }
             });
 
             portfolioScroll.addEventListener('mouseup', () => {
                 isDown = false;
-                portfolioScroll.classList.remove('active');
+                portfolioScroll.style.cursor = 'grab';
                 
-                // Resume auto-scroll after 3 seconds of no interaction
-                clearTimeout(autoScrollTimer);
-                autoScrollTimer = setTimeout(() => {
-                    if (isManualScrolling) {
-                        isManualScrolling = false;
-                        portfolioTrack.classList.add('auto-scroll');
-                    }
-                }, 3000);
+                if (userInteracting) {
+                    resumeAnimation();
+                }
             });
 
             portfolioScroll.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
-                const x = e.pageX - portfolioScroll.offsetLeft;
-                const walk = (x - startX) * 2; // scroll-fast
-                portfolioScroll.scrollLeft = scrollLeft - walk;
+                
+                const x = e.pageX;
+                const walk = (x - startX) * 0.5; // Adjust sensitivity
+                
+                // Get current transform value
+                const style = window.getComputedStyle(portfolioTrack);
+                const matrix = new DOMMatrixReadOnly(style.transform);
+                currentX = matrix.m41 + walk;
+                
+                // Apply the transform for infinite scroll
+                const trackWidth = portfolioTrack.scrollWidth / 2; // Half because we duplicate
+                
+                // Wrap around for infinite scroll
+                if (currentX > 0) {
+                    currentX = -trackWidth + (currentX % trackWidth);
+                } else if (currentX < -trackWidth) {
+                    currentX = currentX % trackWidth;
+                }
+                
+                portfolioTrack.style.transform = `translateX(${currentX}px)`;
+                startX = x;
             });
 
-            // Also handle scroll events (for mousewheel users)
-            portfolioScroll.addEventListener('scroll', () => {
-                if (!isManualScrolling) {
-                    portfolioTrack.classList.remove('auto-scroll');
-                    isManualScrolling = true;
-                    
-                    clearTimeout(autoScrollTimer);
-                    autoScrollTimer = setTimeout(() => {
-                        isManualScrolling = false;
-                        portfolioTrack.classList.add('auto-scroll');
-                    }, 3000);
+            // Mousewheel support
+            portfolioScroll.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                userInteracting = true;
+                
+                portfolioTrack.style.animationPlayState = 'paused';
+                
+                const scrollAmount = e.deltaY * 2;
+                
+                // Get current transform value
+                const style = window.getComputedStyle(portfolioTrack);
+                const matrix = new DOMMatrixReadOnly(style.transform);
+                currentX = matrix.m41 - scrollAmount;
+                
+                // Wrap around for infinite scroll
+                const trackWidth = portfolioTrack.scrollWidth / 2;
+                
+                if (currentX > 0) {
+                    currentX = -trackWidth + (currentX % trackWidth);
+                } else if (currentX < -trackWidth) {
+                    currentX = currentX % trackWidth;
+                }
+                
+                portfolioTrack.style.transform = `translateX(${currentX}px)`;
+                
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => {
+                    resumeAnimation();
+                }, 2000);
+            });
+
+            function resumeAnimation() {
+                userInteracting = false;
+                
+                // Reset transform and resume CSS animation
+                portfolioTrack.style.transform = '';
+                portfolioTrack.style.animationPlayState = 'running';
+                
+                clearTimeout(resumeTimer);
+            }
+
+            // Pause on hover
+            portfolioScroll.addEventListener('mouseenter', () => {
+                if (!userInteracting) {
+                    portfolioTrack.style.animationPlayState = 'paused';
+                }
+            });
+
+            portfolioScroll.addEventListener('mouseleave', () => {
+                if (!userInteracting) {
+                    portfolioTrack.style.animationPlayState = 'running';
                 }
             });
         });
