@@ -13,10 +13,12 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.4;
+            color: #111;
+            background: #fff;
+            font-weight: 400;
+            font-size: 15px;
         }
         
         .container {
@@ -27,14 +29,14 @@
         
         /* Header */
         header {
-            background: rgba(248, 249, 250, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(250, 250, 250, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 16px 0;
         }
         
         .header-content {
@@ -44,25 +46,27 @@
         }
         
         .logo {
-            font-size: 28px;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
         }
         
         nav ul {
             list-style: none;
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
         
         nav a {
-            color: #333;
+            color: #1a1a1a;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 15px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
         
@@ -75,10 +79,11 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
+            bottom: -6px;
             left: 0;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transition: width 0.3s ease;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            border-radius: 1px;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         nav a:hover::after {
@@ -87,25 +92,17 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-            min-height: 100vh;
+            background: #fff;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 60px;
         }
         
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.1" /><stop offset="100%" style="stop-color:%23ff6b6b;stop-opacity:0" /></radialGradient></defs><circle cx="200" cy="300" r="150" fill="url(%23grad1)" /><circle cx="800" cy="700" r="200" fill="url(%23grad1)" /></svg>');
-            opacity: 0.3;
-            animation: backgroundPulse 8s ease-in-out infinite;
+            display: none;
         }
         
         /* Interactive floating elements */
@@ -205,32 +202,33 @@
         }
         
         .hero h1 {
-            font-size: 4rem;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
+            font-size: 4.5rem;
+            color: #111;
+            margin-bottom: 12px;
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -2px;
             opacity: 0;
-            animation: slideInUp 1s ease 0.5s forwards;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
         }
         
         .hero .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: #666;
-            margin-bottom: 30px;
-            font-weight: 300;
+            margin-bottom: 16px;
+            font-weight: 400;
             opacity: 0;
-            animation: slideInUp 1s ease 0.8s forwards;
+            animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.7s forwards;
         }
         
         .hero .description {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 40px;
-            max-width: 600px;
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 24px;
+            max-width: 500px;
+            line-height: 1.5;
             opacity: 0;
-            animation: slideInUp 1s ease 1.1s forwards;
+            animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 0.9s forwards;
         }
         
         /* Typing animation for main headline */
@@ -240,86 +238,73 @@
         }
         
         .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: inline-flex;
+            align-items: center;
+            background: #111;
             color: white;
-            padding: 15px 40px;
+            padding: 12px 24px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            border-radius: 24px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            box-shadow: none;
             position: relative;
             overflow: hidden;
             opacity: 0;
-            animation: slideInUp 1s ease 1.4s forwards;
+            animation: slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+            border: none;
         }
         
         .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .cta-button:hover::before {
-            left: 100%;
+            display: none;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            transform: translateY(-1px);
+            background: #222;
         }
         
         .cta-button:active {
-            transform: translateY(-1px) scale(1.02);
+            transform: translateY(0);
         }
         
         /* Portfolio Section */
         .portfolio {
-            padding: 100px 0;
+            padding: 60px 0;
             background: #fff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
         
         .portfolio-intro {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 32px;
         }
         
         .portfolio-intro h2 {
-            font-size: 3rem;
-            color: #333;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #111;
+            margin-bottom: 8px;
             font-weight: 700;
+            letter-spacing: -1px;
         }
         
         .portfolio-intro p {
             color: #666;
-            font-size: 1.1rem;
-            max-width: 800px;
+            font-size: 1rem;
+            max-width: 500px;
             margin: 0 auto;
+            line-height: 1.5;
         }
         
         .portfolio-scroll {
             position: relative;
             overflow: hidden;
-            padding: 20px 0;
-            cursor: grab;
-        }
-        
-        .portfolio-scroll:active {
-            cursor: grabbing;
+            padding: 16px 0;
         }
         
         .portfolio-track {
             display: flex;
-            gap: 30px;
+            gap: 24px;
             align-items: flex-start;
             animation: portfolioScroll 40s linear infinite;
         }
@@ -331,35 +316,26 @@
         
         .project-card {
             flex-shrink: 0;
-            width: 350px;
-            background: #f8f9fa;
-            border-radius: 20px;
+            width: 280px;
+            background: #fff;
+            border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             cursor: pointer;
         }
         
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-color: #ddd;
         }
         
         .project-image {
             position: relative;
-            height: 220px;
+            height: 160px;
             overflow: hidden;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
         }
         
         .project-overlay {
@@ -368,7 +344,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(78, 205, 196, 0.9));
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -376,126 +352,125 @@
             transition: opacity 0.3s ease;
         }
         
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-        
         .project-stats {
             display: flex;
-            gap: 40px;
+            gap: 24px;
             text-align: center;
-        }
-        
-        .stat {
-            color: white;
         }
         
         .stat-number {
             display: block;
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+            letter-spacing: -0.5px;
         }
         
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
+            font-weight: 400;
         }
         
         .project-info {
-            padding: 25px;
+            padding: 16px;
         }
         
         .project-info h3 {
-            font-size: 1.4rem;
-            color: #333;
-            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: #111;
+            margin-bottom: 4px;
             font-weight: 600;
+            letter-spacing: -0.3px;
         }
         
         .project-info p {
             color: #666;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
         
         .project-tags {
             display: flex;
-            gap: 8px;
+            gap: 4px;
             flex-wrap: wrap;
         }
         
         .tag {
-            background: rgba(255, 107, 107, 0.1);
-            color: #ff6b6b;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(255, 107, 107, 0.3);
+            background: #f5f5f5;
+            color: #666;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-size: 0.7rem;
             font-weight: 500;
+            border: none;
         }
         
 
 
         /* Companies Section */
         .companies {
-            padding: 80px 0;
-            background: #fff;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 64px 0;
+            background: #fafafa;
         }
         
         .companies-intro {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .companies-intro h3 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            margin-bottom: 8px;
             font-weight: 600;
+            letter-spacing: -0.3px;
         }
         
         .companies-intro p {
-            color: #666;
-            font-size: 1.1rem;
+            color: #6b7280;
+            font-size: 1rem;
         }
         
         .companies-scroll {
             position: relative;
             overflow: hidden;
-            padding: 20px 0;
+            padding: 16px 0;
         }
         
         .companies-track {
             display: flex;
             animation: scroll 30s linear infinite;
-            gap: 60px;
+            gap: 48px;
             align-items: center;
         }
         
         .company-logo {
             flex-shrink: 0;
-            padding: 15px 25px;
-            transition: all 0.3s ease;
+            padding: 12px 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border-radius: 12px;
         }
         
         .company-logo:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-2px);
+            background: rgba(0, 0, 0, 0.02);
         }
         
         .company-logo img {
-            height: 40px;
-            max-width: 120px;
+            height: 32px;
+            max-width: 100px;
             object-fit: contain;
-            opacity: 0.8;
-            transition: all 0.3s ease;
+            opacity: 0.6;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: grayscale(100%);
         }
         
         .company-logo:hover img {
             opacity: 1;
-            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         /* Team Section */
@@ -2110,10 +2085,10 @@
             banner.classList.remove('show');
         }
 
-        // Auto-show banner after 5 seconds
+        // Auto-show banner after 1 second
         setTimeout(() => {
             showBanner();
-        }, 5000);
+        }, 1000);
 
         // Create sparkle effect function
         function createSparkle(x, y) {
