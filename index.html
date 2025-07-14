@@ -280,48 +280,6 @@
             transform: translateY(-1px) scale(1.02);
         }
         
-        /* Popup Button */
-        .popup-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #4ecdc4, #45b7d1);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-            cursor: pointer;
-            margin-left: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .popup-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .popup-button:hover::before {
-            left: 100%;
-        }
-        
-        .popup-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
-        }
-        
-        .popup-button:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-        
         /* Portfolio Section */
         .portfolio {
             padding: 100px 0;
@@ -731,6 +689,29 @@
             font-weight: 500;
         }
         
+        .linkedin-link {
+            display: inline-block;
+            background: #0077b5;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .linkedin-link:hover {
+            background: #005885;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+        }
+        
+        .linkedin-link i {
+            margin-right: 8px;
+        }
+        
         .nerd-badge {
             position: absolute;
             top: 15px;
@@ -1066,98 +1047,153 @@
             color: #999;
         }
         
-        /* Modal Styles */
-        .modal {
-            display: none;
+        /* Floating Rounded Banner Styles */
+        .popup-banner {
             position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(200px);
+            background: #1a1a1a;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 50px;
             z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            animation: fadeIn 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            max-width: 90%;
+            width: auto;
         }
         
-        .modal.show {
+        .popup-banner.show {
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .popup-banner-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 20px;
+            white-space: nowrap;
         }
         
-        .modal-content {
-            background: #fff;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            height: 90%;
-            max-height: 700px;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: slideInUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .modal-header {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            padding: 20px 30px;
+        .popup-banner-left {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 12px;
         }
         
-        .modal-header h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .close-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
+        .popup-banner-avatar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
         }
         
-        .close-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
+        .popup-banner-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
         
-        .modal-body {
-            height: calc(100% - 80px);
-            overflow: hidden;
+        .popup-banner-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.2;
         }
         
-        .tally-iframe {
-            width: 100%;
-            height: 100%;
+        .popup-banner-subtitle {
+            font-size: 0.8rem;
+            color: #ccc;
+            line-height: 1.2;
+        }
+        
+        .popup-banner-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .popup-banner-btn {
+            background: #4285f4;
+            color: white;
             border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .popup-banner-btn:hover {
+            background: #3367d6;
+            transform: translateY(-1px);
         }
         
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.9);
+        .popup-banner-close {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .popup-banner-close:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .popup-banner {
+                left: 20px;
+                right: 20px;
+                transform: translateY(200px);
+                max-width: none;
+                width: auto;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
+            
+            .popup-banner.show {
+                transform: translateY(0);
+            }
+            
+            .popup-banner-content {
+                gap: 15px;
+            }
+            
+            .popup-banner-text {
+                flex: 1;
+                min-width: 0;
+            }
+            
+            .popup-banner-title {
+                font-size: 0.9rem;
+            }
+            
+            .popup-banner-subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .popup-banner-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
             }
         }
         .sparkle {
@@ -1806,6 +1842,9 @@
                         <li>Kunderelationer</li>
                         <li>Vækst Hacking</li>
                     </ul>
+                    <a href="https://www.linkedin.com/in/sejer-hornb%C3%A6k-dahl-andersen-703548222/" target="_blank" class="linkedin-link">
+                        <i class="fab fa-linkedin"></i>Se LinkedIn profil
+                    </a>
                 </div>
 
                 <div class="team-member animate-on-scroll">
@@ -1828,6 +1867,9 @@
                         <li>A/B Testing</li>
                         <li>Analytik</li>
                     </ul>
+                    <a href="https://www.linkedin.com/in/lauritz-jelsdal-jensen/" target="_blank" class="linkedin-link">
+                        <i class="fab fa-linkedin"></i>Se LinkedIn profil
+                    </a>
                 </div>
 
                 <div class="team-member animate-on-scroll">
@@ -1850,6 +1892,9 @@
                         <li>Kreativ Ledelse</li>
                         <li>Historiefortælling</li>
                     </ul>
+                    <a href="https://www.linkedin.com/in/tommy-you-aa412a254/" target="_blank" class="linkedin-link">
+                        <i class="fab fa-linkedin"></i>Se LinkedIn profil
+                    </a>
                 </div>
             </div>
         </div>
@@ -1992,7 +2037,6 @@
             <h2>Klar Til At Gå Viral?</h2>
             <p>Lad os skabe indhold der performer og kampagner der konverterer for dit brand</p>
             <a href="https://tally.so/r/n90b0E" class="cta-button" target="_blank">Book En Gratis Konsultation</a>
-            <button class="popup-button" onclick="openModal()">Hurtig Kontakt</button>
         </div>
     </section>
 
@@ -2035,50 +2079,41 @@
         </div>
     </footer>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Book En Gratis Konsultation</h2>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+    <!-- Bottom Popup Banner -->
+    <div id="popupBanner" class="popup-banner">
+        <div class="popup-banner-content">
+            <div class="popup-banner-left">
+                <div class="popup-banner-avatar">SA</div>
+                <div class="popup-banner-text">
+                    <div class="popup-banner-title">Lad os tage en uforpligtende snak</div>
+                    <div class="popup-banner-subtitle">Lær os at kende mens vi gennemgår dit projekt. Helt gratis!</div>
+                </div>
             </div>
-            <div class="modal-body">
-                <iframe 
-                    class="tally-iframe"
-                    src="https://tally.so/r/n90b0E"
-                    title="Kontakt Advalo Studio">
-                </iframe>
+            <div class="popup-banner-right">
+                <a href="https://tally.so/r/n90b0E" target="_blank" class="popup-banner-btn">
+                    Book et møde med os →
+                </a>
+                <button class="popup-banner-close" onclick="closeBanner()">&times;</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Modal functionality
-        function openModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        // Bottom Banner functionality
+        function showBanner() {
+            const banner = document.getElementById('popupBanner');
+            banner.classList.add('show');
         }
 
-        function closeModal() {
-            const modal = document.getElementById('contactModal');
-            modal.classList.remove('show');
-            document.body.style.overflow = ''; // Restore scrolling
+        function closeBanner() {
+            const banner = document.getElementById('popupBanner');
+            banner.classList.remove('show');
         }
 
-        // Close modal when clicking outside
-        document.getElementById('contactModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
+        // Auto-show banner after 5 seconds
+        setTimeout(() => {
+            showBanner();
+        }, 5000);
 
         // Create sparkle effect function
         function createSparkle(x, y) {
