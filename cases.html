@@ -1123,8 +1123,12 @@
                 img.src = caseData.logo;
                 img.alt = caseData.name;
                 img.onerror = function() {
+                    console.log(`Logo kunne ikke indlæses: ${this.src}`);
                     this.style.display = 'none';
                     this.parentNode.innerHTML = `<span style="font-size: 1.5rem;">${caseData.name.charAt(0)}</span>`;
+                };
+                img.onload = function() {
+                    console.log(`Logo indlæst med succes: ${this.src}`);
                 };
                 
                 const tooltip = document.createElement('div');
