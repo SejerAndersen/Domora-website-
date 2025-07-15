@@ -1123,19 +1123,13 @@
                 img.src = caseData.logo;
                 img.alt = caseData.name;
                 
-                // Kun vis fallback hvis billedet virkelig ikke kan indlæses
+                // Midlertidig debug - ingen fallback
                 img.addEventListener('error', function() {
-                    console.log(`Logo fejl: ${this.src}`);
-                    this.style.display = 'none';
-                    const fallback = document.createElement('span');
-                    fallback.style.fontSize = '1.5rem';
-                    fallback.style.fontWeight = 'bold';
-                    fallback.textContent = caseData.name.charAt(0);
-                    this.parentNode.appendChild(fallback);
+                    console.log(`FEJL: Logo kunne ikke indlæses: ${this.src}`);
                 });
                 
                 img.addEventListener('load', function() {
-                    console.log(`Logo OK: ${this.src}`);
+                    console.log(`SUCCES: Logo indlæst: ${this.src}`);
                 });
                 
                 const tooltip = document.createElement('div');
