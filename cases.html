@@ -145,7 +145,7 @@
         .nav-case img {
             width: 50px;
             height: 50px;
-            object-fit: contain;
+            object-fit: cover;
             transition: all 0.3s ease;
             border-radius: 50%;
         }
@@ -737,7 +737,7 @@
                 {
                     id: 'green-mango',
                     name: 'Green Mango',
-                    logo: 'logo8.png',
+                    logo: 'images/logos/logo8.png',
                     title: 'Green Mango Restaurant',
                     subtitle: 'Fra lokal restaurant til høj Google placering og 11+ ROAS succes gennem strategisk SEO og Meta ads optimering',
                     metrics: [
@@ -809,7 +809,7 @@
                 {
                     id: 'nibon-ya-sushi',
                     name: 'Nibon Ya Sushi',
-                    logo: 'logo9.png',
+                    logo: 'images/logos/logo9.png',
                     title: 'Nibon Ya Sushi',
                     subtitle: 'Tilpas denne beskrivelse til Nibon Ya Sushi case study',
                     metrics: [
@@ -871,7 +871,7 @@
                 {
                     id: 'usa-summercamp',
                     name: 'USA Summercamp Danmark',
-                    logo: 'logo10.png',
+                    logo: 'images/logos/logo10.png',
                     title: 'USA Summercamp Danmark',
                     subtitle: 'Cross-platform skalering fra Danmark til Sverige med dual audience strategi',
                     metrics: [
@@ -943,7 +943,7 @@
                 {
                     id: 'ramen-hokkaido',
                     name: 'Ramen Hokkaido',
-                    logo: 'logo11.png',
+                    logo: 'images/logos/logo11.png',
                     title: 'Ramen Hokkaido',
                     subtitle: 'Tilpas denne beskrivelse til Ramen Hokkaido case study',
                     metrics: [
@@ -1005,7 +1005,7 @@
                 {
                     id: 'tea-time',
                     name: 'Tea Time',
-                    logo: 'logo12.png',
+                    logo: 'images/logos/logo12.png',
                     title: 'Tea Time TikTok Success',
                     subtitle: 'Fra 0 til 1M+ views og viral brand awareness gennem Tommy\'s TikTok ekspertise',
                     metrics: [
@@ -1124,9 +1124,12 @@
                 img.src = caseData.logo;
                 img.alt = caseData.name;
                 
+                console.log(`Forsøger at indlæse: ${caseData.logo}`);
+                
                 // Midlertidig debug - ingen fallback
                 img.addEventListener('error', function() {
-                    console.log(`FEJL: Logo kunne ikke indlæses: ${this.src}`);
+                    console.error(`FEJL: Logo kunne ikke indlæses: ${this.src}`);
+                    console.log('Fuld URL:', this.src);
                 });
                 
                 img.addEventListener('load', function() {
