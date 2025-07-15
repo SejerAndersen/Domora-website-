@@ -1125,7 +1125,10 @@
                 img.onerror = function() {
                     console.log(`Logo kunne ikke indlæses: ${this.src}`);
                     this.style.display = 'none';
-                    this.parentNode.innerHTML = `<span style="font-size: 1.5rem;">${caseData.name.charAt(0)}</span>`;
+                    const fallback = document.createElement('span');
+                    fallback.style.fontSize = '1.5rem';
+                    fallback.textContent = caseData.name.charAt(0);
+                    this.parentNode.appendChild(fallback);
                 };
                 img.onload = function() {
                     console.log(`Logo indlæst med succes: ${this.src}`);
