@@ -114,7 +114,7 @@
             margin: 0 auto;
         }
 
-        /* Navigation Sidebar */
+        /* Navigation Sidebar with Logos */
         .case-navigation {
             position: fixed;
             left: 20px;
@@ -127,19 +127,26 @@
         }
 
         .nav-case {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background: #fff;
-            border: 2px solid #e9ecef;
+            border: 3px solid #e9ecef;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
-            font-size: 1.2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .nav-case img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            transition: all 0.3s ease;
         }
 
         .nav-case:hover {
@@ -147,16 +154,20 @@
             border-color: #ff6b6b;
         }
 
+        .nav-case:hover img {
+            transform: scale(1.1);
+        }
+
         .nav-case.active {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-            border-color: transparent;
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border-color: #ff6b6b;
             transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
 
         .nav-case .tooltip {
             position: absolute;
-            left: 80px;
+            left: 90px;
             top: 50%;
             transform: translateY(-50%);
             background: #333;
@@ -190,7 +201,7 @@
         .case-content-wrapper {
             position: relative;
             z-index: 2;
-            margin-left: 120px;
+            margin-left: 130px;
         }
 
         .case-content {
@@ -702,589 +713,526 @@
                 </p>
             </div>
 
-            <!-- Side Navigation -->
-            <div class="case-navigation">
-                <div class="nav-case active" data-case="green-mango">
-                    🍃
-                    <div class="tooltip">Green Mango - 11x ROAS</div>
-                </div>
-                <div class="nav-case" data-case="ecommerce">
-                    🛒
-                    <div class="tooltip">E-handel - €10K+ Salg</div>
-                </div>
-                <div class="nav-case" data-case="sweden">
-                    🇸🇪
-                    <div class="tooltip">Sverige - 21x ROAS</div>
-                </div>
-                <div class="nav-case" data-case="teatime">
-                    🧋
-                    <div class="tooltip">Tea Time - 1M+ Visninger</div>
-                </div>
-                <div class="nav-case" data-case="summercamp">
-                    🏕️
-                    <div class="tooltip">USA Camp - Ekspansion</div>
-                </div>
+            <!-- Logo Navigation -->
+            <div class="case-navigation" id="caseNavigation">
+                <!-- Navigation will be populated by JavaScript -->
             </div>
 
             <!-- Case Content -->
-            <div class="case-content-wrapper">
-
-                <!-- Green Mango Case -->
-                <div class="case-content active" id="green-mango">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">Green Mango Restaurant</h3>
-                            <p class="case-subtitle">Fra lokal restaurant til høj Google placering og 11+ ROAS succes gennem strategisk SEO og Meta ads optimering</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value">11+</span>
-                                <span class="metric-label">ROAS</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">#1</span>
-                                <span class="metric-label">Google</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">15k+</span>
-                                <span class="metric-label">Ugentligt salg</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-chart">
-                        <div class="chart-content">
-                            <h4 class="chart-title">💰 Performance Metrics</h4>
-                            <div class="progress-bars">
-                                <div class="progress-item">
-                                    <div class="progress-label">ugentligt Salg</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 95%"></div>
-                                    </div>
-                                    <div class="progress-value">+17k</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Ugentlige salg</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 70%"></div>
-                                    </div>
-                                    <div class="progress-value">40+</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Basket size</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 60%"></div>
-                                    </div>
-                                    <div class="progress-value">90+ kr</div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-details">
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">⚡</span>Udfordringen</h4>
-                            <ul>
-                                <li>Ny e-handel uden etableret kundebase</li>
-                                <li>Høj konkurrence i produktkategorien</li>
-                                <li>Begrænset markedsføringsbudget</li>
-                                <li>Behov for hurtige, målbare resultater</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🎯</span>Kreativ Strategi</h4>
-                            <ul>
-                                <li>A/B testing af 15+ kreative varianter</li>
-                                <li>Bruger-genereret indhold kampagner</li>
-                                <li>Problemløsende produktdemonstrationer</li>
-                                <li>Social proof og testimonial integration</li>
-                                <li>Dynamisk produktkatalog opsætning</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🚀</span>Optimering</h4>
-                            <ul>
-                                <li>Progressiv budgetoptimering</li>
-                                <li>Mikro-målgruppe segmentering</li>
-                                <li>Kreativ refresh hver 3-5 dag</li>
-                                <li>Landing page synkronisering</li>
-                                <li>Automatisk budgivning med overvågning</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="case-testimonial">
-                        <p class="testimonial-quote">
-                            "Resultaterne fra Advalo Studio har overgået alle vores forventninger. Deres datadrevne tilgang og konstante optimering har givet os en ROI vi aldrig troede var mulig."
-                        </p>
-                        <div class="testimonial-author">Maria Petersen</div>
-                        <div class="testimonial-role">Grundlægger, E-handel Brand</div>
-                    </div>
-
-                    <div class="key-insights">
-                        <h4 class="insights-title">🔑 Succes Faktorer</h4>
-                        <div class="insights-list">
-                            <div class="insight-item">
-                                <strong>Kreativ Hastighed:</strong> Nye kreative materialer hver 3-5 dag holdt kampagnerne friske og performante
-                            </div>
-                            <div class="insight-item">
-                                <strong>Målgruppe Lagdeling:</strong> Mikro-segmentering tillod ultra-målrettet beskedafgivelse
-                            </div>
-                            <div class="insight-item">
-                                <strong>Datadrevet Skalering:</strong> Kun profitable annoncesæt blev skaleret op
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-navigation-arrows">
-                        <div class="nav-arrow" onclick="navigateToCase('green-mango')">
-                            <i class="fas fa-arrow-left"></i>
-                            Forrige Case
-                        </div>
-                        <div class="nav-arrow" onclick="navigateToCase('sweden')">
-                            Næste Case
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Sweden Case -->
-                <div class="case-content" id="sweden">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">Svenska Marknaden</h3>
-                            <p class="case-subtitle">21x ROAS og 1.5M+ SEK gennem strategisk international ekspansion og kulturel lokalisering</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value">21.3x</span>
-                                <span class="metric-label">Peak ROAS</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">1.67M</span>
-                                <span class="metric-label">SEK Revenue</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">340%</span>
-                                <span class="metric-label">Markedsandel</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-chart">
-                        <div class="chart-content">
-                            <h4 class="chart-title">🇸🇪 Ekspansionsresultater</h4>
-                            <div class="progress-bars">
-                                <div class="progress-item">
-                                    <div class="progress-label">SEK Omsætning</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 100%"></div>
-                                    </div>
-                                    <div class="progress-value">1.67M</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">ROAS Performance</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 95%"></div>
-                                    </div>
-                                    <div class="progress-value">21.3x</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Markedsandel</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                    <div class="progress-value">+340%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Profitabilitet</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 70%"></div>
-                                    </div>
-                                    <div class="progress-value">Måned 2</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-details">
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">⚡</span>International Udfordring</h4>
-                            <ul>
-                                <li>Nyt geografisk marked (Sverige)</li>
-                                <li>Kulturelle og sproglige forskelle</li>
-                                <li>Anden konkurrencesituation</li>
-                                <li>Ingen eksisterende brandbevidsthed</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🎯</span>Lokalisering</h4>
-                            <ul>
-                                <li>Omfattende svensk markedsundersøgelse</li>
-                                <li>Kulturel tilpasning af beskedafgivelse</li>
-                                <li>Svensk tekstforfatning og oversættelse</li>
-                                <li>Lokale influencer partnerskaber</li>
-                                <li>Sverige-specifikke tilbud</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🚀</span>Skalering</h4>
-                            <ul>
-                                <li>Geografisk A/B testing</li>
-                                <li>Lookalike målgrupper fra danske kunder</li>
-                                <li>Gradvis budget opskalering</li>
-                                <li>Tværmarkeds data anvendelse</li>
-                                <li>Sæsonalitets overvejelser</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="case-testimonial">
-                        <p class="testimonial-quote">
-                            "Advalo Studios ekspansion til Sverige var exceptionel. Deres forståelse for lokale forskelle og datadrevne tilgang gjorde ekspansionen til en stor succes fra dag ét."
-                        </p>
-                        <div class="testimonial-author">Fie Hansen</div>
-                        <div class="testimonial-role">Ejer, International Ekspansion</div>
-                    </div>
-
-                    <div class="key-insights">
-                        <h4 class="insights-title">🔑 Internationale Læringer</h4>
-                        <div class="insights-list">
-                            <div class="insight-item">
-                                <strong>Lokalisering er Kritisk:</strong> Direkte oversættelse er ikke nok - kulturel forståelse driver ydeevne
-                            </div>
-                            <div class="insight-item">
-                                <strong>Gradvis Opskalering:</strong> Performer bedre end aggressive lanceringer med lavere risiko
-                            </div>
-                            <div class="insight-item">
-                                <strong>Tværmarkeds Data:</strong> Danmarks kundeindsigter accelererede svensk succes betydeligt
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="case-navigation-arrows">
-                        <div class="nav-arrow" onclick="navigateToCase('ecommerce')">
-                            <i class="fas fa-arrow-left"></i>
-                            Forrige Case
-                        </div>
-                        <div class="nav-arrow" onclick="navigateToCase('teatime')">
-                            Næste Case
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tea Time Case -->
-                <div class="case-content" id="teatime">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">Tea Time TikTok Success</h3>
-                            <p class="case-subtitle">Fra 0 til 1M+ views og viral brand awareness gennem Tommy's TikTok ekspertise</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value">1.2M+</span>
-                                <span class="metric-label">TikTok Views</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">500K</span>
-                                <span class="metric-label">Månedlige Views</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">5K+</span>
-                                <span class="metric-label">Følgere</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-chart">
-                        <div class="chart-content">
-                            <h4 class="chart-title">📱 TikTok Performance</h4>
-                            <div class="progress-bars">
-                                <div class="progress-item">
-                                    <div class="progress-label">Samlede Views</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 100%"></div>
-                                    </div>
-                                    <div class="progress-value">1.2M+</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Engagement Rate</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                    <div class="progress-value">12.4%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Butikstrafik</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 75%"></div>
-                                    </div>
-                                    <div class="progress-value">+180%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Brand Awareness</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 90%"></div>
-                                    </div>
-                                    <div class="progress-value">67%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-details">
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">⚡</span>TikTok Udfordring</h4>
-                            <ul>
-                                <li>Minimal tilstedeværelse på sociale medier</li>
-                                <li>Ung målgruppe primært på TikTok</li>
-                                <li>Produkter perfekt til viralt indhold</li>
-                                <li>Konkurrence fra etablerede kæder</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🎯</span>Tommys Strategi</h4>
-                            <ul>
-                                <li>Trendanalyse og hashtag undersøgelse</li>
-                                <li>Bag-kulisserne bubble tea produktion</li>
-                                <li>Trending lyd med Tea Time twist</li>
-                                <li>Bruger-genereret indhold kampagner</li>
-                                <li>Timing optimering for uploads</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🚀</span>Virale Resultater</h4>
-                            <ul>
-                                <li>1.2M+ samlede TikTok visninger</li>
-                                <li>Konsistente 400K-500K månedlige visninger</li>
-                                <li>5K+ nye følgere organisk</li>
-                                <li>180% stigning i butikstrafik</li>
-                                <li>Brandbevidsthed: 12% → 67%</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="case-testimonial">
-                        <p class="testimonial-quote">
-                            "Tommy leverede konsistent måneder med 400K og 500K visninger på vores TikTok indhold, og samlet set har vi opnået over 1 million visninger! Hans forståelse for TikTok algoritmen er simpelthen imponerende."
-                        </p>
-                        <div class="testimonial-author">Thomas</div>
-                        <div class="testimonial-role">Ejer, Tea Time Bubble Tea</div>
-                    </div>
-
-                    <div class="key-insights">
-                        <h4 class="insights-title">🔑 TikTok Succes Faktorer</h4>
-                        <div class="insights-list">
-                            <div class="insight-item">
-                                <strong>Autenticitet over Perfektion:</strong> Råt, ægte indhold performer bedst på TikTok
-                            </div>
-                            <div class="insight-item">
-                                <strong>Trend Deltagelse Timing:</strong> Første 24-48 timer af trends er kritiske
-                            </div>
-                            <div class="insight-item">
-                                <strong>Fællesskabsopbygning:</strong> Engagement > Visninger for langsigtet succes
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="case-navigation-arrows">
-                        <div class="nav-arrow" onclick="navigateToCase('sweden')">
-                            <i class="fas fa-arrow-left"></i>
-                            Forrige Case
-                        </div>
-                        <div class="nav-arrow" onclick="navigateToCase('summercamp')">
-                            Næste Case
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Summer Camp Case -->
-                <div class="case-content" id="summercamp">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">USA Summercamp Expansion</h3>
-                            <p class="case-subtitle">Cross-platform skalering fra Danmark til Sverige med dual audience strategi</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value">€340K+</span>
-                                <span class="metric-label">Revenue</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">89</span>
-                                <span class="metric-label">SWE Deltagere</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">94%</span>
-                                <span class="metric-label">Satisfaction</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-chart">
-                        <div class="chart-content">
-                            <h4 class="chart-title">🏕️ Expansion Metrics</h4>
-                            <div class="progress-bars">
-                                <div class="progress-item">
-                                    <div class="progress-label">Danmark Ansøgninger</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 70%"></div>
-                                    </div>
-                                    <div class="progress-value">+47%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Sverige Launch</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                    <div class="progress-value">89 deltagere</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Customer Satisfaction</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 95%"></div>
-                                    </div>
-                                    <div class="progress-value">94%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Repeat/Referral Rate</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 80%"></div>
-                                    </div>
-                                    <div class="progress-value">78%</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-details">
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">⚡</span>Ekspansions Udfordring</h4>
-                            <ul>
-                                <li>Niche uddannelsesprodukt</li>
-                                <li>Sæsonbetonet forretning</li>
-                                <li>Dobbelt målgruppe (teenagere + forældre)</li>
-                                <li>Forskellige uddannelsessystemer</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🎯</span>Dobbelt Strategi</h4>
-                            <ul>
-                                <li>TikTok/Instagram for teenagere</li>
-                                <li>Facebook/Google for forældre</li>
-                                <li>Tidligere deltagere som skabere</li>
-                                <li>"En dag i livet" camp serier</li>
-                                <li>Uddannelsesindhold om amerikansk system</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🚀</span>Tværmarkeds Succes</h4>
-                            <ul>
-                                <li>47% stigning i danske ansøgninger</li>
-                                <li>89 svenske deltagere år 1</li>
-                                <li>Break-even efter 8 måneder</li>
-                                <li>94% kunde tilfredsheds score</li>
-                                <li>78% gentagelse/henvisnings rate</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="case-testimonial">
-                        <p class="testimonial-quote">
-                            "Advalo Studio transformerede USA Summercamps vækst helt utroligt! Fra Danmark til Sverige, de forstår virkelig hvordan man skalerer en virksomhed internationalt."
-                        </p>
-                        <div class="testimonial-author">Fie Hansen</div>
-                        <div class="testimonial-role">Ejer, USA Summercamp Danmark & Sverige</div>
-                    </div>
-
-                    <div class="key-insights">
-                        <h4 class="insights-title">🔑 Tværplatforms Indsigter</h4>
-                        <div class="insights-list">
-                            <div class="insight-item">
-                                <strong>Dobbelt Målgruppe Strategi:</strong> Forskellige platforme for teenagere vs forældre maksimerede rækkevidden
-                            </div>
-                            <div class="insight-item">
-                                <strong>Bruger-Genereret Indhold:</strong> Tidligere deltagere som brand ambassadører skabte troværdighed
-                            </div>
-                            <div class="insight-item">
-                                <strong>Uddannelsesmarketing:</strong> Informativt indhold byggede tillid hos beslutningstagere
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="case-navigation-arrows">
-                        <div class="nav-arrow" onclick="navigateToCase('teatime')">
-                            <i class="fas fa-arrow-left"></i>
-                            Forrige Case
-                        </div>
-                        <div class="nav-arrow disabled">
-                            Næste Case
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="case-content-wrapper" id="caseContentWrapper">
+                <!-- Content will be populated by JavaScript -->
             </div>
         </div>
     </section>
 
     <script>
-        // Case data for navigation
-        const cases = ['green-mango', 'ecommerce', 'sweden', 'teatime', 'summercamp'];
+        // KONFIGURATION - TILPAS DETTE FOR DINE CASE STUDIES
+        const caseStudiesConfig = {
+            pageSettings: {
+                title: "Succes Historier",
+                subtitle: "Dyk ned i vores mest imponerende resultater og se hvordan vi har transformeret virksomheder på tværs af brancher"
+            },
+            cases: [
+                {
+                    id: 'green-mango',
+                    name: 'Green Mango',
+                    logo: 'logo8.png',
+                    title: 'Green Mango Restaurant',
+                    subtitle: 'Fra lokal restaurant til høj Google placering og 11+ ROAS succes gennem strategisk SEO og Meta ads optimering',
+                    metrics: [
+                        { value: '11+', label: 'ROAS' },
+                        { value: '#1', label: 'Google' },
+                        { value: '15k+', label: 'Ugentligt salg' }
+                    ],
+                    chartTitle: '📈 Månedsresultater',
+                    progressBars: [
+                        { label: 'Online Reservationer', value: '+150%', width: 85 },
+                        { label: 'Website Traffic', value: '+85%', width: 75 },
+                        { label: 'Google Ranking', value: '#1', width: 100 },
+                        { label: 'Customer Reviews', value: '4.8★', width: 90 }
+                    ],
+                    details: [
+                        {
+                            title: 'Udfordringen',
+                            icon: '⚡',
+                            items: [
+                                'Lav online synlighed trods kvalitetsoplevelser',
+                                'Konkurrence fra etablerede restauranter',
+                                'Begrænset digital tilstedeværelse',
+                                'Behov for både lokale kunder og turister'
+                            ]
+                        },
+                        {
+                            title: 'Vores Strategi',
+                            icon: '🎯',
+                            items: [
+                                'Komplet Google My Business optimering',
+                                'Lokal SEO for "restaurant København"',
+                                'Geotargetede Meta ads med madfotos',
+                                'Retargeting af hjemmesidebesøgende',
+                                'Lookalike audiences fra eksisterende kunder'
+                            ]
+                        },
+                        {
+                            title: 'Resultater',
+                            icon: '🚀',
+                            items: [
+                                '11+ ROAS på Meta Ads kampagner',
+                                '#1 Google placering for nøglesøgninger',
+                                '150% stigning i online reservationer',
+                                '200+ nye Google anmeldelser (4.8★)',
+                                '85% øgning i hjemmeside traffic'
+                            ]
+                        }
+                    ],
+                    testimonial: {
+                        quote: 'Advalo Studio har været en game-changer for Green Mango. Gennem deres strategiske Google og Meta ads kampagner har vi oplevet en eksplosiv vækst i salget. De er meget mere end bare et marketing bureau - de er rigtige forretningspartnere!',
+                        author: 'Song Zhang',
+                        role: 'Ejer, Green Mango Restaurant'
+                    },
+                    insights: [
+                        {
+                            title: 'Lokal SEO + Paid Ads Synergi:',
+                            description: 'Kombinationen skabte en forstærkende effekt der bragte maximal synlighed'
+                        },
+                        {
+                            title: 'Visual Content is King:',
+                            description: 'Appetitvækkende madfotos i høj kvalitet øgede CTR med 340%'
+                        },
+                        {
+                            title: 'Review Management:',
+                            description: 'Aktiv håndtering af anmeldelser forstærkede troværdigheden markant'
+                        }
+                    ]
+                },
+                {
+                    id: 'nibon-ya-sushi',
+                    name: 'Nibon Ya Sushi',
+                    logo: 'logo9.png',
+                    title: 'Nibon Ya Sushi',
+                    subtitle: 'Tilpas denne beskrivelse til Nibon Ya Sushi case study',
+                    metrics: [
+                        { value: 'X', label: 'METRIC 1' },
+                        { value: 'X', label: 'METRIC 2' },
+                        { value: 'X', label: 'METRIC 3' }
+                    ],
+                    chartTitle: '🍣 Performance Metrics',
+                    progressBars: [
+                        { label: 'Metric 1', value: 'X%', width: 80 },
+                        { label: 'Metric 2', value: 'X', width: 70 },
+                        { label: 'Metric 3', value: 'X%', width: 90 }
+                    ],
+                    details: [
+                        {
+                            title: 'Udfordringen',
+                            icon: '⚡',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Nibon Ya Sushi',
+                                'Case study'
+                            ]
+                        },
+                        {
+                            title: 'Strategi',
+                            icon: '🎯',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Nibon Ya Sushi',
+                                'Case study'
+                            ]
+                        },
+                        {
+                            title: 'Resultater',
+                            icon: '🚀',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Nibon Ya Sushi',
+                                'Case study'
+                            ]
+                        }
+                    ],
+                    testimonial: {
+                        quote: 'Tilpas dette testimonial til Nibon Ya Sushi',
+                        author: 'Navn',
+                        role: 'Rolle, Nibon Ya Sushi'
+                    },
+                    insights: [
+                        {
+                            title: 'Indsigt 1:',
+                            description: 'Tilpas denne indsigt'
+                        },
+                        {
+                            title: 'Indsigt 2:',
+                            description: 'Tilpas denne indsigt'
+                        }
+                    ]
+                },
+                {
+                    id: 'usa-summercamp',
+                    name: 'USA Summercamp Danmark',
+                    logo: 'logo10.png',
+                    title: 'USA Summercamp Danmark',
+                    subtitle: 'Cross-platform skalering fra Danmark til Sverige med dual audience strategi',
+                    metrics: [
+                        { value: '€340K+', label: 'Revenue' },
+                        { value: '89', label: 'SWE Deltagere' },
+                        { value: '94%', label: 'Satisfaction' }
+                    ],
+                    chartTitle: '🏕️ Expansion Metrics',
+                    progressBars: [
+                        { label: 'Danmark Ansøgninger', value: '+47%', width: 70 },
+                        { label: 'Sverige Launch', value: '89 deltagere', width: 85 },
+                        { label: 'Customer Satisfaction', value: '94%', width: 95 },
+                        { label: 'Repeat/Referral Rate', value: '78%', width: 80 }
+                    ],
+                    details: [
+                        {
+                            title: 'Ekspansions Udfordring',
+                            icon: '⚡',
+                            items: [
+                                'Niche uddannelsesprodukt',
+                                'Sæsonbetonet forretning',
+                                'Dobbelt målgruppe (teenagere + forældre)',
+                                'Forskellige uddannelsessystemer'
+                            ]
+                        },
+                        {
+                            title: 'Dobbelt Strategi',
+                            icon: '🎯',
+                            items: [
+                                'TikTok/Instagram for teenagere',
+                                'Facebook/Google for forældre',
+                                'Tidligere deltagere som skabere',
+                                '"En dag i livet" camp serier',
+                                'Uddannelsesindhold om amerikansk system'
+                            ]
+                        },
+                        {
+                            title: 'Tværmarkeds Succes',
+                            icon: '🚀',
+                            items: [
+                                '47% stigning i danske ansøgninger',
+                                '89 svenske deltagere år 1',
+                                'Break-even efter 8 måneder',
+                                '94% kunde tilfredsheds score',
+                                '78% gentagelse/henvisnings rate'
+                            ]
+                        }
+                    ],
+                    testimonial: {
+                        quote: 'Advalo Studio transformerede USA Summercamps vækst helt utroligt! Fra Danmark til Sverige, de forstår virkelig hvordan man skalerer en virksomhed internationalt.',
+                        author: 'Fie Hansen',
+                        role: 'Ejer, USA Summercamp Danmark & Sverige'
+                    },
+                    insights: [
+                        {
+                            title: 'Dobbelt Målgruppe Strategi:',
+                            description: 'Forskellige platforme for teenagere vs forældre maksimerede rækkevidden'
+                        },
+                        {
+                            title: 'Bruger-Genereret Indhold:',
+                            description: 'Tidligere deltagere som brand ambassadører skabte troværdighed'
+                        },
+                        {
+                            title: 'Uddannelsesmarketing:',
+                            description: 'Informativt indhold byggede tillid hos beslutningstagere'
+                        }
+                    ]
+                },
+                {
+                    id: 'ramen-hokkaido',
+                    name: 'Ramen Hokkaido',
+                    logo: 'logo11.png',
+                    title: 'Ramen Hokkaido',
+                    subtitle: 'Tilpas denne beskrivelse til Ramen Hokkaido case study',
+                    metrics: [
+                        { value: 'X', label: 'METRIC 1' },
+                        { value: 'X', label: 'METRIC 2' },
+                        { value: 'X', label: 'METRIC 3' }
+                    ],
+                    chartTitle: '🍜 Performance Metrics',
+                    progressBars: [
+                        { label: 'Metric 1', value: 'X%', width: 80 },
+                        { label: 'Metric 2', value: 'X', width: 70 },
+                        { label: 'Metric 3', value: 'X%', width: 90 }
+                    ],
+                    details: [
+                        {
+                            title: 'Udfordringen',
+                            icon: '⚡',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Ramen Hokkaido',
+                                'Case study'
+                            ]
+                        },
+                        {
+                            title: 'Strategi',
+                            icon: '🎯',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Ramen Hokkaido',
+                                'Case study'
+                            ]
+                        },
+                        {
+                            title: 'Resultater',
+                            icon: '🚀',
+                            items: [
+                                'Tilpas dette indhold',
+                                'Til Ramen Hokkaido',
+                                'Case study'
+                            ]
+                        }
+                    ],
+                    testimonial: {
+                        quote: 'Tilpas dette testimonial til Ramen Hokkaido',
+                        author: 'Navn',
+                        role: 'Rolle, Ramen Hokkaido'
+                    },
+                    insights: [
+                        {
+                            title: 'Indsigt 1:',
+                            description: 'Tilpas denne indsigt'
+                        },
+                        {
+                            title: 'Indsigt 2:',
+                            description: 'Tilpas denne indsigt'
+                        }
+                    ]
+                },
+                {
+                    id: 'tea-time',
+                    name: 'Tea Time',
+                    logo: 'logo12.png',
+                    title: 'Tea Time TikTok Success',
+                    subtitle: 'Fra 0 til 1M+ views og viral brand awareness gennem Tommy\'s TikTok ekspertise',
+                    metrics: [
+                        { value: '1.2M+', label: 'TikTok Views' },
+                        { value: '500K', label: 'Månedlige Views' },
+                        { value: '5K+', label: 'Følgere' }
+                    ],
+                    chartTitle: '📱 TikTok Performance',
+                    progressBars: [
+                        { label: 'Samlede Views', value: '1.2M+', width: 100 },
+                        { label: 'Engagement Rate', value: '12.4%', width: 85 },
+                        { label: 'Butikstrafik', value: '+180%', width: 75 },
+                        { label: 'Brand Awareness', value: '67%', width: 90 }
+                    ],
+                    details: [
+                        {
+                            title: 'TikTok Udfordring',
+                            icon: '⚡',
+                            items: [
+                                'Minimal tilstedeværelse på sociale medier',
+                                'Ung målgruppe primært på TikTok',
+                                'Produkter perfekt til viralt indhold',
+                                'Konkurrence fra etablerede kæder'
+                            ]
+                        },
+                        {
+                            title: 'Tommys Strategi',
+                            icon: '🎯',
+                            items: [
+                                'Trendanalyse og hashtag undersøgelse',
+                                'Bag-kulisserne bubble tea produktion',
+                                'Trending lyd med Tea Time twist',
+                                'Bruger-genereret indhold kampagner',
+                                'Timing optimering for uploads'
+                            ]
+                        },
+                        {
+                            title: 'Virale Resultater',
+                            icon: '🚀',
+                            items: [
+                                '1.2M+ samlede TikTok visninger',
+                                'Konsistente 400K-500K månedlige visninger',
+                                '5K+ nye følgere organisk',
+                                '180% stigning i butikstrafik',
+                                'Brandbevidsthed: 12% → 67%'
+                            ]
+                        }
+                    ],
+                    testimonial: {
+                        quote: 'Tommy leverede konsistent måneder med 400K og 500K visninger på vores TikTok indhold, og samlet set har vi opnået over 1 million visninger! Hans forståelse for TikTok algoritmen er simpelthen imponerende.',
+                        author: 'Thomas',
+                        role: 'Ejer, Tea Time Bubble Tea'
+                    },
+                    insights: [
+                        {
+                            title: 'Autenticitet over Perfektion:',
+                            description: 'Råt, ægte indhold performer bedst på TikTok'
+                        },
+                        {
+                            title: 'Trend Deltagelse Timing:',
+                            description: 'Første 24-48 timer af trends er kritiske'
+                        },
+                        {
+                            title: 'Fællesskabsopbygning:',
+                            description: 'Engagement > Visninger for langsigtet succes'
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // SCRIPT FUNKTIONER - BEHØVER IKKE ÆNDRES
         let currentCaseIndex = 0;
+        let caseIds = [];
 
         document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+        });
+
+        function initializePage() {
+            // Extract case IDs
+            caseIds = caseStudiesConfig.cases.map(c => c.id);
+            
+            // Set page title and subtitle
+            document.querySelector('.page-title').textContent = caseStudiesConfig.pageSettings.title;
+            document.querySelector('.page-subtitle').textContent = caseStudiesConfig.pageSettings.subtitle;
+            
+            // Generate navigation
+            generateNavigation();
+            
+            // Generate case content
+            generateCaseContent();
+            
             // Initialize from URL hash
             initializeFromURL();
             
-            // Navigation functionality
-            setupNavigation();
-            
-            // Keyboard navigation
-            setupKeyboardNavigation();
-            
-            // URL hash change listener
-            window.addEventListener('hashchange', handleHashChange);
+            // Setup event listeners
+            setupEventListeners();
             
             // Initialize progress bars for active case
             setTimeout(() => {
                 animateProgressBars(getCurrentCase());
             }, 500);
-        });
-
-        function initializeFromURL() {
-            const hash = window.location.hash.substring(1);
-            if (hash && cases.includes(hash)) {
-                navigateToCase(hash, false);
-            } else {
-                // Default to first case
-                navigateToCase('green-mango', false);
-            }
         }
 
-        function setupNavigation() {
-            // Side navigation
-            const navCases = document.querySelectorAll('.nav-case');
-            navCases.forEach(nav => {
+        function generateNavigation() {
+            const navContainer = document.getElementById('caseNavigation');
+            navContainer.innerHTML = '';
+            
+            caseStudiesConfig.cases.forEach((caseData, index) => {
+                const navCase = document.createElement('div');
+                navCase.className = `nav-case ${index === 0 ? 'active' : ''}`;
+                navCase.setAttribute('data-case', caseData.id);
+                
+                const img = document.createElement('img');
+                img.src = caseData.logo;
+                img.alt = caseData.name;
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    this.parentNode.innerHTML = `<span style="font-size: 1.5rem;">${caseData.name.charAt(0)}</span>`;
+                };
+                
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = caseData.name;
+                
+                navCase.appendChild(img);
+                navCase.appendChild(tooltip);
+                navContainer.appendChild(navCase);
+            });
+        }
+
+        function generateCaseContent() {
+            const contentWrapper = document.getElementById('caseContentWrapper');
+            contentWrapper.innerHTML = '';
+            
+            caseStudiesConfig.cases.forEach((caseData, index) => {
+                const caseContent = document.createElement('div');
+                caseContent.className = `case-content ${index === 0 ? 'active' : ''}`;
+                caseContent.id = caseData.id;
+                
+                caseContent.innerHTML = `
+                    <div class="case-header">
+                        <div>
+                            <h3 class="case-title">${caseData.title}</h3>
+                            <p class="case-subtitle">${caseData.subtitle}</p>
+                        </div>
+                        <div class="case-metrics">
+                            ${caseData.metrics.map(metric => `
+                                <div class="metric">
+                                    <span class="metric-value">${metric.value}</span>
+                                    <span class="metric-label">${metric.label}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="results-chart">
+                        <div class="chart-content">
+                            <h4 class="chart-title">${caseData.chartTitle}</h4>
+                            <div class="progress-bars">
+                                ${caseData.progressBars.map(bar => `
+                                    <div class="progress-item">
+                                        <div class="progress-label">${bar.label}</div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: ${bar.width}%"></div>
+                                        </div>
+                                        <div class="progress-value">${bar.value}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-details">
+                        ${caseData.details.map(detail => `
+                            <div class="detail-section">
+                                <h4><span class="detail-icon">${detail.icon}</span>${detail.title}</h4>
+                                <ul>
+                                    ${detail.items.map(item => `<li>${item}</li>`).join('')}
+                                </ul>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="case-testimonial">
+                        <p class="testimonial-quote">${caseData.testimonial.quote}</p>
+                        <div class="testimonial-author">${caseData.testimonial.author}</div>
+                        <div class="testimonial-role">${caseData.testimonial.role}</div>
+                    </div>
+
+                    <div class="key-insights">
+                        <h4 class="insights-title">🔑 Succes Faktorer</h4>
+                        <div class="insights-list">
+                            ${caseData.insights.map(insight => `
+                                <div class="insight-item">
+                                    <strong>${insight.title}</strong> ${insight.description}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="case-navigation-arrows">
+                        <div class="nav-arrow ${index === 0 ? 'disabled' : ''}" onclick="navigatePrevious()">
+                            <i class="fas fa-arrow-left"></i>
+                            Forrige Case
+                        </div>
+                        <div class="nav-arrow ${index === caseStudiesConfig.cases.length - 1 ? 'disabled' : ''}" onclick="navigateNext()">
+                            Næste Case
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                
+                contentWrapper.appendChild(caseContent);
+            });
+        }
+
+        function setupEventListeners() {
+            // Navigation clicks
+            document.querySelectorAll('.nav-case').forEach(nav => {
                 nav.addEventListener('click', function() {
                     const targetCase = this.getAttribute('data-case');
                     navigateToCase(targetCase);
                 });
             });
-        }
 
-        function setupKeyboardNavigation() {
+            // Keyboard navigation
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'ArrowLeft') {
                     navigatePrevious();
@@ -1292,6 +1240,18 @@
                     navigateNext();
                 }
             });
+
+            // URL hash change listener
+            window.addEventListener('hashchange', handleHashChange);
+        }
+
+        function initializeFromURL() {
+            const hash = window.location.hash.substring(1);
+            if (hash && caseIds.includes(hash)) {
+                navigateToCase(hash, false);
+            } else {
+                navigateToCase(caseIds[0], false);
+            }
         }
 
         function navigateToCase(caseId, updateURL = true) {
@@ -1314,7 +1274,7 @@
             }, 50);
             
             // Update current index
-            currentCaseIndex = cases.indexOf(caseId);
+            currentCaseIndex = caseIds.indexOf(caseId);
             
             // Update URL hash
             if (updateURL) {
@@ -1329,28 +1289,28 @@
         }
 
         function navigateNext() {
-            if (currentCaseIndex < cases.length - 1) {
-                const nextCase = cases[currentCaseIndex + 1];
+            if (currentCaseIndex < caseIds.length - 1) {
+                const nextCase = caseIds[currentCaseIndex + 1];
                 navigateToCase(nextCase);
             }
         }
 
         function navigatePrevious() {
             if (currentCaseIndex > 0) {
-                const prevCase = cases[currentCaseIndex - 1];
+                const prevCase = caseIds[currentCaseIndex - 1];
                 navigateToCase(prevCase);
             }
         }
 
         function handleHashChange() {
             const hash = window.location.hash.substring(1);
-            if (hash && cases.includes(hash)) {
+            if (hash && caseIds.includes(hash)) {
                 navigateToCase(hash, false);
             }
         }
 
         function getCurrentCase() {
-            return cases[currentCaseIndex];
+            return caseIds[currentCaseIndex];
         }
 
         function animateProgressBars(caseId) {
@@ -1366,189 +1326,15 @@
 
         function showURLIndicator(caseId) {
             const indicator = document.getElementById('urlIndicator');
-            const caseNames = {
-                'green-mango': 'Green Mango Restaurant',
-                'ecommerce': 'E-handel Succes',
-                'sweden': 'Svenska Marknaden',
-                'teatime': 'Tea Time TikTok',
-                'summercamp': 'USA Summercamp'
-            };
+            const caseName = caseStudiesConfig.cases.find(c => c.id === caseId)?.name || caseId;
             
-            indicator.textContent = `Viser: ${caseNames[caseId]}`;
+            indicator.textContent = `Viser: ${caseName}`;
             indicator.classList.add('show');
             
             setTimeout(() => {
                 indicator.classList.remove('show');
             }, 3000);
         }
-
-        // Add smooth scrolling to top when switching cases
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        // Add hover effects to metrics
-        document.addEventListener('DOMContentLoaded', function() {
-            const metrics = document.querySelectorAll('.metric');
-            metrics.forEach(metric => {
-                metric.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) rotateY(8deg) scale(1.05)';
-                });
-                
-                metric.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(-8px) rotateY(5deg) scale(1)';
-                });
-            });
-        });
-
-        // Share functionality
-        function shareCase() {
-            const currentCase = getCurrentCase();
-            const url = `${window.location.origin}${window.location.pathname}#${currentCase}`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Advalo Studio Case Study',
-                    url: url
-                });
-            } else {
-                // Fallback: copy to clipboard
-                navigator.clipboard.writeText(url).then(() => {
-                    showURLIndicator(currentCase);
-                });
-            }
-        }
     </script>
 </body>
-</html>📈 Månedsresultater</h4>
-                            <div class="progress-bars">
-                                <div class="progress-item">
-                                    <div class="progress-label">Online Reservationer</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
-                                    </div>
-                                    <div class="progress-value">+150%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Website Traffic</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 75%"></div>
-                                    </div>
-                                    <div class="progress-value">+85%</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Google Ranking</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 100%"></div>
-                                    </div>
-                                    <div class="progress-value">#1</div>
-                                </div>
-                                <div class="progress-item">
-                                    <div class="progress-label">Customer Reviews</div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 90%"></div>
-                                    </div>
-                                    <div class="progress-value">4.8★</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-details">
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">⚡</span>Udfordringen</h4>
-                            <ul>
-                                <li>Lav online synlighed trods kvalitetsoplevelser</li>
-                                <li>Konkurrence fra etablerede restauranter</li>
-                                <li>Begrænset digital tilstedeværelse</li>
-                                <li>Behov for både lokale kunder og turister</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🎯</span>Vores Strategi</h4>
-                            <ul>
-                                <li>Komplet Google My Business optimering</li>
-                                <li>Lokal SEO for "restaurant København"</li>
-                                <li>Geotargetede Meta ads med madfotos</li>
-                                <li>Retargeting af hjemmesidebesøgende</li>
-                                <li>Lookalike audiences fra eksisterende kunder</li>
-                            </ul>
-                        </div>
-
-                        <div class="detail-section">
-                            <h4><span class="detail-icon">🚀</span>Resultater</h4>
-                            <ul>
-                                <li>11+ ROAS på Meta Ads kampagner</li>
-                                <li>#1 Google placering for nøglesøgninger</li>
-                                <li>150% stigning i online reservationer</li>
-                                <li>200+ nye Google anmeldelser (4.8★)</li>
-                                <li>85% øgning i hjemmeside traffic</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="case-testimonial">
-                        <p class="testimonial-quote">
-                            "Advalo Studio har været en game-changer for Green Mango. Gennem deres strategiske Google og Meta ads kampagner har vi oplevet en eksplosiv vækst i salget. De er meget mere end bare et marketing bureau - de er rigtige forretningspartnere!"
-                        </p>
-                        <div class="testimonial-author">Song Zhang</div>
-                        <div class="testimonial-role">Ejer, Green Mango Restaurant</div>
-                    </div>
-
-                    <div class="key-insights">
-                        <h4 class="insights-title">🔑 Nøgleindsigter</h4>
-                        <div class="insights-list">
-                            <div class="insight-item">
-                                <strong>Lokal SEO + Paid Ads Synergi:</strong> Kombinationen skabte en forstærkende effekt der bragte maximal synlighed
-                            </div>
-                            <div class="insight-item">
-                                <strong>Visual Content is King:</strong> Appetitvækkende madfotos i høj kvalitet øgede CTR med 340%
-                            </div>
-                            <div class="insight-item">
-                                <strong>Review Management:</strong> Aktiv håndtering af anmeldelser forstærkede troværdigheden markant
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="case-navigation-arrows">
-                        <div class="nav-arrow disabled">
-                            <i class="fas fa-arrow-left"></i>
-                            Forrige Case
-                        </div>
-                        <div class="nav-arrow" onclick="navigateToCase('ecommerce')">
-                            Næste Case
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- E-commerce Case -->
-                <div class="case-content" id="ecommerce">
-                    <div class="case-header">
-                        <div>
-                            <h3 class="case-title">E-commerce Breakthrough</h3>
-                            <p class="case-subtitle">€10K+ i salg på én måned med 8x ROAS gennem datadrevet optimization og creative testing</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <span class="metric-value">8.2x</span>
-                                <span class="metric-label">ROAS</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">€10K+</span>
-                                <span class="metric-label">Salg</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">2,100</span>
-                                <span class="metric-label">Nye Kunder</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="results-chart">
-                        <div class="chart-content">
-                            <h4 class="chart-title">
+</html>
