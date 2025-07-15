@@ -1122,17 +1122,21 @@
                 const img = document.createElement('img');
                 img.src = caseData.logo;
                 img.alt = caseData.name;
-                img.onerror = function() {
-                    console.log(`Logo kunne ikke indlæses: ${this.src}`);
+                
+                // Kun vis fallback hvis billedet virkelig ikke kan indlæses
+                img.addEventListener('error', function() {
+                    console.log(`Logo fejl: ${this.src}`);
                     this.style.display = 'none';
                     const fallback = document.createElement('span');
                     fallback.style.fontSize = '1.5rem';
+                    fallback.style.fontWeight = 'bold';
                     fallback.textContent = caseData.name.charAt(0);
                     this.parentNode.appendChild(fallback);
-                };
-                img.onload = function() {
-                    console.log(`Logo indlæst med succes: ${this.src}`);
-                };
+                });
+                
+                img.addEventListener('load', function() {
+                    console.log(`Logo OK: ${this.src}`);
+                });
                 
                 const tooltip = document.createElement('div');
                 tooltip.className = 'tooltip';
