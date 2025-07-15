@@ -492,14 +492,15 @@
             height: 32px;
             max-width: 100px;
             object-fit: contain;
-            opacity: 0.8;
+            opacity: 1;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            filter: grayscale(0%);
+            filter: none;
         }
         
         .company-logo:hover img {
             opacity: 1;
-            filter: grayscale(0%);
+            filter: none;
+            transform: scale(1.05);
         }
 
         /* Team Section */
